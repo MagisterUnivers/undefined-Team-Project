@@ -3,3 +3,18 @@
   | Section
   |============================
 */
+
+.section {
+  padding-top: 60px;
+  padding-bottom: 60px;
+
+  @media screen and (min-width: 767.98px) {
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+
+  @media screen and (min-width: 1199.98px) {
+    padding-top: 94px;
+    padding-bottom: 94px;
+  }
+}
