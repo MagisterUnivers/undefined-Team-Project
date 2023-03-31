@@ -1,0 +1,2 @@
+window.onload=async function(){try{const t=await fetch("https://www.thecocktaildb.com/api/json/v1/1/random.php");if(!t.ok)throw new Error(t.status);{const n=await t.json();console.log(n),document.getElementsByClassName("random_coctail")[0].innerHTML=`<div class="photo-card">\n  <img src="${(o=n).drinks[0].strDrinkThumb}" alt="${o.drinks[0].strCategory}" loading="lazy" width=500 heigth=500/></div>`}}catch(o){console.log("Error",o)}var o};
+//# sourceMappingURL=index.bef21354.js.map
