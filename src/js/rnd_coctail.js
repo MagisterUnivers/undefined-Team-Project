@@ -52,17 +52,15 @@ window.onload = async function () {
 */
 
 // window.onload = async function () {
-//   const API_RANDOM = 'https://www.thecocktaildb.com/api/json/v1/1/random.php';
-//   const API_CATEGORIES =
-//     'https://www.thecocktaildb.com/api/json/v1/1/random.php';
-//   const API_INGREDIENTS =
-//     'https://www.thecocktaildb.com/api/json/v1/1/random.php';
+//   const API_RANDOM1 = 'https://www.thecocktaildb.com/api/json/v1/1/random.php';
+//   const API_RANDOM2 = 'https://www.thecocktaildb.com/api/json/v1/1/random.php';
+//   const API_RANDOM3 = 'https://www.thecocktaildb.com/api/json/v1/1/random.php';
 
 //   try {
 //     const responses = await Promise.all([
-//       fetch(API_RANDOM),
-//       fetch(API_CATEGORIES),
-//       fetch(API_INGREDIENTS),
+//       fetch(API_RANDOM1),
+//       fetch(API_RANDOM2),
+//       fetch(API_RANDOM3),
 //     ]);
 //     const results = await Promise.all(
 //       responses.map(response => {
