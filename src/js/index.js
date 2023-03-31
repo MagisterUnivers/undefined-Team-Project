@@ -3,3 +3,4 @@
   | Index js
   |============================
 */
+import './rnd_coctail';
