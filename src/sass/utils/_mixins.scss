@@ -3,3 +3,41 @@
   | Mixins
   |============================
 */
+
+@mixin media-tablet-max($media: 767.98px) {
+  @media (max-width: $media) {
+    @content;
+  }
+}
+
+@mixin media-tablet-min($media: 768px) {
+  @media (min-width: $media) {
+    @content;
+  }
+}
+
+@mixin media-desktop-min($media: 1280px) {
+  @media (min-width: $media) {
+    @content;
+  }
+}
+
+// ronald mixin
+
+@mixin media-desktop-max($media: 1279.98px) {
+  @media (min-width: $media) {
+    @content;
+  }
+}
+
+/**
+  |============================
+  |  Example of use:
+  |============================
+*/
+
+// @include media-tablet-max(1200px) {
+//   .button {
+//   color: potato;
+//   }
+//   }
