@@ -120,7 +120,7 @@ function fetchSomePic(searchRndCocktail) {
 
 function createPic(picture) {
   return `<div class="photo-card">
-  <img class="photo-card__image" src="${picture.drinks[0].strDrinkThumb}" alt="${picture.drinks[0].strCategory}" loading="lazy" width= heigth=/><h3 class="photo-card__uppertext">${picture.drinks[0].strDrink}</h3><div class="photo-card__btn"><button type="button" class="btn btn-secondary">Learn more</button><button type="button" class="btn btn-primary">
+  <img class="photo-card__image" src="${picture.drinks[0].strDrinkThumb}" alt="${picture.drinks[0].strCategory}" loading="lazy" width=0 heigth=0/><h3 class="photo-card__uppertext">${picture.drinks[0].strDrink}</h3><div class="photo-card__btn"><button type="button" class="btn btn-secondary">Learn more</button><button type="button" class="btn btn-primary">
   Remove
   <svg
     class="btn-primary__icon"
