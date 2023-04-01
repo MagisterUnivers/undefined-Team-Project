@@ -1,0 +1,61 @@
+.checkbox .tgl {
+  display: none;
+}
+.checkbox .tgl + .tgl-btn {
+  outline: 0;
+  display: block;
+  width: 40px;
+  height: 20px;
+  position: relative;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.checkbox .tgl + .tgl-btn:after,
+.checkbox .tgl + .tgl-btn:before {
+  position: relative;
+  display: block;
+  content: '';
+  width: 16px;
+  height: 16px;
+  top: 7%;
+}
+
+.checkbox .tgl + .tgl-btn:after {
+  left: 5%;
+}
+
+.checkbox .tgl + .tgl-btn:before {
+  display: none;
+}
+
+.checkbox .tgl:checked + .tgl-btn:after {
+  left: 50%;
+}
+
+.checkbox .tgl-flat + .tgl-btn {
+  transition: all 0.2s ease;
+  background: #fff;
+  border: 1px solid #fd5103;
+  border-radius: 2em;
+}
+
+.checkbox .tgl-flat + .tgl-btn:after {
+  transition: all 0.2s ease;
+  background: #fd5103;
+  content: '';
+  border-radius: 1em;
+}
+
+.checkbox .tgl-flat:checked + .tgl-btn {
+  border: 1px solid #ffffff;
+  background: #fd5103;
+}
+
+.checkbox .tgl-flat:checked + .tgl-btn:after {
+  left: 53%;
+  background: #ffffff;
+}
