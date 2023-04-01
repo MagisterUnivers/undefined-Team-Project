@@ -1,6 +1,12 @@
 @import '../utils/variables';
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Poppins:wght@400;500;600;700&family=Roboto:wght@400;700;900&display=swap');
 
+// *,
+// *::before,
+// *::after {
+//   box-sizing: border-box;
+// }
+
 .checkbox .tgl {
   display: none;
 }
@@ -8,13 +14,17 @@
   outline: 0;
   display: block;
   width: 40px;
-  height: 20px;
+  height: 16px;
   position: relative;
   cursor: pointer;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+  @include media-tablet-min(768px) {
+    width: 40px;
+    height: 20px;
+  }
 }
 
 .checkbox .tgl + .tgl-btn:after,
@@ -22,9 +32,14 @@
   position: relative;
   display: block;
   content: '';
-  width: 16px;
-  height: 16px;
-  top: 7%;
+  width: 12px;
+  height: 12px;
+  top: 10%;
+  @include media-tablet-min(768px) {
+    width: 16px;
+    height: 16px;
+    top: 7%;
+  }
 }
 
 .checkbox .tgl + .tgl-btn:after {
@@ -59,8 +74,11 @@
 }
 
 .checkbox .tgl-flat:checked + .tgl-btn:after {
-  left: 53%;
+  left: 60%;
   background: #ffffff;
+  @include media-tablet-min(768px) {
+    left: 53%;
+  }
 }
 /**
   |============================
