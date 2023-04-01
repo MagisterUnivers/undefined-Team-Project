@@ -10,9 +10,9 @@
   |============================
   */
 
-@import './base/_reset';
-@import './base/_section';
-@import './base/_common';
+@import './src/sass/base/reset';
+@import './src/sass/base/section';
+@import './src/sass/base/common';
 
 /**
   |============================
@@ -20,8 +20,8 @@
   |============================
   */
 
-@import './components/_face-coctails';
-@import './components/_btn';
+@import './src/sass/components/face-coctails';
+@import './src/sass/components/btn';
 
 /**
   |============================
