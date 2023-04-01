@@ -4,3 +4,4 @@
   |============================
 */
 import './rnd_coctail';
+import'./hero_btn';
