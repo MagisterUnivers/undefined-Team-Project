@@ -37,7 +37,7 @@
   }
 }
 
-.photo-card {
+.random-cocktail__item {
   border: 1px solid #fd5103;
   border-radius: 4px 4px 0px 0px;
   max-width: 320px;
@@ -74,7 +74,7 @@
   // }
 }
 
-.photo-card__uppertext {
+.random-cocktail__uppertext {
   font-family: 'Roboto';
   font-weight: 900;
   font-size: 26px;
@@ -96,13 +96,13 @@
   }
 }
 
-.photo-card__image {
+.random-cocktail__image {
   margin-bottom: 48px;
   width: 100%;
   height: 100%;
 }
 
-.photo-card__btn {
+.random-cocktail__btn {
   display: flex;
   justify-content: center;
   gap: 17px;
