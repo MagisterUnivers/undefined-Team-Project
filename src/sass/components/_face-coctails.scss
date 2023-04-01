@@ -4,6 +4,7 @@
     |============================
   */
 @import '../utils/mixins';
+@import '../utils/variables';
 
 #loading {
   text-align: center;
@@ -41,7 +42,10 @@
   border: 1px solid #fd5103;
   border-radius: 4px 4px 0px 0px;
   max-width: 320px;
-
+  transition: transform $anim-slow $anim-func;
+  &:hover {
+    transform: scale(1.05);
+  }
   // &:not(:last-child) {
   //   // margin-bottom: 20px;
   // }
