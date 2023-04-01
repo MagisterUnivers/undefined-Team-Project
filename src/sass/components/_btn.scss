@@ -50,14 +50,14 @@
 }
 .inner {
   fill: #ffffff;
-  transition: fill $anim-slow $anim-func;
+  transition: fill $anim-fast $anim-func;
 }
 .outer {
   fill: #fd5103;
 }
 .inner-remove {
   fill: #fd5103;
-  transition: fill $anim-slow $anim-func;
+  transition: fill $anim-fast $anim-func;
 }
 .btn-secondary {
   width: 108px;
@@ -67,8 +67,8 @@
   background-color: #fe7031;
   border-radius: 4px;
   border-color: transparent;
-  transition: background-color $anim-slow $anim-func,
-    color $anim-slow $anim-func;
+  transition: background-color $anim-fast $anim-func,
+    color $anim-fast $anim-func;
   @include media-tablet-min(768px) {
     width: 160px;
     height: 48px;
@@ -147,12 +147,12 @@
   }
 }
 .specs-list__item {
-  transition: color $anim-slow $anim-func;
+  transition: color $anim-fast $anim-func;
 
   color: #5f6775;
 }
 .specs-list__marker {
-  transition: color $anim-slow $anim-func;
+  transition: color $anim-fast $anim-func;
 
   color: #000917;
 }
