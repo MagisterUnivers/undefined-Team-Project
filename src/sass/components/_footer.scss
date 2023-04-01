@@ -1,0 +1,31 @@
+.footer {
+  height: 110px;
+  background-color: #fd5103;
+  display: flex;
+}
+
+.footer-main {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.svg-items {
+  display: flex;
+}
+
+.platforms {
+  display: flex;
+}
+
+.platforms-apple {
+  padding-right: 5px;
+  padding-left: 5px;
+}
+
+.text {
+  font-size: 14px;
+  font-family: 'Poppins';
+  font-weight: 600;
+  text-align: center;
+}
