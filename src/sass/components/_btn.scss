@@ -110,10 +110,14 @@
   width: 8px;
   height: 13px;
   fill: #fe7031;
+
   @include media-tablet-min(768px) {
     width: 9px;
     height: 15px;
   }
+}
+.arrow-icon__left {
+  transform: rotate(180deg);
 }
 // For JS disabled
 .arrow-icon__disabled {
@@ -124,4 +128,24 @@
     width: 8px;
     height: 13px;
   }
+  // Specs list in modals
+}
+.specs-list {
+  list-style: none;
+  &:hover .specs-list__item,
+  &focus .specs-list__item,
+  &:hover .specs-list__marker,
+  &focus .specs-list__marker {
+    color: #fd5103;
+  }
+}
+.specs-list__item {
+  transition: color $anim-slow $anim-func;
+
+  color: #5f6775;
+}
+.specs-list__marker {
+  transition: color $anim-slow $anim-func;
+
+  color: #000917;
 }

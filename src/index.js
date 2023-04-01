@@ -3,5 +3,5 @@
   | Index js
   |============================
 */
-import './rnd_coctail';
-import'./hero_btn';
+import './js/hero_btn';
+import './js/rnd_coctail';
