@@ -12,8 +12,6 @@ import '../sass/utils/_ui-kit.scss';
   |============================
 */
 
-const API_RANDOM = 'www.thecocktaildb.com/api/json/v1/1/random.php';
-
 /**
   |============================
   | Code
