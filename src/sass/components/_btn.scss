@@ -15,6 +15,7 @@
   font-size: 14px;
   line-height: calc(24 / 14);
   letter-spacing: 0.02em;
+  cursor: pointer;
   @include media-tablet-min(768px) {
     font-size: 20px;
     line-height: calc(20 / 14);
@@ -90,6 +91,9 @@
 }
 .btn__add-to-fav {
   width: 185px;
+}
+.btn__remove-fav {
+  width: 248px;
 }
 
 .btn-primary__icon {
