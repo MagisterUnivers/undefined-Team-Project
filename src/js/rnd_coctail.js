@@ -43,6 +43,9 @@ window.onload = async function () {
         }
       })
     );
+
+    document.getElementById('content').removeAttribute('hidden');
+    document.getElementById('loading').style.display = 'none';
     console.log(results);
     results.forEach(result => {
       document

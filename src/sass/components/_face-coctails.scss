@@ -5,6 +5,14 @@
   */
 @import '../utils/mixins';
 
+#loading {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 100px;
+  margin-top: 60px;
+}
+
 .random-coctail__uppertext {
   font-family: 'Poppins';
   font-weight: 600;
