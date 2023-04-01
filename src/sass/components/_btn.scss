@@ -31,11 +31,11 @@
   &:focus {
     background-color: #ffffff;
   }
-  &:active .outer-remove {
+  &:active .inner-remove {
     fill: #ffffff;
   }
 
-  &:active .outer {
+  &:active .inner {
     fill: #fd5103;
     background-color: transparent;
   }
@@ -48,13 +48,13 @@
   }
 }
 .inner {
-  fill: #fd5103;
-}
-.outer {
   fill: #ffffff;
   transition: fill $anim-slow $anim-func;
 }
-.outer-remove {
+.outer {
+  fill: #fd5103;
+}
+.inner-remove {
   fill: #fd5103;
   transition: fill $anim-slow $anim-func;
 }
@@ -87,6 +87,9 @@
 
     background-color: #fd5103;
   }
+}
+.btn__add-to-fav {
+  width: 185px;
 }
 
 .btn-primary__icon {

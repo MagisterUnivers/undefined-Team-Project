@@ -1,3 +1,6 @@
+@import '../utils/variables';
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Poppins:wght@400;500;600;700&family=Roboto:wght@400;700;900&display=swap');
+
 .checkbox .tgl {
   display: none;
 }
@@ -38,7 +41,7 @@
 
 .checkbox .tgl-flat + .tgl-btn {
   transition: all 0.2s ease;
-  background: #fff;
+  background: transparent;
   border: 1px solid #fd5103;
   border-radius: 2em;
 }
@@ -58,4 +61,99 @@
 .checkbox .tgl-flat:checked + .tgl-btn:after {
   left: 53%;
   background: #ffffff;
+}
+/**
+  |============================
+  | Custom checkbox
+  |============================
+*/
+.select-box {
+  display: flex;
+  width: 93px;
+  flex-direction: column;
+}
+
+.select-box .options-container {
+  background-color: transparent;
+  color: #5f6775;
+  max-height: 0;
+  width: 100%;
+  opacity: 0;
+  transition: all 400ms;
+  border: 1px solid #fd5103;
+  border-radius: 4px;
+  overflow: hidden;
+
+  order: 1;
+}
+
+.select-box .options-container.active {
+  opacity: 1;
+  max-height: 84px;
+  overflow-y: scroll;
+}
+
+.select-box .options-container.active + .selected::after {
+  transform: rotateX(180deg);
+  top: -14px;
+}
+.select-box .options-container::-webkit-scrollbar {
+  width: 3px;
+  background-color: transparent;
+  padding-right: 7px;
+  border-radius: 4px;
+}
+.select-box .options-container::-webkit-scrollbar-thumb {
+  background-color: #5f6775;
+  border-radius: 4px;
+}
+.select-box .option {
+  padding: 6px 10px;
+  cursor: pointer;
+}
+.selected {
+  color: #fd5103;
+  cursor: pointer;
+  font-family: 'Poppins';
+  font-weight: 700;
+  font-size: 16px;
+  line-height: calc(22 / 16);
+
+  padding: 6px 10px;
+
+  border: 1px solid #fd5103;
+  border-radius: 4px;
+
+  position: relative;
+  order: 0;
+}
+
+.selected::after {
+  content: '';
+  background: url('../images/vector.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+
+  position: absolute;
+  height: 100%;
+  width: 11px;
+  right: 10px;
+  top: 14px;
+
+  transition: all 400ms;
+}
+.select-box .option:hover {
+  color: #ffffff;
+  background-color: #fd5103;
+}
+.select-box label {
+  font-family: 'Poppins';
+
+  font-weight: 700;
+  font-size: 10px;
+  line-height: calc(15 / 10);
+  cursor: pointer;
+}
+.select-box .option .radio {
+  display: none;
 }
