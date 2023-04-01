@@ -1,0 +1,126 @@
+
+.hero__title{
+    font-family: 'Poppins';
+font-style: normal;
+font-weight: 600;
+font-size: 22px;
+line-height: 1.9;
+color: #FD5103;
+@include media-tablet-min(768px) {
+    width: 336px;
+    font-size: 26px;
+    line-height: 1.6;
+    margin-bottom: 40px;
+  }
+  @include media-desktop-min(1280px) {
+    font-size: 52px;
+line-height: 1.5;
+margin-bottom: 40px;
+width: 688px;
+  }
+}
+.hero__text{
+    font-family: 'Poppins';
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 2;
+letter-spacing: 0.02em;
+color: #202025;
+margin-bottom: 20px;
+margin-top: 365px;
+@media screen and (min-width: 767.98px){
+    margin-bottom: 40px;
+    margin-top: 0px;
+  }
+  @include media-desktop-min(1280px) {
+    font-size: 18px;
+    line-height: 1.5;
+margin-bottom: 40px;
+margin-top: 0px;
+  }
+}
+.hero___search__list{
+    display: none;
+    @media screen and (min-width: 767.98px){
+        display: flex;
+        flex-wrap: wrap;
+        width: 325px;
+        justify-content: center;
+      }
+      @include media-desktop-min(1280px) {
+        width: 520px;
+        justify-content: center;
+        display: flex;
+        flex-wrap: wrap;
+      }
+}
+.hero__search__item{
+    background-color: inherit;
+
+}
+.hero__btn{
+    font-family: 'Poppins';
+    background-color: inherit;
+    border: none;
+    width: 25px;
+    height: 25px;
+    align-items: center;
+    text-align: center;
+    color: #5F6775;
+    font-weight: 700;
+font-size: 14px;
+line-height: 1,5;
+
+@include media-desktop-min(1280px) {
+    width: 40px;
+    height: 40px;
+    font-size: 24px;
+    line-height: 1.5;
+  }
+}
+.hero__btn--active span{
+color: #FD5103;
+//  border: 1px solid #5F6775;
+// box-shadow: 0px 4px 4px rgba(95, 103, 117, 0.25);
+
+}
+.hero__wrapper{
+    @include media-tablet-min(768px) {
+        gap: 43px;
+        display: flex;
+      }
+      @include media-desktop-min(1280px) {
+    gap: 59px;
+    display: flex;
+      }
+}
+.custom-select{
+    display: block;
+    margin-left: auto;
+margin-right: auto;
+@include media-tablet-min(768px) {
+        display: none;
+    }
+}
+.hero__img{
+    @media screen and (max-width: 767.98px){
+        position: absolute;
+        top: 120px;
+        left: 20px;
+    }
+}
+.hero__select{
+    display: block;
+    margin-left: auto;
+margin-right: auto;
+border: 1px #FD5103 solid;
+width: 93px;
+height: 34px;
+left: 114px;
+font-weight: 700;
+font-size: 16px;
+line-height: 135%;
+color: #FD5103;
+padding: 6px 10px;
+border-radius: 4px;
+}
