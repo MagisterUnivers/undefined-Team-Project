@@ -4,6 +4,12 @@
   |============================
 */
 
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 img {
   display: block;
   max-width: 100%;
@@ -21,7 +27,9 @@ ol {
   padding: 0;
   margin: 0;
 }
-
+ul {
+  list-style: none;
+}
 a {
   margin: 0;
   padding: 0;

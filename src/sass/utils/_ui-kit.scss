@@ -2,6 +2,7 @@
 @import '../utils/mixins';
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Poppins:wght@400;500;600;700&family=Roboto:wght@400;700;900&display=swap');
 
+
 .checkbox .tgl {
   display: none;
 }
@@ -143,7 +144,7 @@
 
 .selected::after {
   content: '';
-  background: url('../images/vector.svg');
+  background: url('/src/images/Vector.svg');
   background-size: contain;
   background-repeat: no-repeat;
 

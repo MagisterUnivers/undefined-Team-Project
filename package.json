@@ -2,10 +2,10 @@
   "name": "parcel-project-template",
   "version": "2.0.0",
   "description": "",
-  "homepage": "https://MagisterUnivers.github.io/...undefined-Team-Project",
+  "homepage": "https://MagisterUnivers.github.io/undefined-Team-Project",
   "scripts": {
     "start": "parcel src/*.html",
-    "build": "parcel build src/*.html --public-url /...undefined-Team-Project/"
+    "build": "parcel build src/*.html --public-url /undefined-Team-Project/"
   },
   "repository": {
     "type": "git",
