@@ -24,7 +24,9 @@
 
   // desktop (>1200px)
 
-  @include media-desktop-min(1280px) {
-    max-width: 1280px;
+  @include media-desktop-max(1280px) {
+    min-width: 1280px;
+    padding-left: 15px;
+    padding-right: 15px;
   }
 }

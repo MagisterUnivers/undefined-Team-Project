@@ -46,7 +46,7 @@ window.onload = async function () {
     console.log(results);
     results.forEach(result => {
       document
-        .getElementById('rnd-cocktail')
+        .querySelector('.random-cocktail__list')
         .insertAdjacentHTML('beforeend', createPic(result));
     });
   } catch (error) {
@@ -137,7 +137,7 @@ function fetchSomePic(searchRndCocktail) {
 }
 
 function createPic(picture) {
-  return `<div class="photo-card">
+  return `<li class="photo-card">
   <img class="photo-card__image" src="${picture.drinks[0].strDrinkThumb}" alt="${picture.drinks[0].strCategory}" loading="lazy" width=0 heigth=0/><h3 class="photo-card__uppertext">${picture.drinks[0].strDrink}</h3><div class="photo-card__btn"><button type="button" class="btn btn-secondary">Learn more</button><button type="button" class="btn btn-primary">
   Remove
   <svg
@@ -157,5 +157,5 @@ function createPic(picture) {
       fill="#FD5103"
     />
   </svg>
-</button></div></div></div></div>`;
+</button></div></li></div></div>`;
 }
