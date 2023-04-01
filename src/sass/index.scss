@@ -10,9 +10,9 @@
   |============================
   */
 
-@import './base/reset';
-@import './base/section';
-@import './base/common';
+@import './base/_reset';
+@import './base/_section';
+@import './base/_common';
 
 /**
   |============================
@@ -20,8 +20,8 @@
   |============================
   */
 
-@import './components/face-coctails';
-@import './components/btn';
+@import './components/_face-coctails';
+@import './components/_btn';
 
 /**
   |============================
