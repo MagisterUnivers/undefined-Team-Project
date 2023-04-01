@@ -18,7 +18,9 @@ import '../sass/utils/_ui-kit.scss';
   |============================
 */
 
-window.onload = async function () {
+window.onload = rndCocktails();
+
+export async function rndCocktails() {
   const API_RANDOM = 'https://www.thecocktaildb.com/api/json/v1/1/random.php';
   let numOfPics;
 
@@ -55,7 +57,7 @@ window.onload = async function () {
   } catch (error) {
     console.log('Error', error);
   }
-};
+}
 
 /**
   |============================
@@ -124,20 +126,20 @@ window.onload = async function () {
 //   }
 // }
 
-function fetchSomePic(searchRndCocktail) {
-  return fetch(`${searchRndCocktail}`)
-    .then(response => {
-      if (response.ok) {
-        return response.json();
-      } else {
-        throw new Error(response.status);
-      }
-    })
-    .catch(error => {
-      console.log('Error', error);
-      return error;
-    });
-}
+// function fetchSomePic(searchRndCocktail) {
+//   return fetch(`${searchRndCocktail}`)
+//     .then(response => {
+//       if (response.ok) {
+//         return response.json();
+//       } else {
+//         throw new Error(response.status);
+//       }
+//     })
+//     .catch(error => {
+//       console.log('Error', error);
+//       return error;
+//     });
+// }
 
 function createPic(picture) {
   return `<li class="random-cocktail__item">
