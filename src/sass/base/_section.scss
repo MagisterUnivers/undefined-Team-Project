@@ -3,17 +3,18 @@
   | Section
   |============================
 */
+@import '../utils/mixins';
 
 .section {
   padding-top: 60px;
   padding-bottom: 60px;
 
-  @media screen and (min-width: 767.98px) {
+  @include media-tablet-min(768px) {
     padding-top: 60px;
     padding-bottom: 60px;
   }
 
-  @media screen and (min-width: 1199.98px) {
+  @include media-desktop-min(1280px) {
     padding-top: 94px;
     padding-bottom: 94px;
   }

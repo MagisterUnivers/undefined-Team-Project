@@ -18,41 +18,22 @@ const API_RANDOM = 'www.thecocktaildb.com/api/json/v1/1/random.php';
   |============================
 */
 
-// window.onload = async function () {
-//   const API_RANDOM = 'https://www.thecocktaildb.com/api/json/v1/1/random.php';
-
-//   try {
-//     const response = await fetch(API_RANDOM);
-//     if (response.ok) {
-//       const resultData = await response.json();
-//       console.log(resultData);
-//       document.getElementsByClassName('random_coctail')[0].innerHTML =
-//         createPic(resultData);
-//     } else {
-//       throw new Error(response.status);
-//     }
-//   } catch (error) {
-//     console.log('Error', error);
-//   }
-// };
-
-/**
-  |============================
-  | Working method
-  |============================
-*/
-
 window.onload = async function () {
-  const API_RANDOM1 = 'https://www.thecocktaildb.com/api/json/v1/1/random.php';
-  const API_RANDOM2 = 'https://www.thecocktaildb.com/api/json/v1/1/random.php';
-  const API_RANDOM3 = 'https://www.thecocktaildb.com/api/json/v1/1/random.php';
+  const API_RANDOM = 'https://www.thecocktaildb.com/api/json/v1/1/random.php';
+  let numOfPics;
+
+  if (window.innerWidth < 768) {
+    numOfPics = 3;
+  } else if (window.innerWidth < 1280) {
+    numOfPics = 6;
+  } else {
+    numOfPics = 9;
+  }
 
   try {
-    const responses = await Promise.all([
-      fetch(API_RANDOM1),
-      fetch(API_RANDOM2),
-      fetch(API_RANDOM3),
-    ]);
+    const responses = await Promise.all(
+      Array.from({ length: numOfPics }, () => fetch(API_RANDOM))
+    );
     const results = await Promise.all(
       responses.map(response => {
         if (response.ok) {
@@ -63,19 +44,56 @@ window.onload = async function () {
       })
     );
     console.log(results);
-    document
-      .getElementById('rnd-cocktail')
-      .insertAdjacentHTML('beforeend', createPic(results[0]));
-    document
-      .getElementById('rnd-cocktail')
-      .insertAdjacentHTML('beforeend', createPic(results[1]));
-    document
-      .getElementById('rnd-cocktail')
-      .insertAdjacentHTML('beforeend', createPic(results[2]));
+    results.forEach(result => {
+      document
+        .getElementById('rnd-cocktail')
+        .insertAdjacentHTML('beforeend', createPic(result));
+    });
   } catch (error) {
     console.log('Error', error);
   }
 };
+
+/**
+  |============================
+  | Working method
+  |============================
+*/
+
+// window.onload = async function () {
+//   const API_RANDOM1 = 'https://www.thecocktaildb.com/api/json/v1/1/random.php';
+//   const API_RANDOM2 = 'https://www.thecocktaildb.com/api/json/v1/1/random.php';
+//   const API_RANDOM3 = 'https://www.thecocktaildb.com/api/json/v1/1/random.php';
+
+//   try {
+//     const responses = await Promise.all([
+//       fetch(API_RANDOM1),
+//       fetch(API_RANDOM2),
+//       fetch(API_RANDOM3),
+//     ]);
+//     const results = await Promise.all(
+//       responses.map(response => {
+//         if (response.ok) {
+//           return response.json();
+//         } else {
+//           throw new Error(response.status);
+//         }
+//       })
+//     );
+//     console.log(results);
+//     document
+//       .getElementById('rnd-cocktail')
+//       .insertAdjacentHTML('beforeend', createPic(results[0]));
+//     document
+//       .getElementById('rnd-cocktail')
+//       .insertAdjacentHTML('beforeend', createPic(results[1]));
+//     document
+//       .getElementById('rnd-cocktail')
+//       .insertAdjacentHTML('beforeend', createPic(results[2]));
+//   } catch (error) {
+//     console.log('Error', error);
+//   }
+// };
 
 /**
   |============================
