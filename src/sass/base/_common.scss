@@ -3,11 +3,12 @@
   | Common
   |============================
 */
+@import '../utils/mixins';
 
 .wrapper {
   // phone screen(<480px)
 
-  min-width: 320px;
+  // min-width: 320px; // for test
   padding-left: 20px;
   padding-right: 20px;
   margin-left: auto;
@@ -15,13 +16,15 @@
 
   // tablet (>768px)
 
-  @media screen and (min-width: 767.98px) {
+  @include media-tablet-min(768px) {
     max-width: 768px;
+    padding-left: 33px;
+    padding-right: 33px;
   }
 
   // desktop (>1200px)
 
-  @media screen and (min-width: 1199.98px) {
-    max-width: 1200px;
+  @include media-desktop-min(1280px) {
+    max-width: 1280px;
   }
 }
