@@ -111,6 +111,7 @@
 }
 
 .arrow-btn-pagination {
+  position: relative;
   width: 32px;
   height: 32px;
   background: #FDFDFD;
@@ -121,6 +122,10 @@
 
 .arrow-icon-left,
 .arrow-icon-right {
+  position: absolute;
+  top:50%;
+  left:50%;
+  transform: translate(-50%, -50%);
   width: 18px;
   height: 18px;
   fill: #D7D7D7;
