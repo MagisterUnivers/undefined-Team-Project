@@ -1,11 +1,11 @@
 const BASE_URL = 'https://www.thecocktaildb.com/api/json/v1/1/search.php?s=';
 
-export function getCocktail(cocktailName) {
-  return fetch(`${BASE_URL}${cocktailName}`).then(response => {
-    if (response.ok) {
-      return response.json();
-    } else {
-      throw new Error();
-    }
-  });
+export async function getCocktail(cocktailName) {
+  const response = await fetch(`${BASE_URL}${cocktailName}`);
+  if (response.ok) {
+    const data = await response.json();
+    return data;
+  } else {
+    throw new Error();
+  }
 }
