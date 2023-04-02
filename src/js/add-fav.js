@@ -4,17 +4,29 @@ import { getCocktail } from './get-cocktail';
 const refs = {
   cocktailsDiv: document.querySelector('#rnd-cocktail'),
 };
+let favCocktail;
 localStorage.setItem('favCocktails', JSON.stringify([]));
 console.log(refs.cocktailsDiv);
 refs.cocktailsDiv.addEventListener('click', onBtnAddFavClick);
 
 function onBtnAddFavClick(e) {
-  if (e.target.classList.contains('btn-add-to')) {
+  console.dir(e);
+  if (
+    e.target.classList.contains('btn-add-to') ||
+    e.target.parentNode.classList.contains('btn-primary__icon')
+  ) {
     console.dir(
-      e.target.parentNode.parentNode.children.cocktailName.textContent
+      e.target
+      //   e.target.parentNode.parentNode.children.cocktailName.textContent
     );
-    const favCocktail =
-      e.target.parentNode.parentNode.children.cocktailName.textContent;
+    if (e.target.classList.contains('btn-add-to')) {
+      favCocktail =
+        e.target.parentNode.parentNode.children.cocktailName.textContent;
+    } else {
+      favCocktail =
+        e.target.parentNode.parentNode.parentNode.parentNode.children
+          .cocktailName.textContent;
+    }
     console.log(favCocktail);
     console.log(getCocktail(favCocktail));
     getCocktail(favCocktail)
