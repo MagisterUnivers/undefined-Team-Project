@@ -12,20 +12,90 @@
 
 .svg-items {
   display: flex;
+  justify-content: center;
 }
 
 .platforms {
-  display: flex;
+  width: 96px;
 }
 
-.platforms-apple {
-  padding-right: 5px;
+.icon:hover {
+  fill: #fff;
+}
+
+.description {
+  max-width: 300px;
+}
+
+.description-text,
+.copyright {
+  text-align: center;
+  font-size: 13px;
+  font-family: 'Roboto';
+}
+
+.copyright {
+  font-size: 10px;
+  padding-top: 5px;
+}
+
+.links {
   padding-left: 5px;
 }
 
-.text {
-  font-size: 14px;
-  font-family: 'Poppins';
-  font-weight: 600;
-  text-align: center;
+.platforms-apple {
+  padding-bottom: 3px;
+}
+
+@include media-tablet-min(768px) {
+  .description {
+    max-width: 500px;
+  }
+}
+
+@include media-desktop-min(1280px) {
+  .links {
+    display: flex;
+  }
+
+  .footer-main {
+    justify-content: space-around;
+  }
+
+  .socials {
+    display: flex;
+    position: relative;
+    padding-right: 60px;
+  }
+
+  .svg-items {
+    padding-top: 35px;
+  }
+
+  .svg-items::before {
+    content: 'Follow us on';
+    position: absolute;
+    top: -20px;
+    font-size: 14px;
+    font-family: 'Poppins';
+    font-weight: 600;
+    padding-top: 35px;
+  }
+
+  .description {
+    max-width: 600px;
+  }
+
+  .description-text {
+    font-size: 14px;
+  }
+
+  .copyright {
+    padding-top: 10px;
+    font-size: 11px;
+  }
+
+  .platforms {
+    width: 100%;
+  }
 }
