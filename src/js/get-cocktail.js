@@ -8,7 +8,11 @@ export async function getCocktail(cocktailName) {
     throw new Error();
   }
 }
-
+/*
+  |============================
+  | Old variant
+  |============================
+*/
 // export function getCocktail(cocktailName) {
 //   return fetch(`${BASE_URL}${cocktailName}`).then(response => {
 //     if (response.ok) {

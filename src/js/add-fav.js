@@ -17,10 +17,6 @@ async function onBtnAddFavClick(e) {
     e.target.classList.contains('btn-add-to') ||
     e.target.parentNode.classList.contains('btn-primary__icon')
   ) {
-    console.dir(
-      e.target
-      //   e.target.parentNode.parentNode.children.cocktailName.textContent
-    );
     if (e.target.classList.contains('btn-add-to')) {
       favCocktail =
         e.target.parentNode.parentNode.children.cocktailName.textContent;
@@ -44,7 +40,11 @@ async function onBtnAddFavClick(e) {
     }
   }
 }
-
+/*
+  |============================
+  | Old variant
+  |============================
+*/
 // function onBtnAddFavClick(e) {
 //   console.dir(e);
 //   if (
