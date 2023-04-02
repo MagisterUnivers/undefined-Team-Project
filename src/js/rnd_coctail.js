@@ -45,7 +45,6 @@ export async function rndCocktails() {
         }
       })
     );
-
     document.getElementById('content').removeAttribute('hidden');
     document.getElementById('loading').style.display = 'none';
     console.log(results);
@@ -146,7 +145,7 @@ function createPic(picture) {
   <img class="random-cocktail__image" src="${picture.drinks[0].strDrinkThumb}" alt="${picture.drinks[0].strCategory}" loading="lazy" width=0 heigth=0/><h3 class="random-cocktail__uppertext" name="cocktailName">${picture.drinks[0].strDrink}</h3><div class="random-cocktail__btn"><button type="button" class="btn btn-secondary">Learn more</button><button type="button" class="btn-primary btn btn-add-to">
   Add to
   <svg
-    class="btn-primary__icon"
+    class="btn-primary__icon btn-add-to"
     viewBox="0 0 19 17"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
