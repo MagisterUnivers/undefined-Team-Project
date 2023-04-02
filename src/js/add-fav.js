@@ -5,10 +5,6 @@ const refs = {
   cocktailsDiv: document.querySelector('#rnd-cocktail'),
 };
 let favCocktail;
-// localStorage.setItem(
-//   'favCocktails',
-//   JSON.stringify(localStorage.getItem('favCocktails')) && JSON.stringify([])
-// );
 console.log(JSON.parse(localStorage.getItem('favCocktails')));
 if (!localStorage.getItem('favCocktails')) {
   localStorage.setItem('favCocktails', JSON.stringify([]));
