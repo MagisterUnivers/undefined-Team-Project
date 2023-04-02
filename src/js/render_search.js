@@ -1,35 +1,41 @@
-async function searchCocktailsByLetter(letter) {
-  const response = await fetch(
-    `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${letter}`
-  );
-  const data = await response.json();
-  return data.drinks;
-}
-const btnPrivious = document.querySelector('.arrow-btn.previous');
-const btnNext = document.querySelector('.arrow-btn.next');
+import { searchCocktails } from './search-cocktail';
+import { rndCocktails } from './rnd_coctail';
+import { refs } from './custom-select-box/select-box';
 
-btnPrivious.style.display = 'none';
+const searchCocktailsEl = document.querySelector('.searched_coctail.section');
+searchCocktailsEl.classList.add('visually-hidden')
+
+const btnPrevious = document.querySelector('.arrow-btn-pagination.previous');
+const btnNext = document.querySelector('.arrow-btn-pagination.next');
+
+btnPrevious.style.display = 'none';
 btnNext.style.display = 'none';
 
 const ulList = document.querySelectorAll(
   '.hero___search__list .hero__search__item'
 );
-const selectList = document.querySelector('.hero__select');
-const selectValues = selectList.options;
-console.log(selectValues);
-for (var i = 0; i < selectValues.length; i++) {
-  selectValues[i].addEventListener('click', ev => {
-    console.log(ev.target.value);
-  });
-}
+// const selectList = document.querySelectorAll('[type="radio"]');
+// // const selectValues = selectList.options;
+// console.log(selectList);
+// for (let i = 0; i < selectList.length; i++) {
+//   selectList.addEventListener('click', ev => {
+//     console.log(ev.target.input.textContent);
+//   });
+// }
+
+// refs.optionsList.forEach(option => {
+//   option.addEventListener('click', () => {
+//     console.log(option.value);
+//   });
+// });
 
 ulList.forEach(li => {
   li.addEventListener('click', ev => {
     const selectedLetter = ev.target.textContent.toLowerCase();
     console.log(selectedLetter);
-    searchCocktailsByLetter(selectedLetter).then(dataDrinks => {
+    searchCocktails(selectedLetter).then(dataDrinks => {
       if (!dataDrinks) {
-        return;
+        rndCocktails();  
       }
       parseCoctailPagination(dataDrinks);
     });
@@ -49,6 +55,9 @@ function parseCoctailPagination(data) {
   }
 
   function displayList(arrData, cards, page) {
+    const randomCoctails = document.querySelector('.random_coctail.section');
+    searchCocktailsEl.classList.remove('visually-hidden')
+    randomCoctails.classList.add('visually-hidden')
     const coctailsBox = document.querySelector('.searched__list');
     coctailsBox.innerHTML = '';
     page--;
@@ -111,8 +120,8 @@ function parseCoctailPagination(data) {
   }
 
   function paginationBtnArrows(page) {
-    btnPrivious.style.display = 'block';
-    btnPrivious.addEventListener('click', () => {
+    btnPrevious.style.display = 'block';
+    btnPrevious.addEventListener('click', () => {
       currentPage = page - 1;
       displayList(dataCoctails, cardsPerPage, currentPage);
     });

@@ -109,3 +109,30 @@
   color: #fdfdfd;
   background: #fe7031;
 }
+
+.arrow-btn-pagination {
+  width: 32px;
+  height: 32px;
+  background: #FDFDFD;
+  border: 1px solid #EAEBEA;
+  border-radius: 4px;
+  text-align: center;
+}
+
+.arrow-icon-left,
+.arrow-icon-right {
+  width: 18px;
+  height: 18px;
+  fill: #D7D7D7;
+}
+
+.arrow-btn-pagination.previous{
+  margin-right: 12px;
+}
+
+.arrow-btn-pagination.next{
+  margin-left: 12px;
+}
+
+
+
