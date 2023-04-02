@@ -143,7 +143,7 @@ export async function rndCocktails() {
 
 function createPic(picture) {
   return `<li class="random-cocktail__item">
-  <img class="random-cocktail__image" src="${picture.drinks[0].strDrinkThumb}" alt="${picture.drinks[0].strCategory}" loading="lazy" width=0 heigth=0/><h3 class="random-cocktail__uppertext">${picture.drinks[0].strDrink}</h3><div class="random-cocktail__btn"><button type="button" class="btn btn-secondary">Learn more</button><button type="button" class="btn-primary btn">
+  <img class="random-cocktail__image" src="${picture.drinks[0].strDrinkThumb}" alt="${picture.drinks[0].strCategory}" loading="lazy" width=0 heigth=0/><h3 class="random-cocktail__uppertext" name="cocktailName">${picture.drinks[0].strDrink}</h3><div class="random-cocktail__btn"><button type="button" class="btn btn-secondary">Learn more</button><button type="button" class="btn-primary btn btn-add-to">
   Add to
   <svg
     class="btn-primary__icon"
