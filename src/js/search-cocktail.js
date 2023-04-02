@@ -56,23 +56,36 @@ export async function parseRequest(data = '') {
 
   if (!data) {
     titleEl.innerHTML = `<h2 class='empty-search__title'>Sorry, we didn't find<br> any cocktail for you</h2>`;
-    cocktailsHtml = `<img
-      class="userpic"
-      srcset="
-        ${mobImg1}  280w,
-        ${mobImg1}   560w,
-        ${tabImg1}   345w,
-        ${tabImg2}   690w,
-        ${deskImg1} 345w,
-        ${deskImg2} 690w
-      "
-      sizes="(min-width: 1280px) 345px, (min-width: 768px) 345px, (min-width: 320px) 280px"
-      src="${mobImg1}"
-      alt="Member photo 1"
-      width="450"
-      height="460"
-      loading="lazy"
-    />`;
+    // cocktailsHtml = `<img
+    //   class="userpic"
+    //   srcset="
+    //     ${mobImg1}  280w,
+    //     ${mobImg1}   560w,
+    //     ${tabImg1}   345w,
+    //     ${tabImg2}   690w,
+    //     ${deskImg1} 345w,
+    //     ${deskImg2} 690w
+    //   "
+    //   sizes="(min-width: 1280px) 345px, (min-width: 768px) 345px, (min-width: 320px) 280px"
+    //   src="${mobImg1}"
+    // type="image/png"
+    //   alt="Member photo 1"
+    //   width="345"
+    //   height="380"
+    //   loading="lazy"
+    // />`;
+    cocktailsHtml = `<li><picture >
+          <source
+          media="(min-width: 768px)"
+          srcset="${deskImg1}, ${deskImg2} 2x"
+          type="image/png"/>
+          <source
+          media="(max-width: 767px)"
+          srcset="${mobImg1}, ${mobImg2} 2x"
+          type="image/png"/>
+          <img class="userpic" src="${mobImg1}" alt="People in the cafe" width="345" height="380"/>
+          </picture>
+          </li>`;
   } else {
     cocktailsHtml = data.reduce(
       (acc, cocktail) =>
