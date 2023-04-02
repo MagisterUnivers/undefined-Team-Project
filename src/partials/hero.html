@@ -215,5 +215,31 @@ type="image/png"
                   <div class="selected">A</div>
               </div>
             </div>
+
     </div>
+    <picture class="hero__img">
+      <source
+        media="(min-width: 1280px)"
+        srcset="
+          ./images/hero/desktop/coctaile@1x.png 1x,
+          ./images/hero/desktop/coctaile@2x.png 2x
+        "
+        type="image/png" />
+      <source
+        media="(min-width: 768px)"
+        srcset="
+          ./images/hero/tablet/coctaile@1x.png 1x,
+          ./images/hero/tablet/coctaile@2x.png 2x
+        "
+        type="image/png" />
+      <source
+        media="(max-width: 767px)"
+        srcset="
+          ./images/hero/mobile/coctaile@1x.png 1x,
+          ./images/hero/mobile/coctaile@2x.png 2x
+        "
+        type="image/png" />
+      <img src="./images/hero/desktop/coctaile@1x.png" alt="Cocktail"
+    /></picture>
+  </div>
 </section>
