@@ -3,7 +3,11 @@
   | Add to Button
   |============================
 -->
-<button type="button" class="btn-primary btn btn-add-to">
+<button
+  type="button"
+  class="btn-primary btn btn-add-to"
+  aria-label="Add cocktail to favorite"
+>
   Add to
   <svg
     class="btn-primary__icon"
@@ -28,7 +32,7 @@
     | Remove Button
     |============================
   -->
-<button type="button" class="btn btn-primary">
+<button type="button" class="btn btn-primary" aria-label="Remove from favorite">
   Remove
   <svg
     class="btn-primary__icon"
@@ -53,13 +57,23 @@
   | Learn more Button
   |============================
 -->
-<button type="button" class="btn btn-secondary">Learn more</button>
+<button
+  type="button"
+  class="btn btn-secondary"
+  aria-label="Learn more about cocktail"
+>
+  Learn more
+</button>
 <!--
   |============================
   | Add to favorite Button
   |============================
 -->
-<button type="button" class="btn btn-secondary btn__add-to-fav">
+<button
+  type="button"
+  class="btn btn-secondary btn__add-to-fav"
+  aria-label="Add cocktail to favorite"
+>
   Add to favorite
 </button>
 <!--
@@ -67,7 +81,11 @@
   | Remove from favorite Button
   |============================
 -->
-<button type="button" class="btn btn-secondary btn__remove-fav">
+<button
+  type="button"
+  class="btn btn-secondary btn__remove-fav"
+  aria-label="Remove from favorite"
+>
   Remove from favorite
 </button>
 <!--
@@ -76,7 +94,7 @@
   |============================
 -->
 <!-- Right -->
-<button type="button" class="arrow-btn">
+<button type="button" class="arrow-btn" aria-label="Arrow button to the right">
   <svg
     class="arrow-icon"
     viewBox="0 0 8 14"
@@ -89,7 +107,7 @@
   </svg>
 </button>
 <!-- Left -->
-<button type="button" class="arrow-btn">
+<button type="button" class="arrow-btn" aria-label="Arrow button to the left">
   <svg
     class="arrow-icon arrow-icon__left"
     viewBox="0 0 8 14"
@@ -103,7 +121,7 @@
 </button>
 <!-- disabled -->
 <!-- right -->
-<button type="button" class="arrow-btn">
+<button type="button" class="arrow-btn" aria-label="Switcher">
   <svg
     class="arrow-icon__disabled"
     viewBox="0 0 8 14"
@@ -116,7 +134,7 @@
   </svg>
 </button>
 <!-- left -->
-<button type="button" class="arrow-btn">
+<button type="button" class="arrow-btn" aria-label="Switcher default">
   <svg
     class="arrow-icon__disabled arrow-icon__left"
     viewBox="0 0 8 14"

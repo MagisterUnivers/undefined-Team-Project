@@ -7,6 +7,7 @@ export async function getCocktail(cocktailName) {
   } else {
     throw new Error();
   }
+
 }
 /*
   |============================
@@ -22,3 +23,4 @@ export async function getCocktail(cocktailName) {
 //     }
 //   });
 // }
+
