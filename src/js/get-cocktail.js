@@ -7,3 +7,20 @@ export async function getCocktail(cocktailName) {
   } else {
     throw new Error();
   }
+
+}
+/*
+  |============================
+  | Old variant
+  |============================
+*/
+// export function getCocktail(cocktailName) {
+//   return fetch(`${BASE_URL}${cocktailName}`).then(response => {
+//     if (response.ok) {
+//       return response.json();
+//     } else {
+//       throw new Error();
+//     }
+//   });
+// }
+
