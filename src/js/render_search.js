@@ -5,19 +5,21 @@ async function searchCocktailsByLetter(letter) {
   const data = await response.json();
   return data.drinks;
 }
+const btnPrivious = document.querySelector('.arrow-btn.previous');
+const btnNext = document.querySelector('.arrow-btn.next');
+
+btnPrivious.style.display = 'none';
+btnNext.style.display = 'none';
 
 const ulList = document.querySelectorAll(
   '.hero___search__list .hero__search__item'
 );
 const selectList = document.querySelector('.hero__select');
-console.log(ulList);
-
-// Cлушатели на каждый элемент select
-for (let i = 0; i < selectList.length; i++) {
-  selectList[i].addEventListener('click', () => {
-    console.log(this.value);
-    const selectedValue = this.value;
-    console.log(selectedValue);
+const selectValues = selectList.options;
+console.log(selectValues);
+for (var i = 0; i < selectValues.length; i++) {
+  selectValues[i].addEventListener('click', ev => {
+    console.log(ev.target.value);
   });
 }
 
@@ -81,6 +83,7 @@ function parseCoctailPagination(data) {
       .join('');
     coctailsBox.insertAdjacentHTML('afterbegin', renderedCoctails);
   }
+
   function displayPagination(arrData, cards) {
     const paginationList = document.querySelector('.pagination__list');
     paginationList.innerHTML = '';
@@ -94,13 +97,35 @@ function parseCoctailPagination(data) {
     const liEl = document.createElement('li');
     liEl.classList.add('pagination__item');
     liEl.innerText = page;
+    if (currentPage === page) {
+      liEl.classList.add('pagination__item--active');
+    }
     liEl.addEventListener('click', () => {
       currentPage = page;
       displayList(dataCoctails, cardsPerPage, currentPage);
+      let currentLiItem = document.querySelector('li.pagination__item--active');
+      currentLiItem.classList.remove('pagination__item--active');
+      liEl.classList.add('pagination__item--active');
     });
     return liEl;
   }
 
+  function paginationBtnArrows(page) {
+    btnPrivious.style.display = 'block';
+    btnPrivious.addEventListener('click', () => {
+      currentPage = page - 1;
+      displayList(dataCoctails, cardsPerPage, currentPage);
+    });
+    btnNext.style.display = 'block';
+    btnNext.addEventListener('click', () => {
+      currentPage = page + 1;
+      displayList(dataCoctails, cardsPerPage, currentPage);
+    });
+  }
+
   displayList(dataCoctails, cardsPerPage, currentPage);
-  displayPagination(dataCoctails, cardsPerPage);
+  if (dataCoctails.length > cardsPerPage) {
+    displayPagination(dataCoctails, cardsPerPage);
+    paginationBtnArrows(currentPage);
+  }
 }
