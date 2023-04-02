@@ -4,7 +4,7 @@
             <nav class="navigation">
                 <!-------------------------------------------------------------- LOGO ---------------------------->
                 <a class="header__logo-link" href="index.html">
-                    <img src="./images/logo.svg" alt="logo" class="logo-img" aria-label="Home-page"/>
+                    <img src="./images/logo.svg" alt="logo" class="logo-img" aria-label="logo"/>
                 </a>
 
                 <!---------------------------------------------------------- navigation -------------------------------->
@@ -33,7 +33,7 @@
                 <form class="header-form" data-header-submit>
                     <input type="search" placeholder="Search" name="headerinput" class="header-input dark-theme-text"
                         data-header-input />
-                    <button type="submit" class="search-button">
+                    <button type="submit" class="search-button" aria-label="search">
                         <svg class="input-search-icon" width="32" height="32" aria-label="Burger menu toggle">
                             <use href="./images/sprite.svg#icon-search"></use>
                         </svg>
@@ -45,8 +45,8 @@
                         Light
                     </li>
                     <li>
-                        <button type="button" class="switcher-button" data-header-theme-switcher>
-                            <div class="switcher-dot" aria-label="header-theme"></div>
+                        <button type="button" class="switcher-button" data-header-theme-switcher aria-label="header-theme">
+                            <div class="switcher-dot"></div>
                         </button>
                     </li>
                     <li class="header-switcher-dark" data-text-color-switcher-dark>
@@ -55,7 +55,7 @@
                 </ul>
 
                 <!------------------------------------------------------------------- BURGER MENU BUTTON ----------------------------->
-                <button type="button" class="burger-menu-btn" aria-expanded="false" data-burger-menu-toggle>
+                <button type="button" class="burger-menu-btn" aria-expanded="false" data-burger-menu-toggle aria-label="menu">
                     <svg class="burger-menu-btn-icon" width="32" height="32" aria-label="Burger menu toggle">
                         <use class="burger-icon-menu" href="./images/sprite.svg#icon-burger-menu"></use>
                         <use class="burger-icon-cross" href="./images/sprite.svg#icon-close-cross"></use>
@@ -77,8 +77,8 @@
                             Light
                         </li>
                         <li>
-                            <button type="button" class="switcher-button" data-header-theme-switcher>
-                                <div class="switcher-dot" aria-label="header-theme"></div>
+                            <button type="button" class="switcher-button" data-header-theme-switcher aria-label="header-theme">
+                                <div class="switcher-dot"></div>
                             </button>
                         </li>
                         <li class="burger-switcher-dark" data-text-color-switcher-dark>
@@ -92,7 +92,7 @@
                             <form class="header-form" data-burger-submit>
                                 <input type="search" class="burger-input dark-theme-text" name="burgerinput"
                                     placeholder="Search" data-burger-input />
-                                <button type="submit" class="burger-search-button">
+                                <button type="submit" class="burger-search-button" aria-label="Burger menu search">
                                     <svg class="input-search-icon" width="24" height="24"
                                         aria-label="Burger menu search">
                                         <use href="./images/sprite.svg#icon-search"></use>
@@ -108,7 +108,7 @@
                             </li>
                             <li class="mobile-menu-navigation__item" data-burger-menu-arrow>
                                 <p class="burger-favorite-text dark-theme-text">Favorite</p>
-                                <button type="button" class="burger-menu-arrow">
+                                <button type="button" class="burger-menu-arrow" aria-label="Burger menu arrow">
                                     <svg class="burger-menu-arrow-icon burger-menu-btn-icon" width="24" height="24"
                                         aria-label="Burger menu arrow">
                                         <use href="./images/sprite.svg#icon-down-arrow"></use>
