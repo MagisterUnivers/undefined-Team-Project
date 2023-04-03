@@ -1,4 +1,4 @@
-const refs = {
+export const refs = {
   selected: document.querySelector('.selected'),
   optionsContainer: document.querySelector('.options-container'),
   optionsList: document.querySelectorAll('.option'),

@@ -2,9 +2,7 @@ import { searchCocktails } from './search-cocktail';
 import { rndCocktails } from './rnd_coctail';
 import { refs } from './custom-select-box/select-box';
 
-const searchCocktailsEl = document.querySelector('.searched_coctail.section');
-searchCocktailsEl.classList.add('visually-hidden')
-
+const ulEl = document.querySelector('.random-cocktail__list');
 const btnPrevious = document.querySelector('.arrow-btn-pagination.previous');
 const btnNext = document.querySelector('.arrow-btn-pagination.next');
 
@@ -14,20 +12,23 @@ btnNext.style.display = 'none';
 const ulList = document.querySelectorAll(
   '.hero___search__list .hero__search__item'
 );
-// const selectList = document.querySelectorAll('[type="radio"]');
-// // const selectValues = selectList.options;
-// console.log(selectList);
-// for (let i = 0; i < selectList.length; i++) {
-//   selectList.addEventListener('click', ev => {
-//     console.log(ev.target.input.textContent);
-//   });
-// }
 
-// refs.optionsList.forEach(option => {
-//   option.addEventListener('click', () => {
-//     console.log(option.value);
-//   });
-// });
+console.log(ulList);
+
+refs.optionsList.forEach(option => {
+  option.addEventListener('click', () => {
+    const letterBySelector = option
+      .querySelector('label')
+      .innerHTML.toLowerCase();
+    console.log(letterBySelector);
+    searchCocktails(letterBySelector).then(dataDrinks => {
+      if (!dataDrinks) {
+        rndCocktails();
+      }
+      parseCoctailPagination(dataDrinks);
+    });
+  });
+});
 
 ulList.forEach(li => {
   li.addEventListener('click', ev => {
@@ -35,7 +36,7 @@ ulList.forEach(li => {
     console.log(selectedLetter);
     searchCocktails(selectedLetter).then(dataDrinks => {
       if (!dataDrinks) {
-        rndCocktails();  
+        rndCocktails();
       }
       parseCoctailPagination(dataDrinks);
     });
@@ -55,11 +56,8 @@ function parseCoctailPagination(data) {
   }
 
   function displayList(arrData, cards, page) {
-    const randomCoctails = document.querySelector('.random_coctail.section');
-    searchCocktailsEl.classList.remove('visually-hidden')
-    randomCoctails.classList.add('visually-hidden')
-    const coctailsBox = document.querySelector('.searched__list');
-    coctailsBox.innerHTML = '';
+    ulEl.innerHTML = '';
+
     page--;
     const start = cards * page;
     const end = start + cards;
@@ -90,7 +88,8 @@ function parseCoctailPagination(data) {
 </button></div></li></div></div>`
       )
       .join('');
-    coctailsBox.insertAdjacentHTML('afterbegin', renderedCoctails);
+
+    ulEl.insertAdjacentHTML('afterbegin', renderedCoctails);
   }
 
   function displayPagination(arrData, cards) {
@@ -102,7 +101,10 @@ function parseCoctailPagination(data) {
       paginationList.appendChild(liEl);
     }
   }
+
   function displayPaginationBtn(page) {
+    btnPrevious.style.display = 'block';
+    btnNext.style.display = 'block';
     const liEl = document.createElement('li');
     liEl.classList.add('pagination__item');
     liEl.innerText = page;
@@ -119,22 +121,65 @@ function parseCoctailPagination(data) {
     return liEl;
   }
 
-  function paginationBtnArrows(page) {
+  function paginationBtnArrows(arrData, page) {
+    const pagesCount = Math.ceil(arrData.length / cards);
+    console.log(pagesCount);
     btnPrevious.style.display = 'block';
-    btnPrevious.addEventListener('click', () => {
-      currentPage = page - 1;
-      displayList(dataCoctails, cardsPerPage, currentPage);
-    });
+    console.log(btnPrevious);
+    if (page === 1) {
+      btnPrevious.classList.disable = true;
+    } else {
+      btnPrevious.addEventListener('click', () => {
+        btnPrevious.classList.disable = false;
+        currentPage = page - 1;
+        displayList(dataCoctails, cardsPerPage, currentPage);
+      });
+    }
     btnNext.style.display = 'block';
-    btnNext.addEventListener('click', () => {
-      currentPage = page + 1;
-      displayList(dataCoctails, cardsPerPage, currentPage);
-    });
+    if ((page = pagesCount)) {
+      btnNext.classList.disable = true;
+    } else {
+      btnNext.addEventListener('click', () => {
+        btnNext.classList.disable = false;
+        currentPage = page + 1;
+        displayList(dataCoctails, cardsPerPage, currentPage);
+      });
+    }
   }
 
   displayList(dataCoctails, cardsPerPage, currentPage);
-  if (dataCoctails.length > cardsPerPage) {
-    displayPagination(dataCoctails, cardsPerPage);
-    paginationBtnArrows(currentPage);
-  }
+  displayPagination(dataCoctails, cardsPerPage);
+  paginationBtnArrows(dataCoctails, currentPage);
 }
+
+// function generatePagination(arrData, cards) {
+//   const totalPages = Math.ceil(arrData.legth / cards);
+//   let currentPage = 1;
+//   let paginationHTML = '';
+//   if (totalPages <= 5) {
+//     displayPagination(dataCoctails, cardsPerPage);
+//   } else {
+//     if (totalPages > 5) {
+//       for (let i = 1; i <= 3; i++) {
+//         displayPagination(dataCoctails, cardsPerPage);
+//       }
+//       paginationHTML += '<span class="ellipsis">...</span>';
+//       paginationHTML += generatePageButton(totalPages);
+//     } else if (currentPage > 4 && currentPage < totalPages - 3) {
+//       paginationHTML += generatePageButton(1);
+//       paginationHTML += '<span class="ellipsis">...</span>';
+//       for (let i = currentPage - 1; i <= currentPage + 1; i++) {
+//         paginationHTML += generatePageButton(i);
+//       }
+//       paginationHTML += '<span class="ellipsis">...</span>';
+//       paginationHTML += generatePageButton(totalPages);
+//     } else {
+//       paginationHTML += generatePageButton(1);
+//       paginationHTML += '<span class="ellipsis">...</span>';
+//       for (let i = totalPages - 4; i <= totalPages; i++) {
+//         paginationHTML += generatePageButton(i);
+//       }
+//     }
+//   }
+//   return paginationHTML;
+// }

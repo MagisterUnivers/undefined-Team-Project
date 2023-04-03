@@ -76,16 +76,27 @@
   margin-bottom: 24px;
 }
 
-.paginathion__wrapper {
+.pagination__wrapper {
   display: flex;
   justify-content: center;
   align-items: center;
   margin-top: 24px;
+  width: 280px;
+  overflow: hidden;
+  margin-left: auto;
+  margin-right: auto;
+
+  @include media-tablet-min(768px) {
+    max-width: 700px;
+  }
+
+  @include media-desktop-min(1280px) {
+    max-width: 880px;
+  }
 }
 
 .pagination__list {
   display: flex;
-  list-style-type: none;
 }
 
 .pagination__item {
@@ -103,6 +114,13 @@
   font-size: 14px;
   line-height: 17px;
   text-align: center;
+
+  @include media-tablet-min(768px) {
+    width: 40px;
+    height: 40px;
+    font-size: 16px;
+    line-height: 20px;
+  }
 }
 
 .pagination__item--active {
@@ -114,29 +132,60 @@
   position: relative;
   width: 32px;
   height: 32px;
-  background: #FDFDFD;
-  border: 1px solid #EAEBEA;
-  border-radius: 4px;
   text-align: center;
+
+  @include media-tablet-min(768px) {
+    width: 60px;
+    height: 40px;
+    background: #fdfdfd;
+    border: 1px solid #eaebea;
+    border-radius: 4px;
+  }
 }
 
 .arrow-icon-left,
 .arrow-icon-right {
   position: absolute;
-  top:50%;
-  left:50%;
+  top: 50%;
+  left: 50%;
   transform: translate(-50%, -50%);
   width: 18px;
   height: 18px;
-  fill: #D7D7D7;
+  fill: #d7d7d7;
+  transition: $anim-slow $anim-func;
+
+  @include media-tablet-min(768px) {
+    width: 24px;
+    height: 24px;
+  }
 }
 
-.arrow-btn-pagination.previous{
+.arrow-btn-pagination.previous {
   margin-right: 12px;
+
+  // @include media-tablet-min(768px) {
+  //   margin-right: 108px;
+  // }
+
+  // @include media-desktop-min(1280px) {
+  //   margin-right: 198px;
+  // }
 }
 
-.arrow-btn-pagination.next{
+.arrow-btn-pagination.next {
   margin-left: 12px;
+
+  // @include media-tablet-min(768px) {
+  //   margin-left: 108px;
+  // }
+
+  // @include media-desktop-min(1280px) {
+  //   margin-left: 198px;
+  // }
 }
 
-
+.arrow-btn-pagination.previous:hover .arrow-icon-left,
+.arrow-btn-pagination.next:hover .arrow-icon-right {
+  fill: #fe7031;
+  scale: 1.2;
+}
