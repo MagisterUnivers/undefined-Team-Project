@@ -63,25 +63,11 @@
           </button>
         </form>
         <!------------------------header  SWITCHER ------------------------->
-        <ul class="header-switcher">
-          <li
-            class="header-switcher-light dark-theme-text"
-            data-text-color-switcher-light
-          >
-            Light
-          </li>
-          <li>
-            <button
-              type="button"
-              class="switcher-button"
-              data-header-theme-switcher
-              aria-label="header-theme"
-            ></button>
-          </li>
-          <li class="header-switcher-dark" data-text-color-switcher-dark>
-            Dark
-          </li>
-        </ul>
+        <include
+          src="./partials/components/switcher_theme_button/switcher_theme_button.html"
+          locals='{ "id": "header_switcher_theme_button" }'
+        >
+        </include>
 
         <!------------------------- BURGER MENU BUTTON --------------------->
         <button

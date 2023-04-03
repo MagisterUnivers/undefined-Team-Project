@@ -119,6 +119,7 @@
     />
   </svg>
 </button>
+
 <!-- disabled -->
 <!-- right -->
 <button type="button" class="arrow-btn" aria-label="Switcher">
@@ -133,6 +134,7 @@
     />
   </svg>
 </button>
+
 <!-- left -->
 <button type="button" class="arrow-btn" aria-label="Switcher default">
   <svg
@@ -179,7 +181,8 @@
   | Custom Theme checkbox
   |============================
 -->
-<div class="checkbox">
-  <input type="checkbox" id="cb-button" class="tgl tgl-flat" />
-  <label for="cb-button" class="tgl-btn"></label>
-</div>
+
+<include
+  locals='{ "id": "test_button", "name": "test_button" }'
+  src="./partials/components/buttons/switcher_button.html"
+></include>
