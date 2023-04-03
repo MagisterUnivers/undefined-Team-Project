@@ -1,8 +1,8 @@
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import 'notiflix/dist/notiflix-3.2.6.min.css';
-import { getCocktail } from './get-cocktail';
-import { resultsArray } from './rnd_coctail';
-import { REMOVE_BTN } from './constants';
+import { getCocktail } from './get-cocktail.js';
+import { resultsArray } from './rnd_coctail.js';
+import { REMOVE_BTN } from './constants.js';
 const refs = {
   cocktailsDiv: document.querySelector('#rnd-cocktail'),
 };

@@ -5,7 +5,7 @@
 */
 
 import '../sass/utils/_ui-kit.scss';
-import { ADD_BTN, REMOVE_BTN, LEARN_MORE_BTN } from './constants';
+import { ADD_BTN, REMOVE_BTN, LEARN_MORE_BTN } from './constants.js';
 /**
   |============================
   | Refs
