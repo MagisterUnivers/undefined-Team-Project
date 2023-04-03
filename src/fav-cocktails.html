@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Favorite cocktails</title>
+    <link rel="stylesheet" href="./index.scss" />
+    <script src="./js/fav_cocktails.js" type="module"></script>
+  </head>
+  <body>
+    <main>
+      <include src="./partials/header.html"></include>
+      <section class="fav-cocktail section">
+        <h1 class="random-cocktail__title">Favorite cocktails</h1>
+        <p class="fav-cocktails__default-text" hidden>
+          You haven't added any favorite cocktails yet
+        </p>
+        <div id="content" hidden>
+          <div class="wrapper" id="rnd-cocktail">
+            <ul class="random-cocktail__list"></ul>
+          </div>
+        </div>
+        <div class="fav-content__wrapper"></div>
+      </section>
+      <include src="./partials/footer.html"></include>
+    </main>
+  </body>
+</html>
