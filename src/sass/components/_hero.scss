@@ -1,4 +1,6 @@
-.hero__wrapper{
+@import '../utils/variables';
+
+.hero__wrapper {
   padding-top: 60px;
   @include media-tablet-min(768px) {
     padding-top: 100px;
@@ -7,15 +9,15 @@
     padding-top: 89px;
   }
 }
-.hero__title{
-font-family: 'Poppins';
-font-style: normal;
-font-weight: 600;
-font-size: 22px;
-line-height: 1.9;
-color: #FD5103;
-margin-bottom: 60px;
-@include media-tablet-min(768px) {
+.hero__title {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 22px;
+  line-height: 1.9;
+  color: $grapefruit-color;
+  margin-bottom: 60px;
+  @include media-tablet-min(768px) {
     width: 336px;
     font-size: 26px;
     line-height: 1.6;
@@ -23,115 +25,168 @@ margin-bottom: 60px;
   }
   @include media-desktop-min(1280px) {
     font-size: 52px;
-line-height: 1.5;
-margin-bottom: 40px;
-width: 688px;
+    line-height: 1.5;
+    margin-bottom: 40px;
+    width: 688px;
   }
 }
-.hero__text{
-    font-family: 'Poppins';
-    font-weight: 500;
-    font-size: 14px;
-    line-height: 2;
-letter-spacing: 0.02em;
-color: #202025;
-margin-bottom: 20px;
-margin-top: 365px;
-@media screen and (min-width: 767.98px){
+.hero__text {
+  font-family: 'Poppins';
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 2;
+  letter-spacing: 0.02em;
+  color: #202025;
+  margin-bottom: 20px;
+  margin-top: 365px;
+  @media screen and (min-width: 767.98px) {
     margin-bottom: 40px;
     margin-top: 0px;
   }
   @include media-desktop-min(1280px) {
     font-size: 18px;
     line-height: 1.5;
-margin-bottom: 40px;
-margin-top: 0px;
+    margin-bottom: 40px;
+    margin-top: 0px;
   }
 }
-.hero__search__desktop{
+.hero__search__desktop {
   display: none;
-  @media screen and (min-width: 767.98px){
-    display:block;
+  @media screen and (min-width: 767.98px) {
+    display: block;
   }
 }
-.select-box{
+.select-box {
   display: block;
-  @media screen and (min-width: 767.98px){
-    display:none;
+  @media screen and (min-width: 767.98px) {
+    display: none;
   }
 }
-.hero___search__list{
-    @media screen and (min-width: 767.98px){
-        display: flex;
-        flex-wrap: wrap;
-        width: 325px;
-        justify-content: center;
-      }
-      @include media-desktop-min(1280px) {
-        width: 520px;
-        justify-content: center;
-        display: flex;
-        flex-wrap: wrap;
-      }
+.hero___search__list {
+  @media screen and (min-width: 767.98px) {
+    display: flex;
+    flex-wrap: wrap;
+    width: 325px;
+    justify-content: center;
+  }
+  @include media-desktop-min(1280px) {
+    width: 520px;
+    justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
+  }
 }
-.hero__search__item{
-    background-color: inherit;
 
+.hero__search__item {
+  background-color: inherit;
+
+  :hover:after {
+    transform: translate(0, 0);
+  }
+  :hover {
+    border: 2px solid black;
+    color: #d65076;
+    transform: scale(1.05);
+    will-change: transform;
+
+    .hero__span:hover {
+      border: none;
+    }
+  }
 }
-.hero__btn{
-    font-family: 'Poppins';
-    background-color: inherit;
-    border: none;
-    width: 25px;
-    height: 25px;
-    align-items: center;
-    text-align: center;
-    color: #5F6775;
-    font-weight: 700;
-font-size: 14px;
-line-height: 1,5;
 
-@include media-desktop-min(1280px) {
+// .hero__search__item {
+//   background-color: inherit;
+//   position: relative; /* Add relative positioning to the li element */
+
+//   /* Add the hover effect to the li element */
+//   &:hover:after {
+//     content: '';
+//     position: absolute;
+//     left: 0;
+//     bottom: 0;
+//     width: 100%;
+//     height: 2px;
+//     background-color: black;
+//     transform: scaleX(0);
+//     transition: transform 0.3s ease-in-out;
+//   }
+
+//   &:hover {
+//     border: 2px solid black;
+//     color: #d65076;
+//     transform: scale(1.05);
+//     will-change: transform;
+//   }
+
+//   /* Hide the border on the span inside the hover element */
+//   .hero__span:hover {
+//     border: none;
+//   }
+
+//   /* Add the hover effect to the button */
+//   button:hover {
+//     color: #d65076;
+//   }
+// }
+
+.hero__btn {
+  font-family: 'Poppins';
+  background-color: inherit;
+  border: none;
+  width: 25px;
+  height: 25px;
+  align-items: center;
+  text-align: center;
+  color: #5f6775;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.5px;
+  cursor: pointer;
+
+  @include media-desktop-min(1280px) {
     width: 40px;
     height: 40px;
     font-size: 24px;
     line-height: 1.5;
   }
 }
-.hero__btn--active span{
-color: #FD5103;
+.hero__btn--active span {
+  color: $grapefruit-color;
 }
-.hero__wrapper{
-    @include media-tablet-min(768px) {
-        gap: 43px;
-        display: flex;
-      }
-      @include media-desktop-min(1280px) {
+.hero__wrapper {
+  @include media-tablet-min(768px) {
+    gap: 43px;
+    display: flex;
+  }
+  @include media-desktop-min(1280px) {
     gap: 59px;
     display: flex;
-      }
+  }
 }
 
-.hero__search__mobile{
+.hero__search__mobile {
   display: block;
   margin-top: 60px;
-  @media screen and (min-width: 767.98px){
+  @media screen and (min-width: 767.98px) {
     display: none;
   }
 }
-.select-box-text{font-family: 'Poppins';
-font-weight: 500;
-font-size: 14px;
-line-height: 2;
-letter-spacing: 0.02em;
-color: #202025;
-margin-bottom: 20px;}
+.select-box-text {
+  font-family: 'Poppins';
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 2;
+  letter-spacing: 0.02em;
+  color: #202025;
+  margin-bottom: 20px;
+}
 .select-box {
   margin-left: auto;
   margin-right: auto;
-display: flex;
-width: 93px;
-flex-direction: column;
+  display: flex;
+  width: 93px;
+  flex-direction: column;
 }
 
 .select-box .options-container {
@@ -141,7 +196,7 @@ flex-direction: column;
   width: 100%;
   opacity: 0;
   transition: all 400ms;
-  border: 1px solid #fd5103;
+  border: 1px solid $grapefruit-color;
   border-radius: 4px;
   overflow: hidden;
   order: 1;
@@ -172,7 +227,7 @@ flex-direction: column;
   cursor: pointer;
 }
 .selected {
-  color: #fd5103;
+  color: $grapefruit-color;
   cursor: pointer;
   font-family: 'Poppins';
   font-weight: 700;
@@ -181,7 +236,7 @@ flex-direction: column;
 
   padding: 6px 10px;
 
-  border: 1px solid #fd5103;
+  border: 1px solid $grapefruit-color;
   border-radius: 4px;
 
   position: relative;
@@ -204,7 +259,7 @@ flex-direction: column;
 }
 .select-box .option:hover {
   color: #ffffff;
-  background-color: #fd5103;
+  background-color: $grapefruit-color;
 }
 .select-box label {
   font-family: 'Poppins';
@@ -217,4 +272,3 @@ flex-direction: column;
 .select-box .option .radio {
   display: none;
 }
-
