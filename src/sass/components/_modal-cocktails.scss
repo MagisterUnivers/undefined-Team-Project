@@ -21,19 +21,11 @@
   position: relative;
   background-color: #ffffff;
   padding: 20px;
+  border-radius: 4px;
   @include media-tablet-min(768px) {
     width: 715px;
     height: 557px;
-    padding: 28px;
-    // &::after {
-    //   position: absolute;
-    //   top: 169px;
-    //   left: 0;
-    //   content: '';
-    //   width: 100%;
-    //   height: 1px;
-    //   background-color: #fd5103;
-    // }
+    padding: 40px 20px;
   }
   &::-webkit-scrollbar {
     width: 1px;
@@ -41,52 +33,109 @@
     background-color: #ffffff;
   }
 }
-.modal-ingredient-title {
+.modal__title {
   font-family: 'Roboto';
   margin-bottom: 20px;
   font-style: normal;
   font-weight: 900;
   font-size: 32px;
-  line-height: 1.1;
+  line-height: 1.18;
   color: #202025;
-  padding-top: 12px;
-  &:hover,
-  &focus {
-    color: #fd5103;
-  }
+  margin-bottom: 20px;
   @include media-tablet-min(768px) {
     margin-bottom: 28px;
+    margin-left: 300px;
   }
 }
-.modal-ingredient-uptitle {
+.modal__instructions {
+  font-family: 'Poppins';
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1.625;
+  margin-bottom: 20px;
+  color: #202025;
+  @include media-tablet-min(768px) {
+  margin-bottom: 24px;
+  }
+}
+.modal__instructions-hold {
+  @include media-tablet-min(768px) {
+position: absolute;
+top: 348px;
+left: 28px;
+  }
+}
+.modal__ingredients {
   font-family: 'Poppins';
   font-weight: 600;
   font-size: 16px;
   line-height: 1.5;
-  text-transform: uppercase;
+  margin-bottom: 8px;
   color: #202025;
+
 }
-.modal-ingredient-text {
+.instruction {
   font-style: normal;
   font-family: 'Poppins';
   font-weight: 400;
   font-size: 16px;
   line-height: 1.75;
-  margin-top: 20px;
   color: #5f6775;
-  @include media-tablet-min(768px) {
-    margin-top: 68px;
-  }
-}
-.modal-ingredient-list {
-  margin-top: 28px;
-  display: flex;
-  flex-direction: column;
   margin-bottom: 32px;
   @include media-tablet-min(768px) {
-    margin-bottom: 40px;
+    margin-bottom: 32px;
+
   }
 }
+.ingredient__item {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.625;
+  color: #5f6775;
+  &:hover,&:focus {
+    color: #fd5103;
+  }
+}
+
+.modal__description {
+font-family: 'Poppins';
+font-style: normal;
+font-weight: 300;
+font-size: 14px;
+line-height: 21px;
+color: #202025;
+margin-bottom: 8px;
+}
+
+.modal__ingredients-hold {
+  @include media-tablet-min(768px) {
+position: absolute;
+top: 105px;
+left: 320px;
+  }
+}
+
+.modal__picture {
+  @include media-tablet-min(768px) {
+    width: 288px;
+    height: 320px;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+  }
+
+}
+// .modal-ingredient-list {
+//   margin-top: 28px;
+//   display: flex;
+//   flex-direction: column;
+//   margin-bottom: 32px;
+//   @include media-tablet-min(768px) {
+//     margin-bottom: 40px;
+//   }
+// }
 .modal-cocktails-close {
   position: absolute;
   background-color: inherit;
@@ -105,6 +154,9 @@
   @include media-tablet-min(768px) {
     margin-right: 0;
     margin-left: auto;
+    position: absolute;
+    bottom: 28px;
+    right: 28px;
   }
 }
 
