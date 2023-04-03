@@ -3,6 +3,10 @@
   | Header 
   |============================
 */
+
+@import '../utils/mixins';
+@import '../utils/variables';
+
 .header {
   position: relative;
   display: flex;
@@ -36,7 +40,7 @@
 .navigation__list {
   display: none;
 
-  @include desktop {
+  @include media-desktop-min(1280px) {
     position: relative;
     display: flex;
     gap: 60px;
@@ -99,7 +103,6 @@
 }
 
 .navigation-drop__item {
-
   :hover,
   :focus {
     background-color: $grapefruit-color;
@@ -124,11 +127,11 @@
 .header-form {
   position: relative;
 
-  @include tablet {
+  @include media-tablet-min(768px) {
     margin-right: 80px;
   }
 
-  @include desktop {
+  @include media-desktop-min(1280px) {
     margin-right: 10px;
   }
 }
@@ -136,7 +139,7 @@
 .search-button {
   display: none;
 
-  @include tablet {
+  @include media-tablet-min(768px) {
     position: absolute;
     display: block;
     top: 0;
@@ -159,7 +162,7 @@
   display: none;
   background-color: transparent;
 
-  @include tablet {
+  @include media-tablet-min(768px) {
     width: 280px;
     height: 40px;
     display: block;
@@ -173,7 +176,7 @@
     // margin-right: 100px;
   }
 
-  @include desktop {
+  @include media-desktop-min(1280px) {
     width: 290px;
   }
 }
@@ -181,7 +184,7 @@
 .header-switcher {
   display: none;
 
-  @include desktop {
+  @include media-desktop-min(1280px) {
     display: flex;
     gap: 12px;
     margin-left: 150px;
@@ -216,11 +219,11 @@
   width: 32px;
   height: 32px;
 
-  @include tablet {
+  @include media-tablet-min(768px) {
     margin-left: 40px;
   }
 
-  @include desktop {
+  @include media-desktop-min(1280px) {
     display: none;
   }
 }
@@ -252,7 +255,7 @@
 .mobile-menu.is-open {
   display: block;
 
-  @include desktop {
+  @include media-desktop-min(1280px) {
     display: none;
   }
 }
@@ -341,7 +344,7 @@
   letter-spacing: 0.02em;
   padding: 5px 5px 5px 48px;
 
-  @include tablet {
+  @include media-tablet-min(768px) {
     display: none;
   }
 }
@@ -358,7 +361,7 @@
   border-top: none;
   border-bottom: none;
 
-  @include tablet {
+  @include media-tablet-min(768px) {
     display: none;
   }
 }
@@ -370,7 +373,7 @@
   letter-spacing: 0.02em;
   margin-bottom: 40px;
 
-  @include tablet {
+  @include media-tablet-min(768px) {
     margin-left: 60px;
   }
 }
@@ -417,14 +420,14 @@
 .burger__logo-link {
   display: none;
 
-  @include tablet {
+  @include media-tablet-min(768px) {
     margin-top: 15px;
     display: block;
   }
 }
 
 .burger-wrapper {
-  @include tablet {
+  @include media-tablet-min(768px) {
     margin-left: 40px;
   }
 }
