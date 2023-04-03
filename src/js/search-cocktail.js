@@ -5,8 +5,8 @@ import tabImg2 from '../images/results-section/tablet/tablet_not-found-690.png';
 import deskImg1 from '../images/results-section/desktop/desktop_not-found-345.png';
 import deskImg2 from '../images/results-section/desktop/desktop_not-found-690.png';
 
-const form = document.querySelector('.search-cocktail');
-const input = document.querySelector('#search-input');
+const form = document.querySelector('.header-form');
+const input = document.querySelector('.header-input');
 const ul = document.querySelector('.random-cocktail__list');
 const titleEl = document.querySelector('.random-cocktail__title');
 
@@ -21,7 +21,7 @@ const titleEl = document.querySelector('.random-cocktail__title');
 
 form.addEventListener('submit', async e => {
   e.preventDefault();
-  const cocktailName = form.elements.search.value.trim();
+  const cocktailName = form.elements.headerinput.value.trim();
 
   if (!cocktailName) {
     document.getElementById('rnd-cocktail').innerHTML = '';
