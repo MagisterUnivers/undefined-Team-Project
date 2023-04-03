@@ -101,7 +101,7 @@ export async function onBtnAddRemoveFavClick(e) {
     <p class="modal__description">Per cocktail</p>
     <ul class="ingredients__list"></ul>
   </div>
-</div>;`;
+</div>`;
 
   const modalInfo = document.querySelector('.modal-cocktails-group');
 
