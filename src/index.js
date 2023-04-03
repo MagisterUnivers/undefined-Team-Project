@@ -9,3 +9,4 @@ import './js/custom-select-box/select-box';
 import './js/search-cocktail';
 import './js/add-fav';
 import './js/pagination';
+import './js/modal-ingredients';
