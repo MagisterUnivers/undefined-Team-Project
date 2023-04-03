@@ -36,19 +36,13 @@ async function onBtnAddRemoveFavClick(e) {
     try {
       console.log(result);
       const favList = JSON.parse(localStorage.getItem('favCocktails'));
-      if (
-        localStorage
-          .getItem('favCocktails')
-          .includes(`${result.drinks[0].idDrink}`)
-      ) {
-      } else {
-        favList.push(result.drinks[0]);
-        localStorage.setItem('favCocktails', JSON.stringify(favList));
-        cocktailName = favList[favList.length - 1].strDrink;
-        Notify.success(`Cocktail ${cocktailName} added to your favorites!✅`);
-        btnEl.remove();
-        btnsDiv.insertAdjacentHTML('beforeend', REMOVE_BTN);
-      }
+
+      favList.push(result.drinks[0]);
+      localStorage.setItem('favCocktails', JSON.stringify(favList));
+      cocktailName = favList[favList.length - 1].strDrink;
+      Notify.success(`Cocktail ${cocktailName} added to your favorites!✅`);
+      btnEl.remove();
+      btnsDiv.insertAdjacentHTML('beforeend', REMOVE_BTN);
     } catch {
       console.log('ERROR>>', error.message);
       Notify.failure('Some error has occurred. Try in a few minutes.❌');
