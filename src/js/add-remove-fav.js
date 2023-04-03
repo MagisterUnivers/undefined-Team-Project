@@ -93,6 +93,6 @@ async function onBtnAddRemoveFavClick(e) {
       `Cocktail ${cocktailName} was removed from your favorites!✅`
     );
   } else if (e.target.classList.contains('btn-learn-more')) {
-    onBtnAddRemoveFavClick(e);
+    onBtnAddFavClick(e);
   }
 }

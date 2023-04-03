@@ -78,7 +78,7 @@ export async function fetchCocktailById(id) {
   return drinks[0];
 }
 
-export async function onBtnAddRemoveFavClick(e) {
+export async function onBtnAddFavClick(e) {
   const id = e.target.closest('li').getAttribute('id');
   console.log(id);
 
