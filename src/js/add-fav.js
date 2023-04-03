@@ -1,7 +1,7 @@
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import 'notiflix/dist/notiflix-3.2.6.min.css';
 import { getCocktail } from './get-cocktail.js';
-import { resultsArray } from './rnd_coctail.js';
+// import { resultsArray } from './rnd_coctail.js';
 import { REMOVE_BTN } from './constants.js';
 const refs = {
   cocktailsDiv: document.querySelector('#rnd-cocktail'),
@@ -11,7 +11,7 @@ let btnDiv;
 let btnEl;
 let favCocktail;
 
-console.log(resultsArray);
+// console.log(resultsArray);
 console.log(JSON.parse(localStorage.getItem('favCocktails')));
 if (!localStorage.getItem('favCocktails')) {
   localStorage.setItem('favCocktails', JSON.stringify([]));
