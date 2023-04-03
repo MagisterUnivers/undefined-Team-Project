@@ -6,7 +6,7 @@
 export const REMOVE_BTN = `<button type="button" class="btn btn-primary btn-remove-from">
   Remove
   <svg
-    class="btn-primary__icon btn-remove-from"
+    class="btn-primary__icon"
     viewBox="0 0 19 17"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
@@ -27,7 +27,7 @@ export const REMOVE_BTN = `<button type="button" class="btn btn-primary btn-remo
 export const ADD_BTN = `<button type="button" class="btn-primary btn btn-add-to">
     Add to
     <svg
-      class="btn-primary__icon btn-add-to"
+      class="btn-primary__icon"
       viewBox="0 0 19 17"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
