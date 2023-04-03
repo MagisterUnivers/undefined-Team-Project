@@ -1,0 +1,77 @@
+@import '../utils/variables';
+@import '../utils/mixins';
+
+body {
+  @include background-color_transition;
+}
+
+// by default the body does not have background-color
+body[data-theme='dark'] {
+  background-color: $black-color;
+}
+
+.theme_text_color {
+  color: $black-color;
+  @include text_color_transition;
+}
+
+body[data-theme='dark'] {
+  .theme_text_color {
+    color: $white-color;
+  }
+}
+
+.theme_fill_color {
+  fill: $black-color;
+  @include fill_color_transition;
+}
+
+body[data-theme='dark'] {
+  .theme_fill_color {
+    fill: $white-color;
+  }
+}
+
+.theme_border_color {
+  border: 0.6px solid $grapefruit-color;
+  @include border_color_transition;
+}
+
+body[data-theme='dark'] {
+  .theme_border_color {
+    border: 1px solid $white-color;
+  }
+}
+
+.theme_modal_text_color {
+  color: $gray-color;
+  @include text_color_transition;
+}
+
+body[data-theme='dark'] {
+  .theme_modal_text_color {
+    color: $light_gray_color;
+  }
+}
+
+.theme_text_orange_to_gray {
+  color: $grapefruit-color;
+  @include text_color_transition;
+}
+
+body[data-theme='dark'] {
+  .theme_text_orange_to_gray {
+    color: $light_gray_color;
+  }
+}
+
+.theme_text_dark_to_orange {
+  color: $black-color;
+  @include text_color_transition;
+}
+
+body[data-theme='dark'] {
+  .theme_text_dark_to_orange {
+    color: $grapefruit-color;
+  }
+}

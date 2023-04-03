@@ -1,0 +1,41 @@
+.switcher_button {
+  position: relative;
+  display: inline-block;
+
+  .switcher_button_checkbox {
+    display: none;
+  }
+
+  .switcher_button_label {
+    cursor: pointer;
+    height: 16px;
+    width: 40px;
+    background: $main-white;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    padding: 0 2px;
+    @include background-color_transition;
+
+    &:before {
+      content: ' ';
+      display: block;
+      height: 12px;
+      width: 12px;
+      border-radius: 50%;
+      background-color: $grapefruit-color;
+      @include background-color_transition;
+      @include transform_transition;
+    }
+  }
+
+  .switcher_button_checkbox:checked + .switcher_button_label {
+    background-color: $grapefruit-color;
+
+    &:before {
+      position: absolute;
+      transform: translateX(22px);
+      background-color: $white-color;
+    }
+  }
+}

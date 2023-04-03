@@ -41,3 +41,26 @@
 //   color: potato;
 //   }
 //   }
+
+$animations_duration: 0.2s;
+$animations_timing_function: linear;
+
+@mixin background-color_transition {
+  transition: background-color $animations_duration $animations_timing_function;
+}
+
+@mixin text_color_transition {
+  transition: color $animations_duration $animations_timing_function;
+}
+
+@mixin fill_color_transition {
+  transition: fill $animations_duration $animations_timing_function;
+}
+
+@mixin border_color_transition {
+  transition: border $animations_duration $animations_timing_function;
+}
+
+@mixin transform_transition {
+  transition: transform $animations_duration $animations_timing_function;
+}

@@ -13,6 +13,7 @@
 @import './sass/base/reset';
 @import './sass/base/common';
 @import './sass/base/section';
+@import './sass/base/theme';
 
 /**
     |============================
@@ -30,6 +31,10 @@
 @import './sass/components/modal_ingredients';
 @import './sass/components/modal-cocktails';
 @import './sass/components/fav-cocktails';
+
+@import './sass/components/switcher_theme_button.scss';
+@import './sass/components/switcher_button.scss';
+
 /**
     |============================
     | Layout

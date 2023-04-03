@@ -1,0 +1,26 @@
+.switcher_theme_button {
+  display: flex;
+  gap: 8px;
+  font-size: 14px;
+  align-items: center;
+
+  @include media-desktop-min() {
+    font-size: 18px;
+  }
+
+  .switcher_theme_toggle {
+    cursor: pointer;
+    font-family: 'Poppins';
+    line-height: calc(24 / 18);
+  }
+
+  .theme_switcher {
+    border: 0.6px solid $grapefruit-color;
+  }
+
+  body[data-theme='dark'] {
+    .theme_switcher {
+      border: 1px solid $white-color;
+    }
+  }
+}
