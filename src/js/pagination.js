@@ -66,10 +66,10 @@ function parseCoctailPagination(data) {
     const renderedCoctails = paginatedData
       .map(
         coctail => `<li class="searched-cocktail__item">
-  <img class="searched-cocktail__image" src="${coctail.strDrinkThumb}" alt="${coctail.strCategory}" loading="lazy" width=0 heigth=0/><h3 class="random-cocktail__uppertext">${coctail.strDrink}</h3><div class="searched-cocktail__btn"><button type="button" class="btn btn-secondary">Learn more</button><button type="button" class="btn-primary btn">
+  <img class="searched-cocktail__image" src="${coctail.strDrinkThumb}" alt="${coctail.strCategory}" loading="lazy" width=0 heigth=0/><h3 class="random-cocktail__uppertext">${coctail.strDrink}</h3><div class="searched-cocktail__btn"><button type="button" class="btn btn-secondary">Learn more</button><button type="button" class="btn-primary btn btn-add-to">
   Add to
   <svg
-    class="btn-primary__icon"
+    class="btn-primary__icon btn-add-to"
     viewBox="0 0 19 17"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"

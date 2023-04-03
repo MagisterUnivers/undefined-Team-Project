@@ -48,11 +48,15 @@ export async function rndCocktails() {
     document.getElementById('content').removeAttribute('hidden');
     document.getElementById('loading').style.display = 'none';
     console.log(results);
-    results.forEach(result => {
-      document
-        .querySelector('.random-cocktail__list')
-        .insertAdjacentHTML('beforeend', createPic(result));
-    });
+
+    document.querySelector('.random-cocktail__list').innerHTML =
+      createPic(results);
+
+    // results.forEach(result => {
+    //   document
+    //     .querySelector('.random-cocktail__list')
+    //     .insertAdjacentHTML('beforeend', createPic(result));
+    // });
   } catch (error) {
     console.log('Error', error);
   }
@@ -137,19 +141,24 @@ export async function rndCocktails() {
 //     .catch(error => {
 //       console.log('Error', error);
 //       return error;
-//     });
+//     });picture
 // }
 
-function createPic(picture) {
-  if (
-    localStorage
-      .getItem('favCocktails')
-      .includes(`${picture.drinks[0].idDrink}`)
-  ) {
-    return `<li class="random-cocktail__item" id="${picture.drinks[0].idDrink}">
-  <img class="random-cocktail__image" src="${picture.drinks[0].strDrinkThumb}" alt="${picture.drinks[0].strCategory}" loading="lazy" width=0 heigth=0/><h3 class="random-cocktail__uppertext" name="cocktailName">${picture.drinks[0].strDrink}</h3><div class="random-cocktail__btn">${LEARN_MORE_BTN}${REMOVE_BTN}</div></li></div></div>`;
-  } else {
-    return `<li class="random-cocktail__item" id="${picture.drinks[0].idDrink}">
-  <img class="random-cocktail__image" src="${picture.drinks[0].strDrinkThumb}" alt="${picture.drinks[0].strCategory}" loading="lazy" width=0 heigth=0/><h3 class="random-cocktail__uppertext" name="cocktailName">${picture.drinks[0].strDrink}</h3><div class="random-cocktail__btn">${LEARN_MORE_BTN}${ADD_BTN}</div></li></div></div>`;
-  }
+function createPic(cards) {
+  return cards
+    .map(card => {
+      console.log(card);
+      if (
+        localStorage
+          .getItem('favCocktails')
+          .includes(`${card.drinks[0].idDrink}`)
+      ) {
+        return `<li class="random-cocktail__item" id="${card.drinks[0].idDrink}">
+  <img class="random-cocktail__image" src="${card.drinks[0].strDrinkThumb}" alt="${card.drinks[0].strCategory}" loading="lazy" width=0 heigth=0/><h3 class="random-cocktail__uppertext" name="cocktailName">${card.drinks[0].strDrink}</h3><div class="random-cocktail__btn">${LEARN_MORE_BTN}${REMOVE_BTN}</div></li></div></div>`;
+      } else {
+        return `<li class="random-cocktail__item" id="${card.drinks[0].idDrink}">
+  <img class="random-cocktail__image" src="${card.drinks[0].strDrinkThumb}" alt="${card.drinks[0].strCategory}" loading="lazy" width=0 heigth=0/><h3 class="random-cocktail__uppertext" name="cocktailName">${card.drinks[0].strDrink}</h3><div class="random-cocktail__btn">${LEARN_MORE_BTN}${ADD_BTN}</div></li></div></div>`;
+      }
+    })
+    .join('');
 }
