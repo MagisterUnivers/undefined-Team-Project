@@ -1,0 +1,35 @@
+.fav-content__wrapper {
+  height: 62px;
+
+  @include media-tablet-min(768px) {
+    height: 421px;
+  }
+
+  @include media-desktop-min(1280px) {
+    height: 378px;
+  }
+}
+
+.fav-cocktails__default-text {
+  width: 239px;
+  height: 120px;
+  text-align: center;
+  font-family: 'Poppins';
+  font-size: 20px;
+  line-height: calc(60 / 20);
+  margin: 0 auto;
+  color: #202025;
+
+  @include media-tablet-min(768px) {
+    width: 296px;
+    font-size: 24px;
+    line-height: calc(60 / 24);
+  }
+
+  @include media-desktop-min(1280px) {
+    width: 385px;
+    height: 144px;
+    font-size: 32px;
+    line-height: calc(72 / 32);
+  }
+}
