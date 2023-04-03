@@ -2,6 +2,8 @@ import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import 'notiflix/dist/notiflix-3.2.6.min.css';
 import { getCocktail } from './get-cocktail';
 import { ADD_BTN, REMOVE_BTN } from './constants';
+import { onBtnAddRemoveFavClick } from './modal-cocktail';
+
 const refs = {
   cocktailsDiv: document.querySelector('#rnd-cocktail'),
 };
@@ -90,5 +92,7 @@ async function onBtnAddRemoveFavClick(e) {
     Notify.success(
       `Cocktail ${cocktailName} was removed from your favorites!✅`
     );
+  } else if (e.target.classList.contains('btn-learn-more')) {
+    onBtnAddRemoveFavClick(e);
   }
 }

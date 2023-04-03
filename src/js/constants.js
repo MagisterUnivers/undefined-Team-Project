@@ -46,4 +46,4 @@ export const ADD_BTN = `<button type="button" class="btn-primary btn btn-add-to"
   </button>
 `;
 
-export const LEARN_MORE_BTN = `<button type="button" class="btn btn-secondary">Learn more</button>`;
+export const LEARN_MORE_BTN = `<button type="button" class="btn btn-secondary btn-learn-more">Learn more</button>`;
