@@ -3,10 +3,10 @@
   | Buttons
   |============================
 */
-export const REMOVE_BTN = `<button type="button" class="btn btn-primary">
+export const REMOVE_BTN = `<button type="button" class="btn btn-primary btn-remove-from">
   Remove
   <svg
-    class="btn-primary__icon"
+    class="btn-primary__icon btn-remove-from"
     viewBox="0 0 19 17"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
