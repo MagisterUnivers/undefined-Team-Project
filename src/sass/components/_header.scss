@@ -46,6 +46,12 @@
 
 .logo-img {
   width: 155px;
+  &:hover,
+    &:focus {
+      margin: 0 0.5rem;
+      animation: heartBeat;
+      animation-duration: 2s;
+    }
 }
 
 .navigation__list {
@@ -73,10 +79,14 @@
   // transition: color 250ms $timing-function;
 
   :hover,
-  :focus {
-    color: $grapefruit-color;
-    transition: color 250ms $timing-function;
-  }
+    :focus {
+      display: inline-block;
+      margin: 0 0.5rem;
+      animation: heartBeat;
+      animation-duration: 2s;
+      color: $grapefruit-color;
+      transition: color 250ms $timing-function;
+    }
 }
 
 .favorite__items {
