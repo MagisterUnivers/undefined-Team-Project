@@ -10,7 +10,7 @@ type EventHandlerArgs = {
   /**
    * event key
    */
-  event: string;
+  event: keyof HTMLElementEventMap;
   /**
    * callback function
    */
