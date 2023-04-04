@@ -76,7 +76,7 @@ function parseCoctailPagination(data) {
     <img class="random-cocktail__image" src="${coctail.strDrinkThumb}" alt="${coctail.strCategory}" loading="lazy" width=0 heigth=0/><h3 class="random-cocktail__uppertext" name="cocktailName">${coctail.strDrink}</h3><div class="random-cocktail__btn">${LEARN_MORE_BTN}${ADD_BTN}</div></li></div></div>`);
       }
     }, '');
-  console.log(renderedCoctails);
+  
     ulEl.insertAdjacentHTML('afterbegin', renderedCoctails);
   }
 
@@ -90,13 +90,14 @@ function parseCoctailPagination(data) {
     }
 
     btnPrevious.style.display = 'block';
-    btnPrevious.classList.disable = true;
+    btnPrevious.disabled = true;
     btnPrevious.addEventListener('click', () => {
-      if (currentPage <= 0) {
-      btnPrevious.disable = true;
+      if (currentPage === 0) {
+      btnPrevious.disabled = true;
+      btnNext.classList.remove('active')
     } else {
         btnNext.classList.add('active');
-         btnPrevious.classList.disable = false;
+        btnPrevious.disabled = false;
         currentPage--;
         displayList(dataCoctails, cardsPerPage, currentPage);
         updatePaginationActiveClass();
@@ -104,14 +105,18 @@ function parseCoctailPagination(data) {
     });
 
     btnNext.style.display = 'block';
-    btnNext.classList.disable = true;
+    btnNext.classList.add('active')
+    btnNext.disabled = false;
     btnNext.addEventListener('click', () => {
       if (currentPage === pagesCount - 1) {
         console.log(pagesCount)
-        btnNext.disable = true;
+        btnNext.disabled = true;
+        btnNext.classList.remove('active')
       } else {
         btnNext.classList.add('active');
-        btnNext.classList.disable = false;
+        btnNext.disabled = false;
+        btnPrevious.disabled = false;
+        btnPrevious.classList.add('active');
         currentPage++;
         displayList(dataCoctails, cardsPerPage, currentPage);
         updatePaginationActiveClass();
