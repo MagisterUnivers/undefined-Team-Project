@@ -72,8 +72,8 @@ closeBtn.addEventListener('click', () => {
   const modalCocktail = document.querySelector('.modal__cocktail');
 
   modalCocktail.innerHTML = '';
-
   toggleModal();
+  document.querySelector('body').classList.remove('no-scroll');
 });
 
 export function toggleModal() {
