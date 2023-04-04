@@ -74,16 +74,16 @@ async function getIngredientData(ingredientName) {
     | 
     |============================
   */
-  let abv = `<li class="modal-ingredient-item specs-list__item"><span class="specs-list__marker">&#10038;</span> Alcohol by volume: ${ingredient.strABV}%</li>`;
+  let abv = `<li class="modal-ingredient-item specs-list__item theme_modal_text_color"><span class="specs-list__marker theme_text_color">&#10038;</span> Alcohol by volume: ${ingredient.strABV}%</li>`;
   if (ingredient.strAlcohol === 'No') {
     abv = '';
   }
   function updateIngredients() {
-    return `<h2 class="modal-ingredient-title" id='${ingredient.idIngredient}''>${ingredient.strIngredient}</h2>
-        <strong class="modal-ingredient-uptitle">${ingredient.strType}</strong>
-        <p class="modal-ingredient-text">${ingredient.strDescription}</p>
+    return `<h2 class="modal-ingredient-title theme_text_color" id='${ingredient.idIngredient}''>${ingredient.strIngredient}</h2>
+        <strong class="modal-ingredient-uptitle theme_text_color">${ingredient.strType}</strong>
+        <p class="modal-ingredient-text theme_modal_text_color">${ingredient.strDescription}</p>
         <ul class="modal-ingredient-list specs-list">
-        <li class="modal-ingredient-item specs-list__item"><span class="specs-list__marker">&#10038;</span> Alcohol: ${ingredient.strAlcohol}</li>
+        <li class="modal-ingredient-item specs-list__item theme_modal_text_color"><span class="specs-list__marker theme_text_color ">&#10038;</span> Alcohol: ${ingredient.strAlcohol}</li>
         ${abv}
           </ul>`;
   }
@@ -100,19 +100,19 @@ function toggleModal() {
 }
 getIngredientData('Wine');
 
-//   abv = `<li class="modal-ingredient-item specs-list__item"><span class="specs-list__marker">&#10038;</span> Alcohol by volume: ${ingredient.strABV}%</li>`
+//   abv = `<li class="modal-ingredient-item specs-list__item theme_modal_text_color"><span class="specs-list__marker theme_text_color">&#10038;</span> Alcohol by volume: ${ingredient.strABV}%</li>`
 // }
 // let type = '';
 // if (ingredient.strType) {
-//   type = `<li class="modal-ingredient-item"><span class="specs-list__marker">&#10038;</span>Type: ${ingredient.strType}</li>`;
+//   type = `<li class="modal-ingredient-item theme_modal_text_color"><span class="specs-list__marker theme_text_color ">&#10038;</span>Type: ${ingredient.strType}</li>`;
 // }
 // let country = '';
 // if (ingredient.strCountry) {
-//   country = `<li class="modal-ingredient-item"><span class="specs-list__marker">&#10038;</span> Country of origin: ${ingredient.strCountry}</li>`;
+//   country = `<li class="modal-ingredient-item theme_modal_text_color"><span class="specs-list__marker theme_text_color ">&#10038;</span> Country of origin: ${ingredient.strCountry}</li>`;
 // }
 // let taste = '';
 // if (ingredient.strTaste) {
-//   taste = `<li class="modal-ingredient-item"> <span class="specs-list__marker">&#10038;</span> Flavour: ${ingredient.strTaste}</li>`;
+//   taste = `<li class="modal-ingredient-item theme_modal_text_color"> <span class="specs-list__marker theme_text_color ">&#10038;</span> Flavour: ${ingredient.strTaste}</li>`;
 // }
 /*
   |============================
