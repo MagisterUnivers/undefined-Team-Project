@@ -105,16 +105,16 @@ export async function onBtnAddFavClick(e) {
       break;
     }
     ingredientsList.addEventListener('click', onIngredientClick);
-
-    function onIngredientClick(event) {
-      const liElement = event.target.closest('li');
-      if (liElement) {
-        const ingredientName = liElement.textContent.trim().substring(2);
-        console.log(ingredientName);
-        return ingredientName;
-      }
-    }
   }
 
   toggleModal();
+}
+
+export function onIngredientClick(event) {
+  const liElement = event.target.closest('li');
+  if (liElement) {
+    const ingredientName = liElement.textContent.trim().substring(2);
+    console.log(ingredientName);
+    return ingredientName;
+  }
 }
