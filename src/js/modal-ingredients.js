@@ -34,9 +34,9 @@ addFavoritesButton.addEventListener('click', () => {
   const parsedFavIngredients = JSON.parse(
     localStorage.getItem('favIngredients')
   );
-  console.log(ingredient);
+  // console.log(ingredient);
   parsedFavIngredients.push(ingredient);
-  console.log(parsedFavIngredients);
+  // console.log(parsedFavIngredients);
   localStorage.setItem('favIngredients', JSON.stringify(parsedFavIngredients));
   Notify.success(`${ingredient.strIngredient} added to your favorites😍!`);
 });
@@ -46,8 +46,8 @@ removeFavoritesButton.addEventListener('click', e => {
   const parsedFavIngredients = JSON.parse(
     localStorage.getItem('favIngredients')
   );
-  console.log(parsedFavIngredients);
-  console.dir(e.target);
+  // console.log(parsedFavIngredients);
+  // console.dir(e.target);
   parsedFavIngredients.splice(
     parsedFavIngredients.findIndex(
       ingredient =>

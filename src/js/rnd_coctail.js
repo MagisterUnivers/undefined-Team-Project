@@ -47,7 +47,7 @@ export async function rndCocktails() {
     );
     document.getElementById('content').removeAttribute('hidden');
     document.getElementById('loading').style.display = 'none';
-    console.log(results);
+    // console.log(results);
 
     document.querySelector('.random-cocktail__list').innerHTML =
       createPic(results);
@@ -145,7 +145,7 @@ export async function rndCocktails() {
 // }
 
 function createPic(cards) {
-  console.log(cards);
+  // console.log(cards);
   return cards.reduce((acc, card) => {
     if (
       localStorage.getItem('favCocktails').includes(`${card.drinks[0].idDrink}`)

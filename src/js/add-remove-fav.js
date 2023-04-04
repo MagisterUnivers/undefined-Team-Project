@@ -5,12 +5,12 @@ import { ADD_BTN, REMOVE_BTN } from './constants';
 import { onBtnAddFavClick } from './modal-cocktail';
 
 const cocktailsDiv = document.querySelector('#rnd-cocktail');
-console.log(cocktailsDiv);
+// console.log(cocktailsDiv);
 let btnsDiv;
 let btnEl;
 let selectedCocktail;
 let cocktailName;
-console.log(JSON.parse(localStorage.getItem('favCocktails')));
+// console.log(JSON.parse(localStorage.getItem('favCocktails')));
 if (!localStorage.getItem('favCocktails')) {
   localStorage.setItem('favCocktails', JSON.stringify([]));
 }
@@ -20,8 +20,8 @@ async function onBtnAddRemoveFavClick(e) {
   if (e.target.closest('.btn-add-to')) {
     btnEl = e.target.closest('.btn-add-to');
     btnsDiv = e.target.closest('.random-cocktail__btn');
-    console.log(btnEl);
-    console.dir(e.target.parentNode.parentNode);
+    // console.log(btnEl);
+    // console.dir(e.target.parentNode.parentNode);
     selectedCocktail = e.target.closest('.random-cocktail__item').id;
 
     // else {
@@ -33,7 +33,7 @@ async function onBtnAddRemoveFavClick(e) {
     btnEl.setAttribute('disabled', '');
     const result = await getCocktail(selectedCocktail);
     try {
-      console.log(result);
+      // console.log(result);
       const favList = JSON.parse(localStorage.getItem('favCocktails'));
 
       favList.push(result.drinks[0]);
@@ -52,7 +52,7 @@ async function onBtnAddRemoveFavClick(e) {
 
     btnEl.setAttribute('disabled', '');
 
-    console.log('click on remove');
+    // console.log('click on remove');
     const favCocktails = JSON.parse(localStorage.getItem('favCocktails'));
     favCocktails.splice(
       favCocktails.findIndex(cocktail => {

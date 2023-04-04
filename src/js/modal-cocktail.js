@@ -140,7 +140,7 @@ export async function fetchCocktailById(id) {
 
 export async function onBtnAddFavClick(e) {
   const id = e.target.closest('li').getAttribute('id');
-  console.log(id);
+  // console.log(id);
 
   const data = await fetchCocktailById(id);
   cocktail = data;
