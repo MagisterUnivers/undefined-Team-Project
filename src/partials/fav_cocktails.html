@@ -7,14 +7,17 @@
     <title>Favorite cocktails</title>
     <link rel="icon" type="image/x-icon" href="/src/images/favicon.ico" />
     <link rel="stylesheet" href="/src/index.scss" />
+
     <script src="/src/js/fav_cocktails.js" type="module"></script>
   </head>
   <body>
     <main>
       <include src="./partials/header.html"></include>
       <section class="fav-cocktail section">
-        <h1 class="random-cocktail__title">Favorite cocktails</h1>
-        <p class="fav-cocktails__default-text" hidden>
+        <h1 class="random-cocktail__title theme_text_color">
+          Favorite cocktails
+        </h1>
+        <p class="fav-cocktails__default-text theme_text_color" hidden>
           You haven't added any favorite cocktails yet
         </p>
         <div id="content" hidden>
@@ -25,6 +28,41 @@
         <div class="fav-content__wrapper"></div>
       </section>
       <include src="./partials/footer.html"></include>
+      <!-- Modal -->
+      <div class="backdrop2 is-hidden">
+        <div class="modal-cocktails-group">
+          <div class="modal-cocktails" id="modal-cocktails">
+            <button
+              class="modal-cocktails-close"
+              aria-label="Кнопка для закриття меню"
+            >
+              <svg
+                class="modal-cocktails-close-icon"
+                width="32px"
+                height="32px"
+              >
+                <use href="../images/sprite.svg#icon-close-cross"></use>
+              </svg>
+            </button>
+          </div>
+          <button
+            type="button"
+            class="btn btn-secondary btn__add-to-fav modal-btn__add-to-fav2"
+            id="modal-btn__add-to-fav2"
+            aria-label="Add cocktail to favorite"
+          >
+            Add to favorite
+          </button>
+          <button
+            type="button"
+            class="btn btn-secondary btn__remove-fav modal-btn__remove-fav2"
+            id="modal-btn__remove-fav2"
+            aria-label="Remove from favorite"
+          >
+            Remove from favorite
+          </button>
+        </div>
+      </div>
     </main>
   </body>
 </html>

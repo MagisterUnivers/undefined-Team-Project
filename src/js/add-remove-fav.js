@@ -20,56 +20,39 @@ refs.cocktailsDiv.addEventListener('click', onBtnAddRemoveFavClick);
 
 async function onBtnAddRemoveFavClick(e) {
   console.dir(e);
-  if (
-    e.target.classList.contains('btn-add-to') ||
-    e.target.parentNode.classList.contains('btn-add-to')
-  ) {
-    if (e.target.classList.contains('btn-add-to')) {
-      btnEl = e.target;
-      btnsDiv = e.target.parentNode;
-      console.log(btnEl);
-      console.dir(e.target.parentNode.parentNode);
-      selectedCocktail = e.target.parentNode.parentNode.id;
-    } else {
-      btnEl = e.target.parentNode.parentNode;
-      btnsDiv = e.target.parentNode.parentNode.parentNode;
-      selectedCocktail =
-        e.target.parentNode.parentNode.parentNode.parentNode.id;
-    }
+  if (e.target.closest('.btn-add-to')) {
+    btnEl = e.target.closest('.btn-add-to');
+    btnsDiv = e.target.closest('.random-cocktail__btn');
+    console.log(btnEl);
+    console.dir(e.target.parentNode.parentNode);
+    selectedCocktail = e.target.closest('.random-cocktail__item').id;
+
+    // else {
+    //   btnEl = e.target.parentNode.parentNode;
+    //   btnsDiv = e.target.parentNode.parentNode.parentNode;
+    //   selectedCocktail =
+    //     e.target.parentNode.parentNode.parentNode.parentNode.id;
+    // }
     btnEl.setAttribute('disabled', '');
     const result = await getCocktail(selectedCocktail);
     try {
       console.log(result);
       const favList = JSON.parse(localStorage.getItem('favCocktails'));
-      if (
-        localStorage
-          .getItem('favCocktails')
-          .includes(`${result.drinks[0].idDrink}`)
-      ) {
-        console.log('ALREADY IN ARRAY!!!');
-      } else {
-        favList.push(result.drinks[0]);
-        localStorage.setItem('favCocktails', JSON.stringify(favList));
-        cocktailName = favList[favList.length - 1].strDrink;
-        Notify.success(`Cocktail ${cocktailName} added to your favorites!✅`);
-        btnEl.remove();
-        btnsDiv.insertAdjacentHTML('beforeend', REMOVE_BTN);
-      }
+
+      favList.push(result.drinks[0]);
+      localStorage.setItem('favCocktails', JSON.stringify(favList));
+      cocktailName = favList[favList.length - 1].strDrink;
+      Notify.success(`Cocktail ${cocktailName} added to your favorites!✅`);
+      btnEl.remove();
+      btnsDiv.insertAdjacentHTML('beforeend', REMOVE_BTN);
     } catch {
       console.log('ERROR>>', error.message);
       Notify.failure('Some error has occurred. Try in a few minutes.❌');
     }
-  } else if (
-    e.target.classList.contains('btn-remove-from') ||
-    e.target.parentNode.classList.contains('btn-remove-from')
-  ) {
-    if (e.target.classList.contains('btn-remove-from')) {
-      btnEl = e.target;
-      btnsDiv = e.target.parentNode;
-    } else {
-      btnEl = e.target.parentNode.parentNode;
-      btnsDiv = e.target.parentNode.parentNode.parentNode;
-    }
+  } else if (e.target.closest('.btn-remove-from')) {
+    btnEl = e.target.closest('.btn-remove-from');
+    btnsDiv = e.target.closest('.random-cocktail__btn');
+
     btnEl.setAttribute('disabled', '');
 
     console.log('click on remove');

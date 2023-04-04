@@ -9,29 +9,29 @@
 
         <!------------------------------- navigation -------------------------------->
         <ul class="navigation__list">
-          <li class="navigation__item dark-theme-text">
+          <li class="navigation__item">
             <a
-              class="navigation__link"
+              class="navigation__link theme_text_color"
               href="/src/index.html"
               aria-label="navigation"
               >Home</a
             >
           </li>
           <li class="navigation__item drop__item">
-            <p class="favorite-text dark-theme-text">Favorite</p>
+            <p class="favorite-text theme_text_color">Favorite</p>
 
             <div class="favorite__items">
-              <div class="navigation-drop__item dark-theme-text">
+              <div class="navigation-drop__item">
                 <a
-                  class="navigation-drop__link dark-theme-text"
+                  class="navigation-drop__link theme_text_color"
                   href="/src/partials/fav_cocktails.html"
                   aria-label="Favorite cocktails"
                   >Favorite cocktails</a
                 >
               </div>
-              <div class="navigation-drop__item dark-theme-text">
+              <div class="navigation-drop__item">
                 <a
-                  class="navigation-drop__link dark-theme-text"
+                  class="navigation-drop__link theme_text_color"
                   href="/src/partials/fav_ingredients.html"
                   aria-label="Favorite ingredients"
                   >Favorite ingredients</a
@@ -70,30 +70,30 @@
         </include>
 
         <!------------------------- BURGER MENU BUTTON --------------------->
-        <button
-          type="button"
-          class="burger-menu-btn"
-          aria-expanded="false"
-          data-burger-menu-toggle
-          aria-label="menu"
-        >
-          <svg
-            class="burger-menu-btn-icon"
-            width="32"
-            height="32"
-            aria-label="Burger menu toggle"
-          >
-            <use
-              class="burger-icon-menu"
-              href="/src/images/sprite.svg#icon-burger-menu"
-            ></use>
-            <use
-              class="burger-icon-cross"
-              href="/src/images/sprite.svg#icon-close-cross"
-            ></use>
-          </svg>
-        </button>
       </div>
+      <button
+        type="button"
+        class="burger-menu-btn"
+        aria-expanded="false"
+        data-burger-menu-toggle
+        aria-label="menu"
+      >
+        <svg
+          class="burger-menu-btn-icon theme_fill_color"
+          width="32"
+          height="32"
+          aria-label="Burger menu toggle"
+        >
+          <use
+            class="burger-icon-menu"
+            href="/src/images/sprite.svg#icon-burger-menu"
+          ></use>
+          <use
+            class="burger-icon-cross"
+            href="/src/images/sprite.svg#icon-close-cross"
+          ></use>
+        </svg>
+      </button>
     </div>
 
     <div class="mobile-menu" data-burger-menu>
@@ -108,25 +108,13 @@
         </a>
         <!-----------------------------burger menu SWITCHER -------------------------->
         <div class="burger-wrapper">
-          <ul class="burger-switcher">
-            <li
-              class="burger-switcher-light dark-theme-text"
-              data-text-color-switcher-light
+          <div class="burger-switcher">
+            <include
+              src="./partials/components/switcher_theme_button/switcher_theme_button.html"
+              locals='{ "id": "header_switcher_theme_button2" }'
             >
-              Light
-            </li>
-            <li>
-              <button
-                type="button"
-                class="switcher-button"
-                data-header-theme-switcher
-                aria-label="header-theme"
-              ></button>
-            </li>
-            <li class="burger-switcher-dark" data-text-color-switcher-dark>
-              Dark
-            </li>
-          </ul>
+            </include>
+          </div>
 
           <div>
             <!------------------------------------------burger menu INPUT -------------------------------->
@@ -134,7 +122,7 @@
               <form class="header-form" data-burger-submit>
                 <input
                   type="search"
-                  class="burger-input dark-theme-text"
+                  class="burger-input"
                   name="burgerinput"
                   placeholder="Search"
                   data-burger-input
@@ -159,14 +147,14 @@
             <ul class="mobile-menu-navigation__list">
               <li class="mobile-menu-navigation__item">
                 <a
-                  class="mobile-navigation__link dark-theme-text"
+                  class="mobile-navigation__link theme_text_color"
                   href="/src/index.html"
                   aria-label="Home"
                   >Home
                 </a>
               </li>
               <li class="mobile-menu-navigation__item" data-burger-menu-arrow>
-                <p class="burger-favorite-text dark-theme-text">Favorite</p>
+                <p class="burger-favorite-text theme_text_color">Favorite</p>
                 <button
                   type="button"
                   class="burger-menu-arrow"
@@ -184,7 +172,7 @@
                 <div class="burger-favorite__items" data-burger-menu-favorite>
                   <div class="burger-drop__item">
                     <a
-                      class="burger-drop__link dark-theme-text"
+                      class="burger-drop__link theme_text_color"
                       href="/src/partials/fav_cocktails.html"
                       aria-label="Favorite cocktails"
                       >Favorite cocktails</a
@@ -192,7 +180,7 @@
                   </div>
                   <div class="burger-drop__item">
                     <a
-                      class="burger-drop__link dark-theme-text"
+                      class="burger-drop__link theme_text_color"
                       href="/src/partials/fav_ingredients.html"
                       aria-label="Favorite ingredients"
                       >Favorite ingredients</a
