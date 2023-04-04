@@ -90,6 +90,7 @@ async function getIngredientData(ingredientName) {
 
   modal.insertAdjacentHTML('afterbegin', updateIngredients());
   ingredientTitle = document.querySelector('.modal-ingredient-title');
+  chooseAddOrRemoveButton();
 }
 
 closeBtn.addEventListener('click', toggleModal);
@@ -98,6 +99,7 @@ function toggleModal() {
   modalGroup.classList.toggle('is-hidden');
 }
 getIngredientData('Wine');
+
 //   abv = `<li class="modal-ingredient-item specs-list__item"><span class="specs-list__marker">&#10038;</span> Alcohol by volume: ${ingredient.strABV}%</li>`
 // }
 // let type = '';
@@ -112,3 +114,26 @@ getIngredientData('Wine');
 // if (ingredient.strTaste) {
 //   taste = `<li class="modal-ingredient-item"> <span class="specs-list__marker">&#10038;</span> Flavour: ${ingredient.strTaste}</li>`;
 // }
+/*
+  |============================
+  | Check what button needed to be shown
+  |============================
+*/
+function chooseAddOrRemoveButton() {
+  const parsedFavIngredients = JSON.parse(
+    localStorage.getItem('favIngredients')
+  );
+
+  if (
+    parsedFavIngredients.find(
+      ingredient =>
+        Number(ingredient.idIngredient) === Number(ingredientTitle.id)
+    )
+  ) {
+    removeFavoritesButton.style.display = 'block';
+    addFavoritesButton.style.display = 'none';
+  } else {
+    removeFavoritesButton.style.display = 'none';
+    addFavoritesButton.style.display = 'block';
+  }
+}
