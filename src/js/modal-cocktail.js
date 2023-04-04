@@ -3,7 +3,11 @@
   | Import
   |============================
 */
-
+import {
+  getIngredientData,
+  modalIngredients,
+  openModal,
+} from './modal-ingredients';
 import { id } from './add-remove-fav';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import 'notiflix/dist/notiflix-3.2.6.min.css';
@@ -73,6 +77,7 @@ closeBtn.addEventListener('click', () => {
 });
 
 export function toggleModal() {
+  document.querySelector('body').classList.add('no-scroll');
   modalGroup.classList.toggle('is-hidden');
 }
 
@@ -153,33 +158,32 @@ export async function onBtnAddFavClick(e) {
   toggleModal();
 }
 
-export function onIngredientClick(event) {
+function onIngredientClick(event) {
   const liElement = event.target.closest('li');
   if (liElement) {
     const ingredientName = liElement.textContent.trim().substring(2);
+    getIngredientData(ingredientName);
+    modalIngredients.classList.toggle('is-hidden');
     console.log(ingredientName);
-    return ingredientName;
-    /*
+  }
+}
+/*
   |============================
   | what button will be showed
   |============================
 */
-    function chooseAddOrRemoveButton() {
-      const parsedFavCocktails = JSON.parse(
-        localStorage.getItem('favCocktails')
-      );
+function chooseAddOrRemoveButton() {
+  const parsedFavCocktails = JSON.parse(localStorage.getItem('favCocktails'));
 
-      if (
-        parsedFavCocktails.find(
-          cocktail => Number(cocktail.idDrink) === Number(cocktailTitle.id)
-        )
-      ) {
-        removeFavoritesButton.style.display = 'block';
-        addFavoritesButton.style.display = 'none';
-      } else {
-        removeFavoritesButton.style.display = 'none';
-        addFavoritesButton.style.display = 'block';
-      }
-    }
+  if (
+    parsedFavCocktails.find(
+      cocktail => Number(cocktail.idDrink) === Number(cocktailTitle.id)
+    )
+  ) {
+    removeFavoritesButton.style.display = 'block';
+    addFavoritesButton.style.display = 'none';
+  } else {
+    removeFavoritesButton.style.display = 'none';
+    addFavoritesButton.style.display = 'block';
   }
 }
