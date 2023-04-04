@@ -1,3 +1,9 @@
+.fav-ingredients {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .fav-ingredients__title {
   font-family: 'Poppins';
   font-style: normal;
@@ -7,6 +13,20 @@
   text-align: center;
   color: #202025;
   padding-bottom: 60px;
+}
+
+.fav-ingredients__default {
+  width: 239px;
+}
+
+.fav-ingredients__default-text {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: calc(60 / 20);
+  text-align: center;
+  color: #202025;
 }
 
 .fav-ingredients__list {
@@ -79,6 +99,15 @@
     padding-bottom: 78px;
   }
 
+  .fav-ingredients__default {
+    width: 296px;
+  }
+
+  .fav-ingredients__default-text {
+    font-size: 24px;
+    line-height: calc(60 / 24);
+  }
+
   .fav-ingredients__list {
     flex-wrap: wrap;
     justify-content: center;
@@ -125,6 +154,15 @@
   .fav-ingredients__title {
     font-size: 48px;
     line-height: calc(72 / 48);
+  }
+
+  .fav-ingredients__default {
+    width: 385px;
+  }
+
+  .fav-ingredients__default-text {
+    font-size: 32px;
+    line-height: calc(72 / 32);
   }
 
   .fav-ingredients__item {

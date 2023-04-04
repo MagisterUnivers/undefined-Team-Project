@@ -29,6 +29,17 @@ function renderFavoritesList() {
     });
     favoritesList.appendChild(li);
   }
+
+  const footer = document.querySelector('.footer');
+  const defaultText = document.querySelector('.fav-ingredients__default');
+  if (!favorites.length) {
+    footer.style.position = 'absolute';
+    footer.style.bottom = '0';
+    footer.style.width = '100%';
+  } else {
+    footer.style.position = 'static';
+    defaultText.hidden = 'true';
+  }
 }
 
 renderFavoritesList();
