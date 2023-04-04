@@ -73,14 +73,15 @@ export async function onBtnAddFavClick(e) {
     <h4 class="modal__instructions">INSTRUCTION:</h4>
     <p class="instruction">${data.strInstructions}</p>
   </div>
-  <div class="modal__ingredients-hold">
-    <img
+  <img
       class="modal__picture"
       src="${data.strDrinkThumb}"
       alt=""
       width="280"
       height="280"
     />
+  <div class="modal__ingredients-hold">
+    
     <h4 class="modal__ingredients">INGREDIENTS</h4>
     <p class="modal__description">Per cocktail</p>
     <ul class="ingredients__list"></ul>

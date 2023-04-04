@@ -17,23 +17,17 @@
 
 .modal-cocktails-group {
   overflow-y: scroll;
-  height: 673px;
+  height: 956px;
+  width: 320px;
   position: relative;
   background-color: #ffffff;
-  padding: 20px;
+  border-radius: 4px;
+  padding: 40px 20px;
   @include media-tablet-min(768px) {
-    width: 715px;
-    height: 557px;
+    width: 822px;
+    height: 598px;
     padding: 28px;
-    // &::after {
-    //   position: absolute;
-    //   top: 169px;
-    //   left: 0;
-    //   content: '';
-    //   width: 100%;
-    //   height: 1px;
-    //   background-color: #fd5103;
-    // }
+    
   }
   &::-webkit-scrollbar {
     width: 1px;
@@ -41,52 +35,122 @@
     background-color: #ffffff;
   }
 }
-.modal-ingredient-title {
+.modal__title {
   font-family: 'Roboto';
   margin-bottom: 20px;
   font-style: normal;
   font-weight: 900;
   font-size: 32px;
-  line-height: 1.1;
+  line-height: 1.18;
   color: #202025;
-  padding-top: 12px;
-  &:hover,
-  &focus {
-    color: #fd5103;
-  }
+  margin-bottom: 20px;
   @include media-tablet-min(768px) {
     margin-bottom: 28px;
+    margin-left: calc(320px - 28px);
   }
 }
-.modal-ingredient-uptitle {
+.modal__instructions {
+  font-family: 'Poppins';
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1.625;
+  margin-bottom: 20px;
+  color: #202025;
+  @include media-tablet-min(768px) {
+  margin-bottom: 24px;
+  }
+}
+.modal__instructions-hold {
+  @include media-tablet-min(768px) {
+position: absolute;
+top: 348px;
+left: 28px;
+
+  }
+}
+.modal__ingredients {
   font-family: 'Poppins';
   font-weight: 600;
   font-size: 16px;
   line-height: 1.5;
-  text-transform: uppercase;
+  margin-bottom: 8px;
   color: #202025;
-}
-.modal-ingredient-text {
+  }
+
+  .ingredients__list {
+    @include media-tablet-min(768px) {
+      height: 160px;
+      overflow-y: scroll;
+      &::-webkit-scrollbar{
+        display: none;
+      }
+    }
+  }
+.instruction {
   font-style: normal;
   font-family: 'Poppins';
   font-weight: 400;
   font-size: 16px;
   line-height: 1.75;
-  margin-top: 20px;
   color: #5f6775;
+  margin-bottom: 22px;
   @include media-tablet-min(768px) {
-    margin-top: 68px;
+    margin-bottom: 32px;
+    height: 84px;
+    width: 615px;
+    overflow-y: scroll;
+    &::-webkit-scrollbar{
+      display: none;
+    }
   }
 }
-.modal-ingredient-list {
-  margin-top: 28px;
-  display: flex;
-  flex-direction: column;
+.ingredient__item {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.625;
+  color: #5f6775;
+  &:hover, &:focus{
+    color: #fd5103;
+  }
+}
+
+.ingredient__item:hover .ingredientsBlack, .ingredient__item:focus .ingredientsBlack {
+  color: #fd5103;
+}
+
+.modal__description {
+font-family: 'Poppins';
+font-style: normal;
+font-weight: 300;
+font-size: 14px;
+line-height: 21px;
+color: #202025;
+margin-bottom: 8px;
+}
+
+.modal__ingredients-hold {
   margin-bottom: 32px;
   @include media-tablet-min(768px) {
-    margin-bottom: 40px;
+position: absolute;
+top: 105px;
+left: 320px;
   }
 }
+
+.modal__picture {
+  margin-bottom: 22px;
+  @include media-tablet-min(768px) {
+    width: 288px;
+    height: 320px;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+  }
+
+}
+
 .modal-cocktails-close {
   position: absolute;
   background-color: inherit;
@@ -100,17 +164,31 @@
 }
 .modal-btn__add-to-fav2,
 .modal-btn__remove-fav2 {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 24px;
+letter-spacing: 0.02em;
+color: #FCFCFC;
   margin-left: 0;
-  margin-bottom: 20px;
+  // padding: 12px 24px;
   @include media-tablet-min(768px) {
-    margin-right: 0;
-    margin-left: auto;
+    margin-bottom: 0px;
+    position: absolute;
+    bottom: 28px;
+    right: 28px;
   }
 }
 
 .modal-cocktails-close-icon {
   &:hover,
-  &focus {
+  &:focus {
     fill: #fd5103;
   }
+}
+
+.ingredientsBlack {
+  color: #000917;
+
 }
