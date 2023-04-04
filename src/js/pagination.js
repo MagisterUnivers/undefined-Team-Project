@@ -1,4 +1,3 @@
-import { searchCocktails } from './search-cocktail';
 import { rndCocktails } from './rnd_coctail';
 import { refs } from './custom-select-box/select-box';
 import { ADD_BTN, REMOVE_BTN, LEARN_MORE_BTN } from './constants.js';
@@ -6,15 +5,23 @@ import { ADD_BTN, REMOVE_BTN, LEARN_MORE_BTN } from './constants.js';
 const ulEl = document.querySelector('.random-cocktail__list');
 const btnPrevious = document.querySelector('.arrow-btn-pagination.previous');
 const btnNext = document.querySelector('.arrow-btn-pagination.next');
+const titleEl = document.querySelector('.random-cocktail__title');
+const paginationBox = document.querySelector('.pagination__wrapper');
 
 btnPrevious.style.display = 'none';
 btnNext.style.display = 'none';
+
+async function searchCocktails(firstLetter) {
+  const API_SEARCH = `https://www.thecocktaildb.com/api/json/v1/1/search.php?f=${firstLetter}`;
+  const response = await fetch(API_SEARCH);
+  const data = await response.json();
+  return data.drinks;
+}
 
 const ulList = document.querySelectorAll(
   '.hero___search__list .hero__search__item'
 );
 
-console.log(ulList);
 
 refs.optionsList.forEach(option => {
   option.addEventListener('click', () => {
@@ -57,13 +64,13 @@ function parseCoctailPagination(data) {
   }
 
   function displayList(arrData, cards, page) {
+    titleEl.textContent = 'Searching results';
     ulEl.innerHTML = '';
 
     page--;
     const start = cards * page;
     const end = start + cards;
     const paginatedData = arrData.slice(start, end);
-    console.log(paginatedData);
 
     const renderedCoctails = paginatedData.reduce((acc, coctail) => {
       if (localStorage.getItem('favCocktails').includes(`${coctail.idDrink}`)) {
@@ -74,7 +81,7 @@ function parseCoctailPagination(data) {
     <img class="random-cocktail__image" src="${coctail.strDrinkThumb}" alt="${coctail.strCategory}" loading="lazy" width=0 heigth=0/><h3 class="random-cocktail__uppertext theme_text_color" name="cocktailName">${coctail.strDrink}</h3><div class="random-cocktail__btn">${LEARN_MORE_BTN}${ADD_BTN}</div></li></div></div>`);
       }
     }, '');
-
+  
     ulEl.insertAdjacentHTML('afterbegin', renderedCoctails);
   }
 
@@ -82,18 +89,21 @@ function parseCoctailPagination(data) {
     const paginationList = document.querySelector('.pagination__list');
     paginationList.innerHTML = '';
     const pagesCount = Math.ceil(arrData.length / cards);
-    for (let i = 0; i < pagesCount; i++) {
+
+    if (pagesCount === 1) {
+      paginationBox.classList.add('visually-hidden');
+    } else {for (let i = 0; i < pagesCount; i++) {
       const liEl = displayPaginationBtn(i + 1);
       paginationList.appendChild(liEl);
-    }
+    }}
+    
 
     btnPrevious.style.display = 'block';
-    btnPrevious.disabled = true;
+    btnPrevious.disable = true;
     btnPrevious.addEventListener('click', () => {
-      if (currentPage === 0) {
-        btnPrevious.disabled = true;
-        btnNext.classList.remove('active');
-      } else {
+      if (currentPage === 1) {
+      btnPrevious.disable = true;
+    } else {
         btnNext.classList.add('active');
         btnPrevious.disabled = false;
         currentPage--;
@@ -103,30 +113,35 @@ function parseCoctailPagination(data) {
     });
 
     btnNext.style.display = 'block';
-    btnNext.classList.add('active');
     btnNext.disabled = false;
+    btnNext.classList.add('active');
     btnNext.addEventListener('click', () => {
-      if (currentPage === pagesCount - 1) {
-        console.log(pagesCount);
+      if (currentPage === pagesCount) {
+        console.log(pagesCount)
         btnNext.disabled = true;
-        btnNext.classList.remove('active');
+        btnNext.classList.remove('active')
       } else {
-        btnNext.classList.add('active');
-        btnNext.disabled = false;
         btnPrevious.disabled = false;
         btnPrevious.classList.add('active');
         currentPage++;
         displayList(dataCoctails, cardsPerPage, currentPage);
         updatePaginationActiveClass();
       }
-    });
-  }
+    });  
+    }
 
-  function updatePaginationActiveClass() {
-    const activeItem = document.querySelector('.pagination__item--active');
-    console.log(activeItem);
-    if (activeItem) {
-      activeItem.classList.remove('pagination__item--active');
+    function updatePaginationActiveClass() {
+      const activeItem = document.querySelector('.pagination__item--active');
+      console.log(activeItem);
+      if (activeItem) {
+        activeItem.classList.remove('pagination__item--active');
+      }
+      const newActiveItem = document.querySelector(
+        `.pagination__item:nth-child(${currentPage})`
+      );
+      if (newActiveItem) {
+        newActiveItem.classList.add('pagination__item--active');
+      }
     }
     const newActiveItem = document.querySelector(
       `.pagination__item:nth-child(${currentPage + 1})`
