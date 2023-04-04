@@ -1,11 +1,19 @@
 .switcher_theme_button {
-  display: flex;
-  gap: 8px;
-  font-size: 14px;
-  align-items: center;
+display: none;
+
+  @include media-tablet-min() {
+    display: none;
+   
+  }
+
 
   @include media-desktop-min() {
     font-size: 18px;
+      display: flex;
+        gap: 8px;
+        
+        align-items: center;
+        margin-right: 16px;
   }
 
   .switcher_theme_toggle {

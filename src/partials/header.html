@@ -11,7 +11,7 @@
         <ul class="navigation__list">
           <li class="navigation__item dark-theme-text">
             <a
-              class="navigation__link"
+              class="navigation__link dark-theme-text"
               href="/src/index.html"
               aria-label="navigation"
               >Home</a
@@ -70,30 +70,14 @@
         </include>
 
         <!------------------------- BURGER MENU BUTTON --------------------->
-        <button
-          type="button"
-          class="burger-menu-btn"
-          aria-expanded="false"
-          data-burger-menu-toggle
-          aria-label="menu"
-        >
-          <svg
-            class="burger-menu-btn-icon"
-            width="32"
-            height="32"
-            aria-label="Burger menu toggle"
-          >
-            <use
-              class="burger-icon-menu"
-              href="/src/images/sprite.svg#icon-burger-menu"
-            ></use>
-            <use
-              class="burger-icon-cross"
-              href="/src/images/sprite.svg#icon-close-cross"
-            ></use>
-          </svg>
-        </button>
+        
       </div>
+      <button type="button" class="burger-menu-btn" aria-expanded="false" data-burger-menu-toggle aria-label="menu">
+        <svg class="burger-menu-btn-icon" width="32" height="32" aria-label="Burger menu toggle">
+          <use class="burger-icon-menu" href="/src/images/sprite.svg#icon-burger-menu"></use>
+          <use class="burger-icon-cross" href="/src/images/sprite.svg#icon-close-cross"></use>
+        </svg>
+      </button>
     </div>
 
     <div class="mobile-menu" data-burger-menu>

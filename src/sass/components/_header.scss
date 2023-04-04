@@ -29,7 +29,19 @@
 }
 
 .header__logo-link {
+  font-size: 22px;
+    line-height: 1.09;
+  letter-spacing: 0.02em;
+  padding-left: 20px;
   //   display: block;
+
+  @include media-tablet-min{
+    font-size: 28px;
+      line-height:0.86;
+
+    
+      letter-spacing: 0.02em;
+  }
   margin-right: 50px;
 }
 
@@ -39,6 +51,10 @@
 
 .navigation__list {
   display: none;
+
+  @include media-tablet-min {
+    display: none;
+  }
 
   @include media-desktop-min(1280px) {
     position: relative;
@@ -54,6 +70,7 @@
   line-height: 1.33;
   letter-spacing: 0.02em;
   cursor: default;
+  
   // transition: color 250ms $timing-function;
 
   :hover,
@@ -66,6 +83,7 @@
 .favorite__items {
   position: absolute;
   background-color: $white-color;
+
   top: 40px;
   left: 130px;
   min-width: 250px;
@@ -111,6 +129,12 @@
     transition: background-color 300ms $timing-function;
   }
 }
+.navigation__link{
+  color: $black-color;
+  font-size: 18px;
+  line-height: 1.33;  
+  letter-spacing: 0.02em;
+}
 
 .navigation-drop__link {
   color: $black-color;
@@ -120,10 +144,28 @@
 
 .header-right-wrapper {
   display: flex;
+  
+@include media-tablet-min(768){
+  display: flex;
   align-items: center;
-  //   justify-content: space-between;
 }
 
+  @include media-desktop-min(1280){
+  display: flex;
+  align-items: center;
+  }
+
+  //   justify-content: space-between;
+}
+.switcher_theme_button {
+ 
+  
+
+  @include media-desktop-min(1280){
+    display: block;
+    margin-right: 16px;
+  }
+}
 .header-form {
   position: relative;
 
@@ -132,7 +174,7 @@
   }
 
   @include media-desktop-min(1280px) {
-    margin-right: 10px;
+    margin-right: 171px;
   }
 }
 
@@ -173,11 +215,13 @@
     line-height: 1.71;
     letter-spacing: 0.02em;
     padding: 5px 5px 5px 48px;
+    
     // margin-right: 100px;
   }
 
   @include media-desktop-min(1280px) {
     width: 290px;
+  
   }
 }
 
@@ -211,7 +255,7 @@
   position: absolute;
   z-index: 9;
   right: 20px;
-  top: 20px;
+  top: 30px;
 
   display: block;
   background-color: transparent;
@@ -219,8 +263,10 @@
   width: 32px;
   height: 32px;
 
+
   @include media-tablet-min(768px) {
     margin-left: 40px;
+    top: 24px;
   }
 
   @include media-desktop-min(1280px) {
@@ -435,3 +481,7 @@
 .unscroll-body {
   overflow: hidden;
 }
+
+// .dark-theme-text{
+//   color: $white-color;
+// }
