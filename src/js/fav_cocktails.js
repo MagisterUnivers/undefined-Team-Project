@@ -1,3 +1,4 @@
+import '../partials/components/switcher_theme_button/switcher_theme_button.ts';
 import './add-remove-fav';
 import { ADD_BTN, REMOVE_BTN, LEARN_MORE_BTN } from './constants.js';
 
