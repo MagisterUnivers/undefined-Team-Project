@@ -37,6 +37,10 @@ removeFavoritesButton.addEventListener('click', () => {
 });
 
 closeBtn.addEventListener('click', () => {
+  const modalCocktail = document.querySelector('.modal__cocktail');
+
+  modalCocktail.innerHTML = '';
+
   toggleModal();
 });
 
