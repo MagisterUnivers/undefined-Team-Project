@@ -1,12 +1,10 @@
-.switcher_theme_button {
+.switcher-desktop {
 display: none;
 
   @include media-tablet-min() {
     display: none;
    
   }
-
-
   @include media-desktop-min() {
     font-size: 18px;
       display: flex;
