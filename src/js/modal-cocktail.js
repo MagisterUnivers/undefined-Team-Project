@@ -3,7 +3,7 @@
   | Import
   |============================
 */
-
+import {getIngredientData, modalIngredients, openModal} from './modal-ingredients'
 import { id } from './add-remove-fav';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import 'notiflix/dist/notiflix-3.2.6.min.css';
@@ -153,12 +153,14 @@ export async function onBtnAddFavClick(e) {
   toggleModal();
 }
 
-export function onIngredientClick(event) {
+function onIngredientClick(event) {
   const liElement = event.target.closest('li');
   if (liElement) {
     const ingredientName = liElement.textContent.trim().substring(2);
+    getIngredientData(ingredientName)
+    modalIngredients.classList.toggle('is-hidden');
     console.log(ingredientName);
-    return ingredientName;
+  }}
 /*
   |============================
   | what button will be showed

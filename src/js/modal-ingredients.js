@@ -13,7 +13,7 @@ import 'notiflix/dist/notiflix-3.2.6.min.css';
 const modal = document.querySelector('#modal-ingredients');
 const openBtn = document.querySelector('.open-btn');
 const closeBtn = document.querySelector('.modal-ingredients-close');
-const modalGroup = document.querySelector('.backdrop');
+export const modalIngredients = document.querySelector('.backdrop');
 const removeFavoritesButton = document.querySelector('#modal-btn__remove-fav');
 const addFavoritesButton = document.querySelector('#modal-btn__add-to-fav');
 let ingredientTitle;
@@ -58,7 +58,7 @@ removeFavoritesButton.addEventListener('click', e => {
   localStorage.setItem('favIngredients', JSON.stringify(parsedFavIngredients));
   Notify.info(`${ingredient.strIngredient} was removed from your favorites🙄!`);
 });
-async function getIngredientData(ingredientName) {
+export async function getIngredientData(ingredientName) {
   const response = await fetch(
     `https://www.thecocktaildb.com/api/json/v1/1/search.php?i=${ingredientName}`
   );
@@ -75,18 +75,27 @@ async function getIngredientData(ingredientName) {
     | 
     |============================
   */
-  let abv = `<li class="modal-ingredient-item specs-list__item theme_modal_text_color"><span class="specs-list__marker theme_text_color">&#10038;</span> Alcohol by volume: ${ingredient.strABV}%</li>`;
-  if (ingredient.strAlcohol === 'No') {
-    abv = '';
-  }
+
+  let type = '';
+if (ingredient.strType) {
+  type = `<strong class="modal-ingredient-uptitle theme_text_color">${ingredient.strType}</strong>`;
+}
+let description = '';
+if(ingredient.strDescription){
+  description = `<p class="modal-ingredient-text theme_modal_text_color">${ingredient.strDescription}</p>`
+}
+let abv = '';
+if (ingredient.strABV) {
+  abv = `<li class="modal-ingredient-item specs-list__item theme_modal_text_color"><span class="specs-list__marker theme_text_color">&#10038;</span> Alcohol by volume: ${ingredient.strABV}%</li>`;
+}
   function updateIngredients() {
-    return `<h2 class="modal-ingredient-title theme_text_color" id='${ingredient.idIngredient}''>${ingredient.strIngredient}</h2>
-        <strong class="modal-ingredient-uptitle theme_text_color">${ingredient.strType}</strong>
-        <p class="modal-ingredient-text theme_modal_text_color">${ingredient.strDescription}</p>
+    return `<div class="remove"><h2 class="modal-ingredient-title theme_text_color" id='${ingredient.idIngredient}''>${ingredient.strIngredient}</h2>
+        ${type}
+        ${description}
         <ul class="modal-ingredient-list specs-list">
         <li class="modal-ingredient-item specs-list__item theme_modal_text_color"><span class="specs-list__marker theme_text_color ">&#10038;</span> Alcohol: ${ingredient.strAlcohol}</li>
         ${abv}
-          </ul>`;
+          </ul></div>`;
   }
 
   modal.insertAdjacentHTML('afterbegin', updateIngredients());
@@ -94,19 +103,17 @@ async function getIngredientData(ingredientName) {
   chooseAddOrRemoveButton();
 }
 
-closeBtn.addEventListener('click', toggleModal);
-openBtn.addEventListener('click', toggleModal);
+closeBtn.addEventListener('click', ()=>{toggleModal()
+  const remove = document.querySelector('.remove')
+  remove.style.display = 'none'})
 function toggleModal() {
-  modalGroup.classList.toggle('is-hidden');
+  modalIngredients.classList.toggle('is-hidden');
 }
-getIngredientData('Wine');
+// getIngredientData('Wine');
 
 //   abv = `<li class="modal-ingredient-item specs-list__item theme_modal_text_color"><span class="specs-list__marker theme_text_color">&#10038;</span> Alcohol by volume: ${ingredient.strABV}%</li>`
 // }
-// let type = '';
-// if (ingredient.strType) {
-//   type = `<li class="modal-ingredient-item theme_modal_text_color"><span class="specs-list__marker theme_text_color ">&#10038;</span>Type: ${ingredient.strType}</li>`;
-// }
+
 // let country = '';
 // if (ingredient.strCountry) {
 //   country = `<li class="modal-ingredient-item theme_modal_text_color"><span class="specs-list__marker theme_text_color ">&#10038;</span> Country of origin: ${ingredient.strCountry}</li>`;
