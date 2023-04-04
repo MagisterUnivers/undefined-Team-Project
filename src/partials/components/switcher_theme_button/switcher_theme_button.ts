@@ -41,10 +41,11 @@ import { addEventHandler } from '../../../js/utils';
 
   restoreTheme();
 
-  addEventHandler(
-    'body',
-    '.switcher_theme_button input, .switcher_theme_button .switcher_theme_toggle',
-    'click',
-    switchTheme
-  );
+  addEventHandler({
+    target: 'body',
+    childQuerySelector:
+      '.switcher_theme_button input, .switcher_theme_button .switcher_theme_toggle',
+    event: 'click',
+    callback: switchTheme,
+  });
 })();
