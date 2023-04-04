@@ -5,6 +5,8 @@
 */
 
 import { id } from './add-remove-fav';
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
+import 'notiflix/dist/notiflix-3.2.6.min.css';
 
 /**
   |============================
@@ -19,7 +21,8 @@ const closeBtn = document.querySelector('.modal-cocktails-close');
 const modalGroup = document.querySelector('.backdrop2');
 const removeFavoritesButton = document.querySelector('#modal-btn__remove-fav2');
 const addFavoritesButton = document.querySelector('#modal-btn__add-to-fav2');
-
+let cocktail; // Serhii var
+let cocktailTitle; // Serhii var
 /**
   |============================
   | Code
@@ -30,10 +33,35 @@ removeFavoritesButton.style.display = 'none';
 addFavoritesButton.addEventListener('click', () => {
   removeFavoritesButton.style.display = 'block';
   addFavoritesButton.style.display = 'none';
+  /*
+    |============================
+    | add to localStorage
+    |============================
+  */
+  const parsedFavCocktails = JSON.parse(localStorage.getItem('favCocktails'));
+  parsedFavCocktails.push(cocktail);
+  localStorage.setItem('favCocktails', JSON.stringify(parsedFavCocktails));
+  Notify.success(`Cocktail ${cocktail.strDrink} added to your favorites😍!`);
 });
 removeFavoritesButton.addEventListener('click', () => {
   removeFavoritesButton.style.display = 'none';
   addFavoritesButton.style.display = 'block';
+  /*
+    |============================
+    | remove from localStorage
+    |============================
+  */
+  const parsedFavCocktails = JSON.parse(localStorage.getItem('favCocktails'));
+  parsedFavCocktails.splice(
+    parsedFavCocktails.findIndex(
+      cocktail => Number(cocktail.idDrink) === Number(cocktailTitle.id)
+    ),
+    1
+  );
+  localStorage.setItem('favCocktails', JSON.stringify(parsedFavCocktails));
+  Notify.info(
+    `Cocktail ${cocktail.strDrink} was removed from your favorites🙄!`
+  );
 });
 
 closeBtn.addEventListener('click', () => {
@@ -87,8 +115,9 @@ export async function onBtnAddFavClick(e) {
   console.log(id);
 
   const data = await fetchCocktailById(id);
+  cocktail = data;
   const html = `<div class="modal__cocktail">
-  <h3 class="modal__title">${data.strDrink}</h3>
+  <h3 class="modal__title" id='${data.idDrink}'>${data.strDrink}</h3>
   <div class="modal__instructions-hold">
     <h4 class="modal__instructions">INSTRUCTION:</h4>
     <p class="instruction">${data.strInstructions}</p>
@@ -111,6 +140,18 @@ export async function onBtnAddFavClick(e) {
 
   modalInfo.insertAdjacentHTML('afterbegin', html);
 
+  /*
+  |============================
+  | Serhii localStorage logic 
+  |============================
+*/
+  cocktailTitle = document.querySelector('.modal__title');
+  chooseAddOrRemoveButton();
+  /*
+    |============================
+    | 
+    |============================
+  */
   const ingredientsList = modalInfo.querySelector('.ingredients__list');
 
   for (let i = 1; i <= 15; i++) {
@@ -128,4 +169,24 @@ export async function onBtnAddFavClick(e) {
   }
 
   toggleModal();
+}
+/*
+  |============================
+  | what button will be showed
+  |============================
+*/
+function chooseAddOrRemoveButton() {
+  const parsedFavCocktails = JSON.parse(localStorage.getItem('favCocktails'));
+
+  if (
+    parsedFavCocktails.find(
+      cocktail => Number(cocktail.idDrink) === Number(cocktailTitle.id)
+    )
+  ) {
+    removeFavoritesButton.style.display = 'block';
+    addFavoritesButton.style.display = 'none';
+  } else {
+    removeFavoritesButton.style.display = 'none';
+    addFavoritesButton.style.display = 'block';
+  }
 }

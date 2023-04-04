@@ -34,6 +34,7 @@ addFavoritesButton.addEventListener('click', () => {
   const parsedFavIngredients = JSON.parse(
     localStorage.getItem('favIngredients')
   );
+  console.log(ingredient);
   parsedFavIngredients.push(ingredient);
   console.log(parsedFavIngredients);
   localStorage.setItem('favIngredients', JSON.stringify(parsedFavIngredients));
