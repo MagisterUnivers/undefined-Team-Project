@@ -12,15 +12,14 @@ function showDefaultText() {
 
   function onRemoveBtnClick(ev) {
     if (
-      ev.target.parentNode.classList.contains('btn-remove-from') ||
-      ev.target.classList.contains('btn-remove-from')
+      ev.target.closest('.btn-primary').classList.contains('btn-remove-from')
     ) {
       ev.target.closest('.random-cocktail__item').remove();
       if (getCocktailsBySD().length === 1) {
         document
           .querySelector('.fav-cocktails__default-text')
           .removeAttribute('hidden');
-          document.querySelector('.fav-content__wrapper').style.display = 'block'
+        document.querySelector('.fav-content__wrapper').style.display = 'block';
       }
     }
   }
@@ -36,10 +35,10 @@ function renderCocktailsBySD() {
     document
       .querySelector('.fav-cocktails__default-text')
       .removeAttribute('hidden');
-      document.querySelector('.fav-content__wrapper').style.display = 'block'
+    document.querySelector('.fav-content__wrapper').style.display = 'block';
     return;
   } else {
-    document.querySelector('.fav-content__wrapper').style.display = 'none'
+    document.querySelector('.fav-content__wrapper').style.display = 'none';
   }
 
   const cocktailElementsArr = createElements(cocktailsArr);
