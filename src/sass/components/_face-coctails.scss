@@ -43,7 +43,7 @@
   border-radius: 4px 4px 0px 0px;
   max-width: 320px;
   border-radius: 4px;
-  transition: transform $anim-slow $anim-func;
+  transition: transform $anim-slow $anim-func, box-shadow $anim-slow $anim-func;
   &:hover {
     transform: scale(1.05);
     box-shadow: 4px 4px 4px rgba(95, 103, 117, 0.25);
