@@ -5,18 +5,20 @@ body {
   @include background-color_transition;
 }
 
-// Font colors
-$black-color: #202025;
-$main-black-color: #000917;
-$grapefruit-color: #fd5103;
-$gray-color: #5f6775;
-$white-color: #fcfcfc;
-$auxiliary-orange-color: #fe7031;
-$light_gray_color: #bdbdbd;
-
 // by default the body does not have background-color
 body[data-theme='dark'] {
   background-color: $black-color;
+}
+
+.theme_background_color {
+  background-color: $white-color;
+  @include background-color_transition;
+}
+
+body[data-theme='dark'] {
+  .theme_background_color {
+    background-color: $black-color;
+  }
 }
 
 .theme_text_color {
@@ -84,133 +86,3 @@ body[data-theme='dark'] {
     color: $grapefruit-color;
   }
 }
-
-// #202025, #fcfcfc, #5f6775, #fd5103, #000917
-
-// header {
-//   background: #202025;
-
-//   //   dark theme
-//   background: #fcfcfc;
-
-//   //   burger menu
-//   .burger-menu {
-//     background: #202025;
-
-//     // dark theme
-//     background: #fcfcfc;
-//   }
-
-//   // swither theme
-
-//   background: #5f6775;
-//   border: 0.6px solid #fd5103;
-
-//   // dark theme
-//   border: 1px solid #fcfcfc;
-//   background: #fcfcfc;
-// }
-
-// .hero {
-//   h1 {
-//     background: #202025;
-
-//     // dark theme
-//     background: #fcfcfc;
-//   }
-//   text {
-//     background: #5f6775;
-
-//     // dark theme
-//     background: #5f6775;
-//   }
-// }
-
-// .page_coctailes {
-//   background: #202025;
-
-//   //   // dark theme
-
-//   background: #fcfcfc;
-// }
-
-// // in all pop up pages text color change in the same pattern
-// // background: #202025; -----> light theme
-// // background: #FCFCFC; -----> dark theme
-
-// // modal window
-// close button {
-//   background: #202025;
-
-//   name of cocktail {
-//     background: #000917;
-
-//     // light theme
-//     background: #fcfcfc;
-//   }
-//   ingredients {
-//     background: #000917;
-
-//     // light theme
-//     background: #fcfcfc;
-//   }
-//   // Per cocktail and Instractions:
-//            background: #202025;
-//   // dark theme
-//            background: #fcfcfc;
-
-//   bullet points   {
-//     color:#000917
-
-//     // dark theme
-// {       background: #FCFCFC;
-// }
-
-//     // text light theme{
-//      background: #5F6775;
-//     }
-//     // text dark theme{
-//      background: background: #FCFCFC;
-
-//     }
-
-// }
-
-// text of Instractions: {
-//   background: #5f6775;
-
-//   // dark theme
-//   background: #bdbdbd;
-// }
-
-// body[theme='dark'] {
-//   background-color: $light_black_color;
-
-//   .theme_text_color {
-//     color: $white_color;
-//   }
-
-//   .theme_burger_menu_fill {
-//     fill: $white_color;
-//   }
-
-//   .theme_swither {
-//     border: $switch_border_black;
-//   }
-
-//   .theme_hero__text {
-//     color: $white_color;
-//   }
-
-//   .theme_cocktail__title {
-//     color: $white_color;
-//   }
-
-//   .theme_close_svg_fill {
-//     fill: $white_color;
-//   }
-
-//   .theme_modal_text_color {
-//     color: $light_grey_color;
-//   }
-// }

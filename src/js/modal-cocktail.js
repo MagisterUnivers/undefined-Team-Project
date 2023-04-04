@@ -68,10 +68,10 @@ export async function onBtnAddFavClick(e) {
 
   const data = await fetchCocktailById(id);
   const html = `<div class="modal__cocktail">
-  <h3 class="modal__title">${data.strDrink}</h3>
-  <div class="modal__instructions-hold">
-    <h4 class="modal__instructions">INSTRUCTION:</h4>
-    <p class="instruction">${data.strInstructions}</p>
+  <h3 class="modal__title theme_text_color">${data.strDrink}</h3>
+  <div class="modal__instructions-hold ">
+    <h4 class="modal__instructions theme_text_color ">INSTRUCTION:</h4>
+    <p class="instruction theme_modal_text_color">${data.strInstructions}</p>
   </div>
   <img
       class="modal__picture"
@@ -82,9 +82,9 @@ export async function onBtnAddFavClick(e) {
     />
   <div class="modal__ingredients-hold">
     
-    <h4 class="modal__ingredients">INGREDIENTS</h4>
-    <p class="modal__description">Per cocktail</p>
-    <ul class="ingredients__list"></ul>
+    <h4 class="modal__ingredients theme_text_color">INGREDIENTS</h4>
+    <p class="modal__description theme_text_color">Per cocktail</p>
+    <ul class="ingredients__list theme_modal_text_color"></ul>
   </div>
 </div>`;
 

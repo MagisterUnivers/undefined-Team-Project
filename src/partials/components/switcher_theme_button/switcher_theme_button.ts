@@ -1,15 +1,26 @@
 import { addEventHandler } from '../../../js/utils';
 
 (() => {
-  const switchTheme = () => {
-    const { body } = document;
-    const currentTheme = body.getAttribute('data-theme');
-    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+  type Theme = 'light' | 'dark';
+  const THEME = 'theme';
 
-    document.body.setAttribute('data-theme', newTheme);
+  const restoreTheme = () => {
+    const currentTheme = (localStorage.getItem(THEME) ?? 'light') as Theme;
 
-    const checked = newTheme === 'dark' ? true : false;
+    setThemeAttribute(currentTheme);
+  };
 
+  const setThemeAttribute = (theme: Theme) => {
+    document.body.setAttribute('data-theme', theme);
+
+    localStorage.setItem(THEME, theme);
+
+    const checked = theme === 'dark' ? true : false;
+
+    setInputsValue(checked);
+  };
+
+  const setInputsValue = (checked: boolean) => {
     // get all inputs with switcher_theme_button inputs
     const inputs = document.querySelectorAll<HTMLInputElement>(
       '.switcher_theme_button input'
@@ -19,6 +30,16 @@ import { addEventHandler } from '../../../js/utils';
       input.checked = checked;
     });
   };
+
+  const switchTheme = () => {
+    const { body } = document;
+    const currentTheme = body.getAttribute('data-theme');
+    const newTheme: Theme = currentTheme === 'dark' ? 'light' : 'dark';
+
+    setThemeAttribute(newTheme);
+  };
+
+  restoreTheme();
 
   addEventHandler(
     'body',
