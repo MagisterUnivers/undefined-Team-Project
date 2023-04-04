@@ -1,3 +1,4 @@
+import '../partials/components/switcher_theme_button/switcher_theme_button.ts';
 import './add-remove-fav';
 import { ADD_BTN, REMOVE_BTN, LEARN_MORE_BTN } from './constants.js';
 
@@ -61,9 +62,9 @@ function createElements(cocktails) {
 function createPic(picture) {
   if (localStorage.getItem('favCocktails').includes(`${picture.idDrink}`)) {
     return `<li class="random-cocktail__item" id="${picture.idDrink}">
-  <img class="random-cocktail__image" src="${picture.strDrinkThumb}" alt="${picture.strCategory}" loading="lazy" width=0 heigth=0/><h3 class="random-cocktail__uppertext" name="cocktailName">${picture.strDrink}</h3><div class="random-cocktail__btn">${LEARN_MORE_BTN}${REMOVE_BTN}</div></li></div></div>`;
+  <img class="random-cocktail__image" src="${picture.strDrinkThumb}" alt="${picture.strCategory}" loading="lazy" width=0 heigth=0/><h3 class="random-cocktail__uppertext theme_text_color" name="cocktailName">${picture.strDrink}</h3><div class="random-cocktail__btn">${LEARN_MORE_BTN}${REMOVE_BTN}</div></li></div></div>`;
   } else {
     return `<li class="random-cocktail__item" id="${picture.idDrink}">
-  <img class="random-cocktail__image" src="${picture.strDrinkThumb}" alt="${picture.strCategory}" loading="lazy" width=0 heigth=0/><h3 class="random-cocktail__uppertext" name="cocktailName">${picture.strDrink}</h3><div class="random-cocktail__btn">${LEARN_MORE_BTN}${ADD_BTN}</div></li></div></div>`;
+  <img class="random-cocktail__image" src="${picture.strDrinkThumb}" alt="${picture.strCategory}" loading="lazy" width=0 heigth=0/><h3 class="random-cocktail__uppertext theme_text_color" name="cocktailName">${picture.strDrink}</h3><div class="random-cocktail__btn">${LEARN_MORE_BTN}${ADD_BTN}</div></li></div></div>`;
   }
 }
