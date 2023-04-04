@@ -66,17 +66,15 @@ function parseCoctailPagination(data) {
     console.log(paginatedData);
 
     const renderedCoctails = paginatedData.reduce((acc, coctail) => {
-      if (
-        localStorage.getItem('favCocktails').includes(`${coctail.idDrink}`)
-      ) {
+      if (localStorage.getItem('favCocktails').includes(`${coctail.idDrink}`)) {
         return (acc += `<li class="random-cocktail__item" id="${coctail.idDrink}">
-    <img class="random-cocktail__image" src="${coctail.strDrinkThumb}" alt="${coctail.strCategory}" loading="lazy" width=0 heigth=0/><h3 class="random-cocktail__uppertext" name="cocktailName">${coctail.strDrink}</h3><div class="random-cocktail__btn">${LEARN_MORE_BTN}${REMOVE_BTN}</div></li></div></div>`);
+    <img class="random-cocktail__image" src="${coctail.strDrinkThumb}" alt="${coctail.strCategory}" loading="lazy" width=0 heigth=0/><h3 class="random-cocktail__uppertext theme_text_color" name="cocktailName">${coctail.strDrink}</h3><div class="random-cocktail__btn">${LEARN_MORE_BTN}${REMOVE_BTN}</div></li></div></div>`);
       } else {
         return (acc += `<li class="random-cocktail__item" id="${coctail.idDrink}">
-    <img class="random-cocktail__image" src="${coctail.strDrinkThumb}" alt="${coctail.strCategory}" loading="lazy" width=0 heigth=0/><h3 class="random-cocktail__uppertext" name="cocktailName">${coctail.strDrink}</h3><div class="random-cocktail__btn">${LEARN_MORE_BTN}${ADD_BTN}</div></li></div></div>`);
+    <img class="random-cocktail__image" src="${coctail.strDrinkThumb}" alt="${coctail.strCategory}" loading="lazy" width=0 heigth=0/><h3 class="random-cocktail__uppertext theme_text_color" name="cocktailName">${coctail.strDrink}</h3><div class="random-cocktail__btn">${LEARN_MORE_BTN}${ADD_BTN}</div></li></div></div>`);
       }
     }, '');
-  
+
     ulEl.insertAdjacentHTML('afterbegin', renderedCoctails);
   }
 
@@ -93,9 +91,9 @@ function parseCoctailPagination(data) {
     btnPrevious.disabled = true;
     btnPrevious.addEventListener('click', () => {
       if (currentPage === 0) {
-      btnPrevious.disabled = true;
-      btnNext.classList.remove('active')
-    } else {
+        btnPrevious.disabled = true;
+        btnNext.classList.remove('active');
+      } else {
         btnNext.classList.add('active');
         btnPrevious.disabled = false;
         currentPage--;
@@ -105,13 +103,13 @@ function parseCoctailPagination(data) {
     });
 
     btnNext.style.display = 'block';
-    btnNext.classList.add('active')
+    btnNext.classList.add('active');
     btnNext.disabled = false;
     btnNext.addEventListener('click', () => {
       if (currentPage === pagesCount - 1) {
-        console.log(pagesCount)
+        console.log(pagesCount);
         btnNext.disabled = true;
-        btnNext.classList.remove('active')
+        btnNext.classList.remove('active');
       } else {
         btnNext.classList.add('active');
         btnNext.disabled = false;
@@ -121,23 +119,22 @@ function parseCoctailPagination(data) {
         displayList(dataCoctails, cardsPerPage, currentPage);
         updatePaginationActiveClass();
       }
-    });    
-    }
+    });
+  }
 
-    function updatePaginationActiveClass() {
-      const activeItem = document.querySelector('.pagination__item--active');
-      console.log(activeItem);
-      if (activeItem) {
-        activeItem.classList.remove('pagination__item--active');
-      }
-      const newActiveItem = document.querySelector(
-        `.pagination__item:nth-child(${currentPage + 1})`
-      );
-      if (newActiveItem) {
-        newActiveItem.classList.add('pagination__item--active');
-      }
+  function updatePaginationActiveClass() {
+    const activeItem = document.querySelector('.pagination__item--active');
+    console.log(activeItem);
+    if (activeItem) {
+      activeItem.classList.remove('pagination__item--active');
     }
-  
+    const newActiveItem = document.querySelector(
+      `.pagination__item:nth-child(${currentPage + 1})`
+    );
+    if (newActiveItem) {
+      newActiveItem.classList.add('pagination__item--active');
+    }
+  }
 
   function displayPaginationBtn(page) {
     const liEl = document.createElement('li');
