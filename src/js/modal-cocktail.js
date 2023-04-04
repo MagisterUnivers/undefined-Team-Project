@@ -3,7 +3,11 @@
   | Import
   |============================
 */
-import {getIngredientData, modalIngredients, openModal} from './modal-ingredients'
+import {
+  getIngredientData,
+  modalIngredients,
+  openModal,
+} from './modal-ingredients';
 import { id } from './add-remove-fav';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import 'notiflix/dist/notiflix-3.2.6.min.css';
@@ -73,6 +77,7 @@ closeBtn.addEventListener('click', () => {
 });
 
 export function toggleModal() {
+  document.querySelector('body').classList.add('no-scroll');
   modalGroup.classList.toggle('is-hidden');
 }
 
@@ -157,10 +162,11 @@ function onIngredientClick(event) {
   const liElement = event.target.closest('li');
   if (liElement) {
     const ingredientName = liElement.textContent.trim().substring(2);
-    getIngredientData(ingredientName)
+    getIngredientData(ingredientName);
     modalIngredients.classList.toggle('is-hidden');
     console.log(ingredientName);
-  }}
+  }
+}
 /*
   |============================
   | what button will be showed

@@ -77,11 +77,7 @@ export async function getIngredientData(ingredientName) {
   */
   // const ingredient = data.ingredients[0];
   ingredient = data.ingredients[0];
-  /*
-    |============================
-    | 
-    |============================
-  */
+  //
 
   let type = '';
   if (ingredient.strType) {
@@ -119,19 +115,7 @@ closeBtn.addEventListener('click', () => {
 function toggleModal() {
   modalIngredients.classList.toggle('is-hidden');
 }
-// getIngredientData('Wine');
 
-//   abv = `<li class="modal-ingredient-item specs-list__item theme_modal_text_color"><span class="specs-list__marker theme_text_color">&#10038;</span> Alcohol by volume: ${ingredient.strABV}%</li>`
-// }
-
-// let country = '';
-// if (ingredient.strCountry) {
-//   country = `<li class="modal-ingredient-item theme_modal_text_color"><span class="specs-list__marker theme_text_color ">&#10038;</span> Country of origin: ${ingredient.strCountry}</li>`;
-// }
-// let taste = '';
-// if (ingredient.strTaste) {
-//   taste = `<li class="modal-ingredient-item theme_modal_text_color"> <span class="specs-list__marker theme_text_color ">&#10038;</span> Flavour: ${ingredient.strTaste}</li>`;
-// }
 /*
   |============================
   | Check what button needed to be shown
