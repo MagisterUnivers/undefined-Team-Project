@@ -2,96 +2,22 @@
 @import '../utils/mixins';
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Poppins:wght@400;500;600;700&family=Roboto:wght@400;700;900&display=swap');
 
-.searched__list {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  align-content: center;
-  justify-content: center;
-  gap: 20px;
-  align-items: center;
-
-  @include media-tablet-min(768px) {
-    flex-direction: row;
-    gap: 32px;
-  }
-}
-
-.searched-cocktail__uppertext {
-  font-family: 'Poppins';
-  font-weight: 600;
-  font-size: 22px;
-  line-height: calc(42 / 22);
-
-  text-align: center;
-  margin-bottom: 60px;
-
-  @include media-tablet-min(768px) {
-    font-size: 32px;
-    line-height: calc(42 / 32);
-    font-family: 'Roboto';
-    font-weight: 700;
-  }
-
-  @include media-desktop-min(1280px) {
-    font-size: 48px;
-    line-height: calc(72 / 48);
-    font-family: inherit;
-    font-weight: 700;
-  }
-}
-
-.searched-cocktail__item {
-  border: 1px solid #fd5103;
-  border-radius: 4px 4px 0px 0px;
-  max-width: 320px;
-  border-radius: 4px;
-  transition: transform $anim-slow $anim-func;
-  &:hover {
-    transform: scale(1.05);
-    box-shadow: 4px 4px 4px rgba(95, 103, 117, 0.25);
-  }
-
-  @include media-tablet-min(768px) {
-    max-width: 335px;
-    margin-bottom: 0px;
-  }
-
-  @include media-desktop-min(1280px) {
-    max-width: 395px;
-  }
-}
-
-.searched-cocktail__image {
-  border-radius: 4px 4px 0px 0px;
-  margin-bottom: 48px;
-  width: 100%;
-  height: 100%;
-}
-
-.searched-cocktail__btn {
-  display: flex;
-  justify-content: center;
-  gap: 17px;
-  margin-bottom: 24px;
-}
-
 .pagination__wrapper {
   display: flex;
   justify-content: center;
   align-items: center;
   margin-top: 24px;
-  width: 280px;
+  width: 320px;
   overflow: hidden;
   margin-left: auto;
   margin-right: auto;
 
   @include media-tablet-min(768px) {
-    max-width: 700px;
+    width: 700px;
   }
 
   @include media-desktop-min(1280px) {
-    max-width: 880px;
+    width: 880px;
   }
 }
 
@@ -152,7 +78,6 @@
   width: 18px;
   height: 18px;
   fill: #d7d7d7;
-  transition: $anim-slow $anim-func;
 
   @include media-tablet-min(768px) {
     width: 24px;
@@ -163,29 +88,30 @@
 .arrow-btn-pagination.previous {
   margin-right: 12px;
 
-  // @include media-tablet-min(768px) {
-  //   margin-right: 108px;
-  // }
+  @include media-tablet-min(768px) {
+    margin-right: 108px;
+  }
 
-  // @include media-desktop-min(1280px) {
-  //   margin-right: 198px;
-  // }
+  @include media-desktop-min(1280px) {
+    margin-right: 198px;
+  }
 }
 
 .arrow-btn-pagination.next {
   margin-left: 12px;
 
-  // @include media-tablet-min(768px) {
-  //   margin-left: 108px;
-  // }
+  @include media-tablet-min(768px) {
+    margin-left: 108px;
+  }
 
-  // @include media-desktop-min(1280px) {
-  //   margin-left: 198px;
-  // }
+  @include media-desktop-min(1280px) {
+    margin-left: 198px;
+  }
 }
 
-.arrow-btn-pagination.previous:hover .arrow-icon-left,
-.arrow-btn-pagination.next:hover .arrow-icon-right {
+.arrow-btn-pagination.previous.active .arrow-icon-left,
+.arrow-btn-pagination.next.active .arrow-icon-right {
   fill: #fe7031;
-  scale: 1.2;
+  width: 24px;
+  height: 24px;
 }
