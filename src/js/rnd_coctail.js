@@ -151,10 +151,10 @@ function createPic(cards) {
       localStorage.getItem('favCocktails').includes(`${card.drinks[0].idDrink}`)
     ) {
       return (acc += `<li class="random-cocktail__item" id="${card.drinks[0].idDrink}">
-  <img class="random-cocktail__image" src="${card.drinks[0].strDrinkThumb}" alt="${card.drinks[0].strCategory}" loading="lazy" width=0 heigth=0/><h3 class="random-cocktail__uppertext" name="cocktailName">${card.drinks[0].strDrink}</h3><div class="random-cocktail__btn">${LEARN_MORE_BTN}${REMOVE_BTN}</div></li></div></div>`);
+  <img class="random-cocktail__image" src="${card.drinks[0].strDrinkThumb}" alt="${card.drinks[0].strCategory}"  width=0 height=0/><h3 class="random-cocktail__uppertext" name="cocktailName">${card.drinks[0].strDrink}</h3><div class="random-cocktail__btn">${LEARN_MORE_BTN}${REMOVE_BTN}</div></li></div></div>`);
     } else {
       return (acc += `<li class="random-cocktail__item" id="${card.drinks[0].idDrink}">
-  <img class="random-cocktail__image" src="${card.drinks[0].strDrinkThumb}" alt="${card.drinks[0].strCategory}" loading="lazy" width=0 heigth=0/><h3 class="random-cocktail__uppertext" name="cocktailName">${card.drinks[0].strDrink}</h3><div class="random-cocktail__btn">${LEARN_MORE_BTN}${ADD_BTN}</div></li></div></div>`);
+  <img class="random-cocktail__image" src="${card.drinks[0].strDrinkThumb}" alt="${card.drinks[0].strCategory}"  width=0 height=0/><h3 class="random-cocktail__uppertext" name="cocktailName">${card.drinks[0].strDrink}</h3><div class="random-cocktail__btn">${LEARN_MORE_BTN}${ADD_BTN}</div></li></div></div>`);
     }
   }, '');
 }
