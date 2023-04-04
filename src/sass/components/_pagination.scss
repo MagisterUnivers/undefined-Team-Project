@@ -23,6 +23,17 @@
 
 .pagination__list {
   display: flex;
+  gap: 8px;
+  width: 200px;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+
+  @include media-tablet-min(768px) {
+    gap: 14px;
+    width: 364px;
+
+  }
 }
 
 .pagination__item {
@@ -59,6 +70,8 @@
   width: 32px;
   height: 32px;
   text-align: center;
+  border: none;
+  background-color: transparent;
 
   @include media-tablet-min(768px) {
     width: 60px;
