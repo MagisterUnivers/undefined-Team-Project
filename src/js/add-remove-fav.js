@@ -4,10 +4,8 @@ import { getCocktail } from './get-cocktail';
 import { ADD_BTN, REMOVE_BTN } from './constants';
 import { onBtnAddFavClick } from './modal-cocktail';
 
-const refs = {
-  cocktailsDiv: document.querySelector('#rnd-cocktail'),
-};
-
+const cocktailsDiv = document.querySelector('#rnd-cocktail');
+console.log(cocktailsDiv);
 let btnsDiv;
 let btnEl;
 let selectedCocktail;
@@ -16,10 +14,9 @@ console.log(JSON.parse(localStorage.getItem('favCocktails')));
 if (!localStorage.getItem('favCocktails')) {
   localStorage.setItem('favCocktails', JSON.stringify([]));
 }
-refs.cocktailsDiv.addEventListener('click', onBtnAddRemoveFavClick);
+cocktailsDiv.addEventListener('click', onBtnAddRemoveFavClick);
 
 async function onBtnAddRemoveFavClick(e) {
-  console.dir(e);
   if (e.target.closest('.btn-add-to')) {
     btnEl = e.target.closest('.btn-add-to');
     btnsDiv = e.target.closest('.random-cocktail__btn');
@@ -70,9 +67,7 @@ async function onBtnAddRemoveFavClick(e) {
     btnsDiv.insertAdjacentHTML('beforeend', ADD_BTN);
 
     localStorage.setItem('favCocktails', JSON.stringify(favCocktails));
-    Notify.success(
-      `Cocktail ${cocktailName} was removed from your favorites!✅`
-    );
+    Notify.info(`Cocktail ${cocktailName} was removed from your favorites🙄!`);
   } else if (e.target.classList.contains('btn-learn-more')) {
     onBtnAddFavClick(e);
   }
