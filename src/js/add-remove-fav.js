@@ -42,7 +42,7 @@ async function onBtnAddRemoveFavClick(e) {
       favList.push(result.drinks[0]);
       localStorage.setItem('favCocktails', JSON.stringify(favList));
       cocktailName = favList[favList.length - 1].strDrink;
-      Notify.success(`Cocktail ${cocktailName} added to your favorites!✅`);
+      Notify.success(`Cocktail ${cocktailName} added to your favorites😍!`);
       btnEl.remove();
       btnsDiv.insertAdjacentHTML('beforeend', REMOVE_BTN);
     } catch {
@@ -57,8 +57,6 @@ async function onBtnAddRemoveFavClick(e) {
 
     console.log('click on remove');
     const favCocktails = JSON.parse(localStorage.getItem('favCocktails'));
-    console.log(favCocktails);
-    console.log(Number(e.target.parentNode.parentNode.id));
     favCocktails.splice(
       favCocktails.findIndex(cocktail => {
         cocktailName = cocktail.strDrink;
