@@ -12,3 +12,4 @@ import './js/add-remove-fav';
 import './js/modal-ingredients';
 import './js/modal-cocktail';
 import './partials/components/switcher_theme_button/switcher_theme_button.ts';
+import './js/header';

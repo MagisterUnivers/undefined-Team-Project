@@ -46,7 +46,7 @@
         <form class="header-form" data-header-submit>
           <input
             type="search"
-            placeholder="Search"
+            placeholder="Search |"
             name="headerinput"
             class="header-input dark-theme-text"
             data-header-input
@@ -63,11 +63,13 @@
           </button>
         </form>
         <!------------------------header  SWITCHER ------------------------->
+        <div class="switcher-desktop">
         <include
           src="./partials/components/switcher_theme_button/switcher_theme_button.html"
           locals='{ "id": "header_switcher_theme_button" }'
         >
         </include>
+        </div>
 
         <!------------------------- BURGER MENU BUTTON --------------------->
       </div>
@@ -124,7 +126,7 @@
                   type="search"
                   class="burger-input"
                   name="burgerinput"
-                  placeholder="Search"
+                  placeholder="Search |"
                   data-burger-input
                 />
                 <button
