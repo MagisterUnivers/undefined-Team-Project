@@ -37,32 +37,16 @@ removeFavoritesButton.addEventListener('click', () => {
 });
 
 closeBtn.addEventListener('click', () => {
+  const modalCocktail = document.querySelector('.modal__cocktail');
+
+  modalCocktail.innerHTML = '';
+
   toggleModal();
 });
 
 export function toggleModal() {
   modalGroup.classList.toggle('is-hidden');
 }
-
-/* <div class="modal__cocktail">
-  <h3 class="modal__title">${details.strDrink}</h3>
-  <div class="modal__instructions-hold">
-    <h4 class="modal__instructions">INSTRUCTION:</h4>
-    <p class="instruction">${details.strInstructions}</p>
-  </div>
-  <div class="modal__ingredients-hold">
-    <img
-      class="modal__picture"
-      src="${details.strDrinkThumb}"
-      alt=""
-      width="280"
-      height="280"
-    />
-    <h4 class="modal__ingredients">INGREDIENTS</h4>
-    <p class="modal__description">Per cocktail</p>
-    <ul class="ingredients__list"></ul>
-  </div>
-</div>; */
 
 /**
   |============================
@@ -89,14 +73,15 @@ export async function onBtnAddFavClick(e) {
     <h4 class="modal__instructions">INSTRUCTION:</h4>
     <p class="instruction">${data.strInstructions}</p>
   </div>
-  <div class="modal__ingredients-hold">
-    <img
+  <img
       class="modal__picture"
       src="${data.strDrinkThumb}"
       alt=""
       width="280"
       height="280"
     />
+  <div class="modal__ingredients-hold">
+    
     <h4 class="modal__ingredients">INGREDIENTS</h4>
     <p class="modal__description">Per cocktail</p>
     <ul class="ingredients__list"></ul>
@@ -106,7 +91,6 @@ export async function onBtnAddFavClick(e) {
   const modalInfo = document.querySelector('.modal-cocktails-group');
 
   modalInfo.insertAdjacentHTML('afterbegin', html);
-
   const ingredientsList = modalInfo.querySelector('.ingredients__list');
 
   for (let i = 1; i <= 15; i++) {
@@ -121,7 +105,17 @@ export async function onBtnAddFavClick(e) {
     } else {
       break;
     }
+    ingredientsList.addEventListener('click', onIngredientClick);
   }
 
   toggleModal();
+}
+
+export function onIngredientClick(event) {
+  const liElement = event.target.closest('li');
+  if (liElement) {
+    const ingredientName = liElement.textContent.trim().substring(2);
+    console.log(ingredientName);
+    return ingredientName;
+  }
 }

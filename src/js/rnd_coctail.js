@@ -145,6 +145,7 @@ export async function rndCocktails() {
 // }
 
 function createPic(cards) {
+  console.log(cards);
   return cards.reduce((acc, card) => {
     if (
       localStorage.getItem('favCocktails').includes(`${card.drinks[0].idDrink}`)
