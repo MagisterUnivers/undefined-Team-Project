@@ -19,7 +19,12 @@
     justify-content: space-between;
   }
 }
-
+.hero__img {
+  display: inline-block;
+    margin: 0 0.5rem;
+    animation: jackInTheBox;
+    animation-duration: 2s;
+}
 
 .hero__title {
   font-family: 'Poppins';
@@ -98,9 +103,10 @@
     transform: translate(0, 0);
   }
   :hover {
-    border: 2px solid black;
-    color: #d65076;
-    transform: scale(1.05);
+    animation: flip;
+    animation-duration: 2s;
+    color: $grapefruit-color;
+    transform: scale(1.7) rotate(1turn);
     will-change: transform;
 
     .hero__span:hover {
