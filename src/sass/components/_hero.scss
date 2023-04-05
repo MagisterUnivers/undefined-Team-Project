@@ -10,13 +10,13 @@
     gap: 43px;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-around;
   }
   @include media-desktop-min(1280px) {
     padding-top: 89px;
     gap: 59px;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
   }
 }
 .hero__img {
