@@ -10,8 +10,6 @@ const paginationBox = document.querySelector('.pagination__wrapper');
 const ulList = document.querySelectorAll(
   '.hero___search__list .hero__search__item'
 );
-//  let TOTAL_PAGES_PAGINATION = 1;
-//  let currentPage = 1;
 
 btnPrevious.style.display = 'none';
 btnNext.style.display = 'none';
@@ -212,102 +210,13 @@ function displayPaginationDots(arrData, cards, currentPage) {
 
 
 
+
+
+
+
+
 function displayPaginationOnMobile(currentPage){
   
 }
 
 
-
-// // Объект, представляющий пагинацию
-// const pagination = {
-//   currentPage: 1// текущая страница
-//   totalPages: TOTAL_PAGES_PAGINATION, // общее число страниц
-//   visiblePages: 5, // число страниц, отображаемых на экране
-//   container: document.querySelector('.pagination__list'), // контейнер для кнопок пагинации
-//   render: function() { // метод для отрисовки кнопок пагинации
-//     this.container.innerHTML = ''; // очистить контейнер
-//     let startPage = 1; // начальная страница
-//     let endPage = this.totalPages; // конечная страница
-//     if (this.totalPages > this.visiblePages) { // если страниц больше, чем отображается
-//       startPage = Math.max(this.currentPage - Math.floor(this.visiblePages / 2), 1); // вычислить начальную страницу
-//       endPage = Math.min(startPage + this.visiblePages - 1, this.totalPages); // вычислить конечную страницу
-//       if (endPage - startPage < this.visiblePages - 1) { // если мало страниц отображается
-//         startPage = Math.max(endPage - this.visiblePages + 1, 1); // сместить начальную страницу
-//       }
-//     }
-//     if (startPage > 1) { // если есть предыдущие страницы
-//       this.addPageLink(1); // добавить первую страницу
-//       if (startPage > 2) { // если много предыдущих страниц
-//         this.addEllipsis(); // добавить многоточие
-//       }
-//     }
-//     for (let i = startPage; i <= endPage; i++) { // добавить видимые страницы
-//       this.addPageLink(i);
-//     }
-//     if (endPage < this.totalPages) { // если есть следующие страницы
-//       if (endPage < this.totalPages - 1) { // если много следующих страниц
-//         this.addEllipsis(); // добавить многоточие
-//       }
-//       this.addPageLink(this.totalPages); // добавить последнюю страницу
-//     }
-//   },
-//   addPageLink: function(pageNumber) { // метод для добавления ссылки на страницу
-//     const link = document.createElement('a');
-//     link.href = '#';
-//     link.textContent = pageNumber;
-//     if (pageNumber === this.currentPage) { // если это текущая страница
-//       link.classList.add('active');
-//     } else {
-//       link.addEventListener('click', event => { // при клике на ссылку
-//         event.preventDefault();
-//         this.currentPage = pageNumber; // установить текущую страницу
-//         this.render(); // отрисовать пагинацию
-//       });
-//     }
-//     this.container.appendChild(link);
-//   },
-//   addEllipsis: function() { // метод для добавления многоточия
-//     const span = document.createElement('span');
-//     span.textContent = '...';
-//     this.container.appendChild(span);
-//   }
-// };
-
-// pagination.render(); // отрисовать пагинацию
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  // function displayPagination(arrData, cards, currentPage) {
-  //   console.log(currentPage);
-  //   const paginationList = document.querySelector('.pagination__list');
-  //   paginationList.innerHTML = '';
-  //   const pagesCount = Math.ceil(arrData.length / cards);
-  
-  //   if (pagesCount === 1) {
-  //     paginationBox.classList.add('visually-hidden');
-  //   } else {
-  //     for (let i = 1; i <= pagesCount; i++) {
-  //       const liEl = createPaginationBtn(arrData, i, currentPage, cards);
-  //       paginationList.appendChild(liEl);
-  //     }
-  //   }
-  
-  //   nextBtnHandle(arrData, cards, currentPage);
-  //   prevBtnHandle(arrData, cards, currentPage);
-  // }
-  
