@@ -12,7 +12,8 @@
   align-items: center;
   justify-content: center;
   z-index: 10;
-  transition: opacity $anim-slow $timing-function;
+  transition: opacity $anim-fast $timing-function;
+  
 
   &.is-hidden {
     opacity: 0;
@@ -22,7 +23,7 @@
 
 .modal-cocktails-group {
   overflow-y: scroll;
-  height: 956px;
+  max-height: 956px;
   width: 320px;
   position: relative;
   padding: 40px 20px;
@@ -153,8 +154,10 @@
   @include media-tablet-min(768px) {
     width: 288px;
     height: 320px;
-    transition: transform $anim-fast cubic-bezier(0.17, 0.67, 0.83, 0.67),
-      box-shadow $anim-fast cubic-bezier(0.17, 0.67, 0.83, 0.67);
+    transition: transform 400ms cubic-bezier(0.17, 0.67, 0.83, 0.67),
+      box-shadow 600ms cubic-bezier(0.17, 0.67, 0.83, 0.67),
+      transform-origin 400ms cubic-bezier(0.17, 0.67, 0.83, 0.67)
+      ;
     position: absolute;
     top: 0px;
     left: 0px;
@@ -162,7 +165,7 @@
   @include media-tablet-min(768px) {
     &:hover,
     &:focus {
-      transform: scale(1.05);
+      transform: scale(1.08);
       transform-origin: left top;
       -webkit-box-shadow: 10px 11px 15px -5px rgba(0, 9, 23, 1);
       -moz-box-shadow: 10px 11px 15px -5px rgba(0, 9, 23, 1);
