@@ -13,7 +13,7 @@ import 'notiflix/dist/notiflix-3.2.6.min.css';
 const modal = document.querySelector('#modal-ingredients');
 const openBtn = document.querySelector('.open-btn');
 const closeBtn = document.querySelector('.modal-ingredients-close');
-const modalGroup = document.querySelector('.backdrop');
+export const modalIngredients = document.querySelector('.backdrop');
 const removeFavoritesButton = document.querySelector('#modal-btn__remove-fav');
 const addFavoritesButton = document.querySelector('#modal-btn__add-to-fav');
 let ingredientTitle;
@@ -35,8 +35,9 @@ addFavoritesButton.addEventListener('click', () => {
   const parsedFavIngredients = JSON.parse(
     localStorage.getItem('favIngredients')
   );
+  // console.log(ingredient);
   parsedFavIngredients.push(ingredient);
-  console.log(parsedFavIngredients);
+  // console.log(parsedFavIngredients);
   localStorage.setItem('favIngredients', JSON.stringify(parsedFavIngredients));
   Notify.success(`${ingredient.strIngredient} added to your favorites😍!`);
 });
@@ -46,8 +47,8 @@ removeFavoritesButton.addEventListener('click', e => {
   const parsedFavIngredients = JSON.parse(
     localStorage.getItem('favIngredients')
   );
-  console.log(parsedFavIngredients);
-  console.dir(e.target);
+  // console.log(parsedFavIngredients);
+  // console.dir(e.target);
   parsedFavIngredients.splice(
     parsedFavIngredients.findIndex(
       ingredient =>
@@ -59,12 +60,13 @@ removeFavoritesButton.addEventListener('click', e => {
   Notify.info(`${ingredient.strIngredient} was removed from your favorites🙄!`);
 });
 
-if (typeof localStorage !== 'undefined') {
-  // Пытаемся получить данные из localStorage
-  var favIngredients = JSON.parse(localStorage.getItem('favIngredients')) || {};
-}
+/**
+  |============================
+  | Julia logic
+  |============================
+*/
 
-async function getIngredientData(ingredientName) {
+export async function getIngredientData(ingredientName) {
   const response = await fetch(
     `https://www.thecocktaildb.com/api/json/v1/1/search.php?i=${ingredientName}`
   );
@@ -76,23 +78,28 @@ async function getIngredientData(ingredientName) {
   */
   // const ingredient = data.ingredients[0];
   ingredient = data.ingredients[0];
-  /*
-    |============================
-    | 
-    |============================
-  */
-  let abv = `<li class="modal-ingredient-item specs-list__item theme_modal_text_color"><span class="specs-list__marker theme_text_color">&#10038;</span> Alcohol by volume: ${ingredient.strABV}%</li>`;
-  if (ingredient.strAlcohol === 'No') {
-    abv = '';
+  //
+
+  let type = '';
+  if (ingredient.strType) {
+    type = `<strong class="modal-ingredient-uptitle theme_text_color">${ingredient.strType}</strong>`;
+  }
+  let description = '';
+  if (ingredient.strDescription) {
+    description = `<p class="modal-ingredient-text theme_modal_text_color">${ingredient.strDescription}</p>`;
+  }
+  let abv = '';
+  if (ingredient.strABV) {
+    abv = `<li class="modal-ingredient-item specs-list__item theme_modal_text_color"><span class="specs-list__marker theme_text_color">&#10038;</span> Alcohol by volume: ${ingredient.strABV}%</li>`;
   }
   function updateIngredients() {
-    return `<h2 class="modal-ingredient-title theme_text_color" id='${ingredient.idIngredient}''>${ingredient.strIngredient}</h2>
-        <strong class="modal-ingredient-uptitle theme_text_color">${ingredient.strType}</strong>
-        <p class="modal-ingredient-text theme_modal_text_color">${ingredient.strDescription}</p>
+    return `<div class="remove"><h2 class="modal-ingredient-title theme_text_color" id='${ingredient.idIngredient}''>${ingredient.strIngredient}</h2>
+        ${type}
+        ${description}
         <ul class="modal-ingredient-list specs-list">
         <li class="modal-ingredient-item specs-list__item theme_modal_text_color"><span class="specs-list__marker theme_text_color ">&#10038;</span> Alcohol: ${ingredient.strAlcohol}</li>
         ${abv}
-          </ul>`;
+          </ul></div>`;
   }
 
   modal.insertAdjacentHTML('afterbegin', updateIngredients());
@@ -152,27 +159,16 @@ async function getIngredientData(ingredientName) {
   });
 }
 
-closeBtn.addEventListener('click', toggleModal);
-openBtn.addEventListener('click', toggleModal);
+closeBtn.addEventListener('click', () => {
+  toggleModal();
+  const remove = document.querySelector('.remove');
+  // remove.style.display = 'none';
+  document.querySelector('.remove').innerHTML = '';
+});
 function toggleModal() {
-  modalGroup.classList.toggle('is-hidden');
+  modalIngredients.classList.toggle('is-hidden');
 }
-getIngredientData('Wine');
 
-//   abv = `<li class="modal-ingredient-item specs-list__item theme_modal_text_color"><span class="specs-list__marker theme_text_color">&#10038;</span> Alcohol by volume: ${ingredient.strABV}%</li>`
-// }
-// let type = '';
-// if (ingredient.strType) {
-//   type = `<li class="modal-ingredient-item theme_modal_text_color"><span class="specs-list__marker theme_text_color ">&#10038;</span>Type: ${ingredient.strType}</li>`;
-// }
-// let country = '';
-// if (ingredient.strCountry) {
-//   country = `<li class="modal-ingredient-item theme_modal_text_color"><span class="specs-list__marker theme_text_color ">&#10038;</span> Country of origin: ${ingredient.strCountry}</li>`;
-// }
-// let taste = '';
-// if (ingredient.strTaste) {
-//   taste = `<li class="modal-ingredient-item theme_modal_text_color"> <span class="specs-list__marker theme_text_color ">&#10038;</span> Flavour: ${ingredient.strTaste}</li>`;
-// }
 /*
   |============================
   | Check what button needed to be shown

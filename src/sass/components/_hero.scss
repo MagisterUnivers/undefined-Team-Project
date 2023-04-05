@@ -19,7 +19,12 @@
     justify-content: space-between;
   }
 }
-
+.hero__img {
+  display: inline-block;
+  margin: 0 0.5rem;
+  animation: jackInTheBox;
+  animation-duration: 2s;
+}
 
 .hero__title {
   font-family: 'Poppins';
@@ -98,9 +103,10 @@
     transform: translate(0, 0);
   }
   :hover {
-    border: 2px solid black;
-    color: #d65076;
-    transform: scale(1.05);
+    animation: flip;
+    animation-duration: 2s;
+    color: $grapefruit-color;
+    transform: scale(1.7) rotate(1turn);
     will-change: transform;
 
     .hero__span:hover {
@@ -169,7 +175,6 @@
   color: $grapefruit-color;
 }
 
-
 .hero__search__mobile {
   display: block;
   margin-top: 60px;
@@ -183,7 +188,7 @@
   font-size: 14px;
   line-height: 2;
   letter-spacing: 0.02em;
-  color: #202025;
+
   margin-bottom: 20px;
 }
 .select-box {
@@ -234,17 +239,17 @@
 
 .select-box-text {
   font-family: 'Poppins';
-font-style: normal;
-font-weight: 500;
-font-size: 14px;
-line-height: 28px;
-/* identical to box height, or 200% */
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 28px;
+  /* identical to box height, or 200% */
 
-letter-spacing: 0.02em;
+  letter-spacing: 0.02em;
 
-color: #000000;
+  color: #000000;
 
-opacity: 0.8;
+  opacity: 0.8;
 }
 .selected {
   color: $grapefruit-color;

@@ -5,13 +5,18 @@
   */
 @import '../utils/mixins';
 @import '../utils/variables';
+@import '../base/animations';
+
+#loading-spinner {
+  animation: loading-spinner 1s linear infinite;
+}
 
 #loading {
   text-align: center;
   margin-left: auto;
   margin-right: auto;
   font-size: 100px;
-  margin-top: 60px;
+  margin-top: 200px;
 }
 
 .random-cocktail__title {

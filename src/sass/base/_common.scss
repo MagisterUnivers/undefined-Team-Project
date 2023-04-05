@@ -5,6 +5,10 @@
 */
 @import '../utils/mixins';
 
+html {
+  scroll-behavior: smooth;
+}
+
 .wrapper {
   // phone screen(<480px)
 
@@ -29,4 +33,8 @@
     padding-left: 15px;
     padding-right: 15px;
   }
+}
+
+.no-scroll {
+  overflow: hidden;
 }
