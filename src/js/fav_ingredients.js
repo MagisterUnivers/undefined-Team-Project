@@ -1,3 +1,4 @@
+import '../partials/components/switcher_theme_button/switcher_theme_button.ts';
 import { LEARN_MORE_BTN, REMOVE_BTN } from './constants.js';
 import { getIngredientData, modalIngredients } from './modal-ingredients';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
@@ -21,7 +22,7 @@ function renderFavoritesList() {
     const strType = favorite.strType || favorite.strIngredient;
     const li = document.createElement('li');
     li.classList.add('fav-ingredients__item');
-    li.innerHTML = `<h3 class="fav-ingredient__name">${favorite.strIngredient}</h3>
+    li.innerHTML = `<h3 class="fav-ingredient__name theme_text_color ">${favorite.strIngredient}</h3>
     <h4 class="fav-ingredient__type">${strType}</h4>
     <div class="fav-ingredient__btn">
       ${LEARN_MORE_BTN}${REMOVE_BTN}

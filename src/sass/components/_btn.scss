@@ -3,6 +3,7 @@
   |  Buttons 
   |============================
 */
+
 @import '../utils/mixins';
 @import '../utils/variables';
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Poppins:wght@400;500;600;700&family=Roboto:wght@400;700;900&display=swap');
@@ -49,16 +50,25 @@
   }
 }
 .inner {
-  fill: #ffffff;
-  transition: fill $anim-fast $anim-func;
+  transition: unset;
 }
 .outer {
   fill: #fd5103;
 }
+
 .inner-remove {
-  fill: #fd5103;
   transition: fill $anim-fast $anim-func;
+  fill: #fd5103;
 }
+
+body[data-theme='dark'] {
+  .btn-add-to:hover {
+    .inner {
+      fill: #ffffff;
+    }
+  }
+}
+
 .btn-secondary {
   width: 108px;
   height: 39px;
