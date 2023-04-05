@@ -47,7 +47,7 @@ ulList.forEach(li => {
   });
 });
 
-function parseCoctailWithPagination(data) {
+export function parseCoctailWithPagination(data) {
   const dataCoctails = data;
   let currentPage = 1;
   let cardsPerPage;
