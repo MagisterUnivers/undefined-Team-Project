@@ -9,6 +9,7 @@
   align-items: center;
   justify-content: center;
   z-index: 100;
+  transition: opacity $anim-slow $timing-function;
 }
 .backdrop.is-hidden {
   opacity: 0;
@@ -17,12 +18,13 @@
 .modal-ingredients-group {
   overflow-y: scroll;
   height: 673px;
+  width: 320px;
   position: relative;
 
   padding: 20px;
   @include media-tablet-min(768px) {
-    width: 822px;
-    height: 598px;
+    width: 715px;
+    height: 557px;
     padding: 28px;
     &::after {
       position: absolute;
@@ -34,6 +36,7 @@
       background-color: #fd5103;
     }
   }
+
   &::-webkit-scrollbar {
     width: 1px;
     height: 4px;
