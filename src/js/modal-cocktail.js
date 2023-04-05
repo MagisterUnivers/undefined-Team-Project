@@ -6,7 +6,6 @@
 import {
   getIngredientData,
   modalIngredients,
-  openModal,
 } from './modal-ingredients';
 import { id } from './add-remove-fav';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';

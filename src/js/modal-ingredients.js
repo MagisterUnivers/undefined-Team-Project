@@ -106,7 +106,7 @@ export async function getIngredientData(ingredientName) {
   ingredientTitle = document.querySelector('.modal-ingredient-title');
   chooseAddOrRemoveButton();
 
-  modal.insertAdjacentHTML('beforeend', updateIngredients());
+  // modal.insertAdjacentHTML('beforeend', updateIngredients());
 
   // Функция для получения избранных ингредиентов из localStorage
   function getFavorites() {
