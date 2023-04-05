@@ -176,10 +176,10 @@ function displayPaginationDots(arrData, cards, currentPage) {
          }
              paginationList.appendChild(spanEl);
              const lastLiEl = createPaginationBtn(arrData, pagesCount, currentPage, cards);
-             lastLiEl.addEventListener('click', ()=> {       
+             lastLiEl.addEventListener('click', ()=> {     
               currentPage = pagesCount;
               displayList(arrData, cards, currentPage);
-              updatePaginationActiveClass(arrData, cards, currentPage)
+              lastLiEl.classList.add('pagination__item--active') 
              } );
              paginationList.appendChild(lastLiEl);
                          }
