@@ -1,5 +1,6 @@
-import './add-remove-fav';
 import { LEARN_MORE_BTN, REMOVE_BTN } from './constants.js';
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
+import 'notiflix/dist/notiflix-3.2.6.min.css';
 
 const favoritesList = document.querySelector('.fav-ingredients__list');
 
@@ -25,21 +26,34 @@ function renderFavoritesList() {
         favorites.splice(index, 1);
         localStorage.setItem('favIngredients', JSON.stringify(favorites));
         li.remove();
+        Notify.info(
+          `${favorite.strIngredient} was removed from your favorites🙄!`
+        );
+        checkFooter();
       }
     });
     favoritesList.appendChild(li);
   }
 
-  const footer = document.querySelector('.footer');
-  const defaultText = document.querySelector('.fav-ingredients__default');
-  if (!favorites.length) {
-    footer.style.position = 'absolute';
-    footer.style.bottom = '0';
-    footer.style.width = '100%';
-  } else {
-    footer.style.position = 'static';
-    defaultText.hidden = 'true';
+  function checkFooter() {
+    const footer = document.querySelector('.footer');
+    const defaultText = document.querySelector('.fav-ingredients__default');
+    if (!favorites.length) {
+      footer.style.position = 'absolute';
+      footer.style.bottom = '0';
+      footer.style.width = '100%';
+      defaultText.style.display = 'block';
+    } else if (favorites.length < 4) {
+      footer.style.position = 'absolute';
+      footer.style.bottom = '0';
+      footer.style.width = '100%';
+    } else {
+      footer.style.position = 'static';
+      defaultText.style.display = 'none';
+    }
   }
+
+  checkFooter();
 }
 
 renderFavoritesList();
