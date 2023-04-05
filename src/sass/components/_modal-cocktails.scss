@@ -45,6 +45,7 @@
   line-height: 1.18;
   margin-bottom: 20px;
   transition: color $anim-fast $timing-function;
+  cursor: pointer;
   @include media-tablet-min(768px) {
     margin-bottom: 28px;
     margin-left: calc(320px - 28px);
@@ -114,6 +115,7 @@
   line-height: 1.625;
   color: #5f6775;
   transition: color $anim-fast $timing-function;
+  cursor: pointer;
   &:hover,
   &:focus {
     color: #fd5103;

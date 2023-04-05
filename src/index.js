@@ -13,4 +13,4 @@ import './js/add-remove-fav';
 import './js/modal-ingredients';
 import './js/modal-cocktail';
 import './js/header';
-import './js/pagination';
+import './js/test';

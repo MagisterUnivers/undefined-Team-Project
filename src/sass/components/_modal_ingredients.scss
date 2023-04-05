@@ -39,6 +39,11 @@
     height: 4px;
   }
 }
+
+.modal-ingredient-item {
+  cursor: pointer;
+}
+
 .modal-ingredient-title {
   font-family: 'Roboto';
   margin-bottom: 20px;
@@ -46,6 +51,7 @@
   font-weight: 900;
   font-size: 32px;
   line-height: 1.1;
+  cursor: pointer;
 
   padding-top: 12px;
   &:hover,
