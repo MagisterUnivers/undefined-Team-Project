@@ -64,7 +64,10 @@ async function onBtnAddRemoveFavClick(e) {
       1
     );
     btnEl.remove();
-    btnsDiv.insertAdjacentHTML('beforeend', ADD_BTN);
+    if (btnsDiv) {
+      //
+      btnsDiv.insertAdjacentHTML('beforeend', ADD_BTN); // добавлена проверка if btnsDiv, выбивало ошибку в консоли при нажатии на кнопку remove на странице fav_ingredients
+    } //
 
     localStorage.setItem('favCocktails', JSON.stringify(favCocktails));
     Notify.info(`Cocktail ${cocktailName} was removed from your favorites🙄!`);
