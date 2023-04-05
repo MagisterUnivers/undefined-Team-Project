@@ -35,32 +35,32 @@
   |============================
 */
 
-.heart-container {
-  position: absolute;
-  opacity: 1;
-  // z-index: 15;
-}
-.heart {
-  width: var(--size);
-  height: var(--size);
-  transform: rotate(45deg);
-  transform-origin: center;
-  position: relative;
-  background: var(--color);
-  margin: 10px auto;
-}
-.heart:before,
-.heart:after {
-  content: '';
-  position: absolute;
-  width: var(--size);
-  height: var(--size);
-  border-radius: 50%;
-  background: var(--color);
-}
-.heart:before {
-  left: calc(var(--size) / 2 * -1);
-}
-.heart:after {
-  top: calc(var(--size) / 2 * -1);
-}
+// .heart-container {
+//   position: absolute;
+//   opacity: 1;
+//   // z-index: 15;
+// }
+// .heart {
+//   width: var(--size);
+//   height: var(--size);
+//   transform: rotate(45deg);
+//   transform-origin: center;
+//   position: relative;
+//   background: var(--color);
+//   margin: 10px auto;
+// }
+// .heart:before,
+// .heart:after {
+//   content: '';
+//   position: absolute;
+//   width: var(--size);
+//   height: var(--size);
+//   border-radius: 50%;
+//   background: var(--color);
+// }
+// .heart:before {
+//   left: calc(var(--size) / 2 * -1);
+// }
+// .heart:after {
+//   top: calc(var(--size) / 2 * -1);
+// }
