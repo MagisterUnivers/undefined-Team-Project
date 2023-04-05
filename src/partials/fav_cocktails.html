@@ -7,7 +7,6 @@
     <title>Favorite cocktails</title>
     <link rel="icon" type="image/x-icon" href="/src/images/favicon.ico" />
     <link rel="stylesheet" href="/src/index.scss" />
-
     <script src="/src/js/fav_cocktails.js" type="module"></script>
   </head>
   <body>
@@ -28,8 +27,43 @@
         <div class="fav-content__wrapper"></div>
       </section>
       <include src="./partials/footer.html"></include>
-      <!-- Modal -->
-      <div class="backdrop2 is-hidden">
+      <!-- Modal ingredients -->
+      <div class="backdrop is-hidden">
+        <div class="modal-ingredients-group theme_background_color">
+          <div class="modal-ingredients" id="modal-ingredients">
+            <button
+              class="modal-ingredients-close"
+              aria-label="Кнопка для закриття меню"
+            >
+              <svg
+                class="modal-ingredients-close-icon theme_fill_color"
+                width="32px"
+                height="32px"
+              >
+                <use href="../images/sprite.svg#icon-close-cross"></use>
+              </svg>
+            </button>
+          </div>
+          <button
+            type="button"
+            class="btn btn-secondary btn__add-to-fav modal-btn__add-to-fav"
+            id="modal-btn__add-to-fav"
+            aria-label="Add cocktail to favorite"
+          >
+            Add to favorite
+          </button>
+          <button
+            type="button"
+            class="btn btn-secondary btn__remove-fav modal-btn__remove-fav"
+            id="modal-btn__remove-fav"
+            aria-label="Remove from favorite"
+          >
+            Remove from favorite
+          </button>
+        </div>
+      </div>     
+       <!--Modal cocktails  -->
+       <div class="backdrop2 is-hidden">
         <div class="modal-cocktails-group theme_background_color">
           <div class="modal-cocktails" id="modal-cocktails">
             <button
@@ -41,7 +75,7 @@
                 width="32px"
                 height="32px"
               >
-                <use href="/src/images/sprite.svg#icon-close-cross"></use>
+                <use href="../images/sprite.svg#icon-close-cross"></use>
               </svg>
             </button>
           </div>
@@ -62,7 +96,7 @@
             Remove from favorite
           </button>
         </div>
-      </div>
+      </div>      
     </main>
   </body>
 </html>

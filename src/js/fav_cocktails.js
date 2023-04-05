@@ -1,6 +1,8 @@
 import '../partials/components/switcher_theme_button/switcher_theme_button.ts';
 import './add-remove-fav';
 import { ADD_BTN, REMOVE_BTN, LEARN_MORE_BTN } from './constants.js';
+// import './fav-cocktails_pagintaion.js'
+
 
 window.onload = renderCocktailsBySD();
 
@@ -13,6 +15,7 @@ function showDefaultText() {
 
   function onRemoveBtnClick(ev) {
     if (
+      ev.target.closest('.btn-primary') && // Якщо closest знаходить btn-primary
       ev.target.closest('.btn-primary').classList.contains('btn-remove-from')
     ) {
       ev.target.closest('.random-cocktail__item').remove();
@@ -26,7 +29,7 @@ function showDefaultText() {
   }
 }
 
-function getCocktailsBySD() {
+export function getCocktailsBySD() {
   return JSON.parse(localStorage.getItem('favCocktails'));
 }
 
@@ -52,7 +55,6 @@ function renderCocktailsBySD() {
 
 function createElements(cocktails) {
   const elementsArr = cocktails.map(cocktail => {
-    console.log(cocktail);
     return createPic(cocktail);
   });
 
