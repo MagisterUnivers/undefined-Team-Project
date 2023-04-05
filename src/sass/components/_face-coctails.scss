@@ -85,6 +85,17 @@
   // }
 }
 
+.random_coctail-wrapper {
+max-width: 100%;
+  @include media-desktop-min(768px) {
+    max-width: 1134px;
+     }
+     @include media-desktop-min(1280px) {
+      max-width: 1248px;
+       }
+ 
+}
+
 .random-cocktail__uppertext {
   font-family: 'Roboto';
   font-weight: 900;
