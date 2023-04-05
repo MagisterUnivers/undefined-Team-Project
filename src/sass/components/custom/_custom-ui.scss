@@ -236,20 +236,23 @@ $hamburger-spacing: 8px;
 .custom-ui__captionName {
   text-align: center;
   font-weight: 900;
-  color: #ff9800;
+  color: #fd6b6b; /* bright red */
   margin-bottom: 5px;
+  text-shadow: 1px 1px #ffc300; /* yellow shadow */
 }
 
 .custom-ui__captionDesc {
   text-align: center;
-  color: crimson;
+  color: #03a9f4; /* bright blue */
   font-weight: 500;
   margin-bottom: 5px;
+  text-shadow: 1px 1px #9c27b0; /* purple shadow */
 }
 
 .custom-ui__captionFeature {
   text-align: center;
-  color: deeppink;
+  color: #8bc34a; /* green */
   font-weight: 300;
   margin-bottom: 5px;
+  text-shadow: 1px 1px #ff5722; /* orange shadow */
 }
