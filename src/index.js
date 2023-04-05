@@ -3,6 +3,7 @@
   | Index js
   |============================
 */
+import 'animate.css';
 import './partials/components/switcher_theme_button/switcher_theme_button.ts';
 import './js/header';
 import './js/hero_btn';
