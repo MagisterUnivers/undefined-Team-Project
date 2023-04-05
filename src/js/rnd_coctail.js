@@ -47,102 +47,13 @@ export async function rndCocktails() {
     );
     document.getElementById('content').removeAttribute('hidden');
     document.getElementById('loading').style.display = 'none';
-    // console.log(results);
 
     document.querySelector('.random-cocktail__list').innerHTML =
       createPic(results);
-
-    // results.forEach(result => {
-    //   document
-    //     .querySelector('.random-cocktail__list')
-    //     .insertAdjacentHTML('beforeend', createPic(result));
-    // });
   } catch (error) {
     console.log('Error', error);
   }
 }
-
-/**
-  |============================
-  | Working method
-  |============================
-*/
-
-// window.onload = async function () {
-//   const API_RANDOM1 = 'https://www.thecocktaildb.com/api/json/v1/1/random.php';
-//   const API_RANDOM2 = 'https://www.thecocktaildb.com/api/json/v1/1/random.php';
-//   const API_RANDOM3 = 'https://www.thecocktaildb.com/api/json/v1/1/random.php';
-
-//   try {
-//     const responses = await Promise.all([
-//       fetch(API_RANDOM1),
-//       fetch(API_RANDOM2),
-//       fetch(API_RANDOM3),
-//     ]);
-//     const results = await Promise.all(
-//       responses.map(response => {
-//         if (response.ok) {
-//           return response.json();
-//         } else {
-//           throw new Error(response.status);
-//         }
-//       })
-//     );
-//     console.log(results);
-//     document
-//       .getElementById('rnd-cocktail')
-//       .insertAdjacentHTML('beforeend', createPic(results[0]));
-//     document
-//       .getElementById('rnd-cocktail')
-//       .insertAdjacentHTML('beforeend', createPic(results[1]));
-//     document
-//       .getElementById('rnd-cocktail')
-//       .insertAdjacentHTML('beforeend', createPic(results[2]));
-//   } catch (error) {
-//     console.log('Error', error);
-//   }
-// };
-
-/**
-  |============================
-  | Functions
-  |============================
-*/
-
-// async function fetchRandomCocktail1() {
-//   const response = await fetch(API_RANDOM);
-//   if (response.ok) {
-//     const resultData = await response.json();
-//     return resultData;
-//   } else {
-//     throw new Error(response.status);
-//   }
-// }
-
-// async function fetchRandomCocktail2() {
-//   const response = await fetch(API_RANDOM);
-//   if (response.ok) {
-//     const resultData = await response.json();
-//     return resultData;
-//   } else {
-//     throw new Error(response.status);
-//   }
-// }
-
-// function fetchSomePic(searchRndCocktail) {
-//   return fetch(`${searchRndCocktail}`)
-//     .then(response => {
-//       if (response.ok) {
-//         return response.json();
-//       } else {
-//         throw new Error(response.status);
-//       }
-//     })
-//     .catch(error => {
-//       console.log('Error', error);
-//       return error;
-//     });picture
-// }
 
 function createPic(cards) {
   // console.log(cards);

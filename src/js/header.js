@@ -22,5 +22,3 @@ dataBurgerMenuArrow.addEventListener('click', onClickBurgerMenuArrow);
 function onClickBurgerMenuArrow() {
   dataBurgerMenuFavorite.classList.toggle('burger-favorite__items-display');
 }
-
-console.log('12222');

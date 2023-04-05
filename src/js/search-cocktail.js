@@ -1,7 +1,5 @@
 import mobImg1 from '../images/results-section/mobile/mobile_not-found-280.png';
 import mobImg2 from '../images/results-section/mobile/mobile_not-found-560.png';
-import tabImg1 from '../images/results-section/tablet/tablet_not-found-345.png';
-import tabImg2 from '../images/results-section/tablet/tablet_not-found-690.png';
 import deskImg1 from '../images/results-section/desktop/desktop_not-found-345.png';
 import deskImg2 from '../images/results-section/desktop/desktop_not-found-690.png';
 
@@ -9,15 +7,6 @@ const form = document.querySelector('.header-form');
 const input = document.querySelector('.header-input');
 const ul = document.querySelector('.random-cocktail__list');
 const titleEl = document.querySelector('.random-cocktail__title');
-
-// form.addEventListener('submit', async e => {
-//   e.preventDefault();
-//   // const request = searchCocktails(
-//   //   document.getElementById('search-input').value
-//   // );
-//   document.getElementById('rnd-cocktail').innerHTML = '';
-//   parseRequest(request);
-// });
 
 form.addEventListener('submit', async e => {
   e.preventDefault();
@@ -45,35 +34,12 @@ export async function searchCocktails(cocktailName) {
   return data.drinks;
 }
 
-// export async function parseRequest(data) {
-//   return `<li class="random-cocktail__item">
-//   <img class="random-cocktail__image" src="${data[0].strDrinkThumb}" alt="${data[0].strCategory}" loading="lazy" width=0 heigth=0/><h3 class="random-cocktail__uppertext theme_text_color">${data[0].strDrink}</h3></li>`;
-// }
-
 export async function parseRequest(data = '') {
   titleEl.textContent = 'Searching results';
   let cocktailsHtml = '';
 
   if (!data) {
     titleEl.innerHTML = `<h2 class='empty-search__title'>Sorry, we didn't find<br> any cocktail for you</h2>`;
-    // cocktailsHtml = `<img
-    //   class="userpic"
-    //   srcset="
-    //     ${mobImg1}  280w,
-    //     ${mobImg1}   560w,
-    //     ${tabImg1}   345w,
-    //     ${tabImg2}   690w,
-    //     ${deskImg1} 345w,
-    //     ${deskImg2} 690w
-    //   "
-    //   sizes="(min-width: 1280px) 345px, (min-width: 768px) 345px, (min-width: 320px) 280px"
-    //   src="${mobImg1}"
-    // type="image/png"
-    //   alt="Member photo 1"
-    //   width="345"
-    //   height="380"
-    //   loading="lazy"
-    // />`;
     cocktailsHtml = `<li><picture >
           <source
           media="(min-width: 768px)"
@@ -118,12 +84,4 @@ export async function parseRequest(data = '') {
   return cocktailsHtml.includes('<li class="random-cocktail__item">')
     ? `<ul class="random-cocktail__list">${cocktailsHtml}</ul>`
     : cocktailsHtml;
-  // return cocktailsHtml;
-  // ? `<ul class="random-cocktail__list">${cocktailsHtml}</ul>`
-  // : '<h2 class="random-cocktail__title">No search resultfgfgfgfgs</h2>';
 }
-
-// export async function parseRequest(Name) {
-//   return `<li class="random-cocktail__item">
-//   <img class="random-cocktail__image" src="${picture.drinks[0].strDrinkThumb}" alt="${picture.drinks[0].strCategory}" loading="lazy" width=0 heigth=0/><h3 class="random-cocktail__uppertext theme_text_color">${picture.drinks[0].strDrink}</h3></li>`;
-// }

@@ -73,5 +73,4 @@ document.querySelector('.btn-secondary').addEventListener('click', () => {
   const stuff = document.querySelector('.fav-ingredient__name').textContent;
   getIngredientData(stuff);
   modalIngredients.classList.toggle('is-hidden');
-  console.log(stuff);
 });

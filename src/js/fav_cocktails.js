@@ -1,7 +1,6 @@
 import '../partials/components/switcher_theme_button/switcher_theme_button.ts';
 import './add-remove-fav';
 import { ADD_BTN, REMOVE_BTN, LEARN_MORE_BTN } from './constants.js';
-// import './fav-cocktails_pagintaion.js'
 import './header';
 
 const favCocktailsList = document.querySelector('.random-cocktail__list');

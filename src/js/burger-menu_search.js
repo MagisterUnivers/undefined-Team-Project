@@ -1,7 +1,5 @@
 import mobImg1 from '../images/results-section/mobile/mobile_not-found-280.png';
 import mobImg2 from '../images/results-section/mobile/mobile_not-found-560.png';
-import tabImg1 from '../images/results-section/tablet/tablet_not-found-345.png';
-import tabImg2 from '../images/results-section/tablet/tablet_not-found-690.png';
 import deskImg1 from '../images/results-section/desktop/desktop_not-found-345.png';
 import deskImg2 from '../images/results-section/desktop/desktop_not-found-690.png';
 

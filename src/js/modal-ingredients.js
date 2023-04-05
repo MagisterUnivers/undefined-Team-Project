@@ -35,9 +35,7 @@ addFavoritesButton.addEventListener('click', () => {
   const parsedFavIngredients = JSON.parse(
     localStorage.getItem('favIngredients')
   );
-  // console.log(ingredient);
   parsedFavIngredients.push(ingredient);
-  // console.log(parsedFavIngredients);
   localStorage.setItem('favIngredients', JSON.stringify(parsedFavIngredients));
   Notify.success(`${ingredient.strIngredient} added to your favorites😍!`);
 });
@@ -47,8 +45,6 @@ removeFavoritesButton.addEventListener('click', e => {
   const parsedFavIngredients = JSON.parse(
     localStorage.getItem('favIngredients')
   );
-  // console.log(parsedFavIngredients);
-  // console.dir(e.target);
   parsedFavIngredients.splice(
     parsedFavIngredients.findIndex(
       ingredient =>
@@ -106,7 +102,6 @@ export async function getIngredientData(ingredientName) {
   ingredientTitle = document.querySelector('.modal-ingredient-title');
   chooseAddOrRemoveButton();
 }
-// modal.insertAdjacentHTML('beforeend', updateIngredients());
 
 // Функция для получения избранных ингредиентов из localStorage
 function getFavorites() {
@@ -144,27 +139,8 @@ function removeFromFavorites() {
   }
 }
 
-//   // Обработчик клика на кнопку "Add to favorites"
-//   addFavoritesButton.addEventListener('click', () => {
-//     saveToFavorites();
-//     removeFavoritesButton.style.display = 'block';
-//     addFavoritesButton.style.display = 'none';
-//   });
-
-//   // Обработчик клика на кнопку "Remove from favorites"
-//   removeFavoritesButton.addEventListener('click', () => {
-//     removeFromFavorites();
-//     removeFavoritesButton.style.display = 'none';
-//     addFavoritesButton.style.display = 'block';
-//   });
-// }
-
 closeBtn.addEventListener('click', () => {
   const remove = document.querySelector('.remove');
-  // remove.style.display = 'none';
-  // document.querySelector('.modal-ingredients').remove.innerHTML = '';
-  // remove.querySelector.innerHTML = '';
-
   const modalIngredients = document.querySelector('.modal-ingredients');
   const removeElements = modalIngredients.querySelectorAll('.remove');
 

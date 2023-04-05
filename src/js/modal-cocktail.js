@@ -3,11 +3,7 @@
   | Import
   |============================
 */
-import {
-  getIngredientData,
-  modalIngredients,
-} from './modal-ingredients';
-import { id } from './add-remove-fav';
+import { getIngredientData, modalIngredients } from './modal-ingredients';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import 'notiflix/dist/notiflix-3.2.6.min.css';
 import { REMOVE_BTN, ADD_BTN } from './constants';
@@ -124,7 +120,6 @@ export async function fetchCocktailById(id) {
 
 export async function onBtnAddFavClick(e) {
   const id = e.target.closest('li').getAttribute('id');
-  // console.log(id);
 
   const data = await fetchCocktailById(id);
   cocktail = data;
@@ -191,7 +186,6 @@ function onIngredientClick(event) {
     const ingredientName = liElement.textContent.trim().substring(2);
     getIngredientData(ingredientName);
     modalIngredients.classList.toggle('is-hidden');
-    console.log(ingredientName);
   }
 }
 /*
