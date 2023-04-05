@@ -26,7 +26,6 @@ refs.optionsList.forEach(option => {
     const letterBySelector = option
       .querySelector('label')
       .innerHTML.toLowerCase();
-    console.log(letterBySelector);
     searchCocktails(letterBySelector).then(dataDrinks => {
       if (!dataDrinks) {
         rndCocktails();
@@ -39,7 +38,6 @@ refs.optionsList.forEach(option => {
 ulList.forEach(li => {
   li.addEventListener('click', ev => {
     const selectedLetter = ev.target.textContent.toLowerCase();
-    console.log(selectedLetter);
     searchCocktails(selectedLetter).then(dataDrinks => {
       if (!dataDrinks) {
         rndCocktails();
@@ -61,7 +59,6 @@ function parseCoctailWithPagination(data) {
     cardsPerPage = 9;
   }
   displayList(dataCoctails, cardsPerPage, currentPage);
-  console.log(currentPage);
   displayPaginationDots(dataCoctails, cardsPerPage, currentPage);
 }
 
@@ -83,11 +80,10 @@ function displayList(arrData, cards, page) {
   <img class="random-cocktail__image" src="${coctail.strDrinkThumb}" alt="${coctail.strCategory}" loading="lazy" width=0 heigth=0/><h3 class="random-cocktail__uppertext theme_text_color" name="cocktailName">${coctail.strDrink}</h3><div class="random-cocktail__btn">${LEARN_MORE_BTN}${ADD_BTN}</div></li></div></div>`);
     }
   }, '');
-  console.log(page);
   ulEl.insertAdjacentHTML('afterbegin', renderedCoctails);
   page++;
-  console.log(page);
-  updatePaginationActiveClass(arrData, cards, page)
+  updatePaginationActiveClass(arrData, cards, page);
+ 
 }
 
 function createPaginationBtn(arrData, page, currentPage, cards) {
@@ -100,15 +96,16 @@ function createPaginationBtn(arrData, page, currentPage, cards) {
   liEl.addEventListener('click', () => {
     currentPage = page;
     displayList(arrData, cards, currentPage);
-    updatePaginationActiveClass(arrData, cards, currentPage)
+    updatePaginationActiveClass(arrData, cards, currentPage);
   });
   return liEl;
 }
 
 function prevBtnHandle(arrData, cards, currentPage){
   btnPrevious.addEventListener('click', () => {
+      currentPage--;
       displayList(arrData, cards, currentPage);
-      updatePaginationActiveClass(arrData, cards, currentPage)
+      updatePaginationActiveClass(arrData, cards, currentPage);
       
 });
 }
@@ -124,9 +121,11 @@ function nextBtnHandle(arrData, cards, currentPage){
 }
 
 function updatePaginationActiveClass(arrData, cards, currentPage) {
+  nextBtnHandle(arrData, cards, currentPage);
+  prevBtnHandle(arrData, cards, currentPage);
   const pagesCount = Math.ceil(arrData.length / cards);
+  TOTAL_PAGES_PAGINATION = pagesCount;
   const activeItem = document.querySelector('.pagination__item--active');
-  console.log(activeItem);
   if (activeItem) {
     activeItem.classList.remove('pagination__item--active');
   };
@@ -162,7 +161,6 @@ function displayPaginationDots(arrData, cards, currentPage) {
   const paginationList = document.querySelector('.pagination__list');
   paginationList.innerHTML = '';
   const pagesCount = Math.ceil(arrData.length / cards);
-  console.log(pagesCount);
   const spanEl = document.createElement('span');
   spanEl.classList.add('dots');
   spanEl.innerText = `...`;
@@ -177,7 +175,13 @@ function displayPaginationDots(arrData, cards, currentPage) {
              paginationList.appendChild(liEl);
          }
              paginationList.appendChild(spanEl);
-             paginationList.appendChild(createPaginationBtn(arrData, pagesCount, currentPage, cards))
+             const lastLiEl = createPaginationBtn(arrData, pagesCount, currentPage, cards);
+             lastLiEl.addEventListener('click', ()=> {     
+              currentPage = pagesCount;
+              displayList(arrData, cards, currentPage);
+              lastLiEl.classList.add('pagination__item--active') 
+             } );
+             paginationList.appendChild(lastLiEl);
                          }
         else {
                  for (let i = 1; i <= pagesCount; i++) {
@@ -202,10 +206,7 @@ function displayPaginationDots(arrData, cards, currentPage) {
                       paginationList.appendChild(liEl);
                        }}
       }
-     console.log(currentPage); 
-     nextBtnHandle(arrData, cards, currentPage);
-     prevBtnHandle(arrData, cards, currentPage);
-  };
+    };
 
 
 
@@ -214,27 +215,8 @@ function displayPaginationDots(arrData, cards, currentPage) {
 
 
 
-
+function displayPaginationOnMobile(currentPage){
   
+}
 
 
-
-  // function displayPagination(arrData, cards, currentPage) {
-  //   console.log(currentPage);
-  //   const paginationList = document.querySelector('.pagination__list');
-  //   paginationList.innerHTML = '';
-  //   const pagesCount = Math.ceil(arrData.length / cards);
-  
-  //   if (pagesCount === 1) {
-  //     paginationBox.classList.add('visually-hidden');
-  //   } else {
-  //     for (let i = 1; i <= pagesCount; i++) {
-  //       const liEl = createPaginationBtn(arrData, i, currentPage, cards);
-  //       paginationList.appendChild(liEl);
-  //     }
-  //   }
-  
-  //   nextBtnHandle(arrData, cards, currentPage);
-  //   prevBtnHandle(arrData, cards, currentPage);
-  // }
-  
