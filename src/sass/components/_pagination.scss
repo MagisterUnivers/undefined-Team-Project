@@ -32,7 +32,6 @@
   @include media-tablet-min(768px) {
     gap: 14px;
     width: 364px;
-
   }
 }
 
@@ -40,7 +39,7 @@
 .dots {
   width: 32px;
   height: 32px;
-  background: #fdfdfd;
+
   border: 1px solid #eaebea;
   border-radius: 4px;
   padding: 8px;
@@ -62,7 +61,6 @@
 
 .dots {
   display: block;
-  
 }
 
 .pagination__item--active {
@@ -81,7 +79,7 @@
   @include media-tablet-min(768px) {
     width: 60px;
     height: 40px;
-    background: #fdfdfd;
+
     border: 1px solid #eaebea;
     border-radius: 4px;
   }

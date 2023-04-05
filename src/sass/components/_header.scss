@@ -299,7 +299,7 @@
   height: 100vh;
   top: 0;
   left: 0;
-  background-color: white;
+
   display: none;
 }
 
@@ -501,10 +501,6 @@
   overflow: hidden;
 }
 
-.burger-menu-favorite-item{
+.burger-menu-favorite-item {
   display: flex;
 }
-
-// .dark-theme-text{
-//   color: $white-color;
-// }

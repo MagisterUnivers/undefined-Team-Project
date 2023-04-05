@@ -127,7 +127,7 @@ export async function onBtnAddFavClick(e) {
   <h3 class="modal__title theme_text_color" id='${data.idDrink}'>${data.strDrink}</h3>
   <div class="modal__instructions-hold">
     <h4 class="modal__instructions theme_text_color">INSTRUCTION:</h4>
-    <p class="instruction">${data.strInstructions}</p>
+    <p class="instruction theme_modal_text_color ">${data.strInstructions}</p>
   </div>
   <img
       class="modal__picture"
@@ -169,7 +169,7 @@ export async function onBtnAddFavClick(e) {
       listItem.classList.add('ingredient__item');
       listItem.setAttribute('data-ingredient', ingredient);
       listItem.setAttribute('data-name', 'ingredient');
-      listItem.innerHTML = `<span class="ingredientsBlack">✶ </span>${ingredient}`;
+      listItem.innerHTML = `<span class="ingredientsBlack theme_text_color ">✶ </span>${ingredient}`;
       ingredientsList.appendChild(listItem);
     } else {
       break;

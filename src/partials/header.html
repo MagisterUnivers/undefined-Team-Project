@@ -48,7 +48,7 @@
             type="search"
             placeholder="Search |"
             name="headerinput"
-            class="header-input dark-theme-text"
+            class="header-input theme_text_color"
             data-header-input
           />
           <button type="submit" class="search-button" aria-label="search">
@@ -98,7 +98,7 @@
       </button>
     </div>
 
-    <div class="mobile-menu" data-burger-menu>
+    <div class="mobile-menu theme_background_color" data-burger-menu>
       <!----------------------------burger menu wrapper------------>
       <div class="mobile-menu-wrapper container">
         <a
@@ -124,7 +124,7 @@
               <form class="burger-form" data-burger-submit>
                 <input
                   type="search"
-                  class="burger-input"
+                  class="burger-input theme_text_color"
                   name="burgerinput"
                   placeholder="Search |"
                   data-burger-input
@@ -156,22 +156,22 @@
                 </a>
               </li>
               <li class="mobile-menu-navigation__item" data-burger-menu-arrow>
-                <div class="burger-menu-favorite-item"> 
-                <p class="burger-favorite-text theme_text_color">Favorite</p>
-                <button
-                  type="button"
-                  class="burger-menu-arrow"
-                  aria-label="Burger menu arrow"
-                >
-                  <svg
-                    class="burger-menu-arrow-icon burger-menu-btn-icon"
-                    width="24"
-                    height="24"
+                <div class="burger-menu-favorite-item">
+                  <p class="burger-favorite-text theme_text_color">Favorite</p>
+                  <button
+                    type="button"
+                    class="burger-menu-arrow"
                     aria-label="Burger menu arrow"
                   >
-                    <use href="/src/images/sprite.svg#icon-right-arrow"></use>
-                  </svg>
-                </button>
+                    <svg
+                      class="burger-menu-arrow-icon burger-menu-btn-icon theme_fill_color"
+                      width="24"
+                      height="24"
+                      aria-label="Burger menu arrow"
+                    >
+                      <use href="/src/images/sprite.svg#icon-right-arrow"></use>
+                    </svg>
+                  </button>
                 </div>
                 <div class="burger-favorite__items" data-burger-menu-favorite>
                   <div class="burger-drop__item">

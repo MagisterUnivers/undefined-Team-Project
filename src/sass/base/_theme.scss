@@ -32,6 +32,17 @@ body[data-theme='dark'] {
   }
 }
 
+.theme_fill_color_white_to_black {
+  fill: $white-color;
+  @include fill_color_transition;
+}
+
+body[data-theme='dark'] {
+  .theme_fill_color_white_to_black {
+    fill: $black-color;
+  }
+}
+
 .theme_fill_color {
   fill: $black-color;
   @include fill_color_transition;
