@@ -20,7 +20,9 @@
   height: 673px;
   width: 320px;
   position: relative;
-
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   padding: 20px;
   @include media-tablet-min(768px) {
     width: 715px;
