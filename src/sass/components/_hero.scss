@@ -5,6 +5,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  max-width: 1600px;
   @include media-tablet-min(768px) {
     padding-top: 100px;
     gap: 43px;
