@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Favorite ingredients</title>
+    <link rel="icon" type="image/x-icon" href="/src/images/favicon.ico" />
+    <link rel="stylesheet" href="/src/index.scss" />
+    <script src="/src/js/fav-ingredients.js" type="module"></script>
+  </head>
+  <body>
+    <main>
+      <include src="./partials/header.html"></include>
+      <section class="fav-ingredients section">
+        <h1 class="fav-ingredients__title">Favorite ingredients</h1>
+        <div class="fav-ingredients__default">
+          <p class="fav-ingredients__default-text">
+            You haven't added any favorite ingredients yet
+          </p>
+        </div>
+        <div class="wrapper" id="rnd-cocktail">
+          <ul class="fav-ingredients__list"></ul>
+        </div>
+      </section>
+      <include src="./partials/footer.html"></include>
+    </main>
+  </body>
+</html>

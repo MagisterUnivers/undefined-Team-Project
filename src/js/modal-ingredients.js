@@ -23,6 +23,7 @@ if (!localStorage.getItem('favIngredients')) {
 }
 
 removeFavoritesButton.style.display = 'none';
+
 addFavoritesButton.addEventListener('click', () => {
   removeFavoritesButton.style.display = 'block';
   addFavoritesButton.style.display = 'none';
@@ -104,6 +105,58 @@ export async function getIngredientData(ingredientName) {
   modal.insertAdjacentHTML('afterbegin', updateIngredients());
   ingredientTitle = document.querySelector('.modal-ingredient-title');
   chooseAddOrRemoveButton();
+
+  modal.insertAdjacentHTML('beforeend', updateIngredients());
+
+  // Функция для получения избранных ингредиентов из localStorage
+  function getFavorites() {
+    const favorites = localStorage.getItem('favIngredients');
+    if (favorites === null) {
+      return [];
+    }
+    return JSON.parse(favorites);
+  }
+
+  // Функция для сохранения избранного ингредиента в localStorage
+  function saveToFavorites() {
+    const favorites = getFavorites();
+    const ingredient = {
+      idIngredient: data.ingredients[0].idIngredient,
+      strIngredient: data.ingredients[0].strIngredient,
+      strDescription: data.ingredients[0].strDescription,
+      strType: data.ingredients[0].strType,
+      strAlcohol: data.ingredients[0].strAlcohol,
+      strABV: data.ingredients[0].strABV,
+    };
+    favorites.push(ingredient);
+    localStorage.setItem('favIngredients', JSON.stringify(favorites));
+  }
+
+  // Функция для удаления ингредиента из localStorage
+  function removeFromFavorites() {
+    const favorites = getFavorites();
+    const index = favorites.findIndex(
+      ingredient => ingredient.idIngredient === data.ingredients[0].idIngredient
+    );
+    if (index > -1) {
+      favorites.splice(index, 1);
+      localStorage.setItem('favIngredients', JSON.stringify(favorites));
+    }
+  }
+
+  // Обработчик клика на кнопку "Add to favorites"
+  addFavoritesButton.addEventListener('click', () => {
+    saveToFavorites();
+    removeFavoritesButton.style.display = 'block';
+    addFavoritesButton.style.display = 'none';
+  });
+
+  // Обработчик клика на кнопку "Remove from favorites"
+  removeFavoritesButton.addEventListener('click', () => {
+    removeFromFavorites();
+    removeFavoritesButton.style.display = 'none';
+    addFavoritesButton.style.display = 'block';
+  });
 }
 
 closeBtn.addEventListener('click', () => {

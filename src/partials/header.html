@@ -96,6 +96,112 @@
           ></use>
         </svg>
       </button>
+      <div class="mobile-menu" data-burger-menu>
+        <!-----------------------------------------------------------------burger menu wrapper------------>
+        <div class="mobile-menu-wrapper container">
+          <a class="burger__logo-link" href="/src/index.html">
+            <img src="/src/images/logo.svg" alt="logo" class="logo-img" />
+          </a>
+          <!---------------------------------------------------------------burger menu SWITCHER ------------------------------->
+          <div class="burger-wrapper">
+            <ul class="burger-switcher">
+              <li
+                class="burger-switcher-light dark-theme-text"
+                data-text-color-switcher-light
+              >
+                Light
+              </li>
+              <li>
+                <button
+                  type="button"
+                  class="switcher-button"
+                  data-header-theme-switcher
+                  aria-label="header-theme"
+                ></button>
+              </li>
+              <li class="burger-switcher-dark" data-text-color-switcher-dark>
+                Dark
+              </li>
+            </ul>
+
+            <div>
+              <!------------------------------------------------------------------burger menu INPUT -------------------------------->
+              <div class="burger-input-wrapper">
+                <form class="header-form" data-burger-submit>
+                  <input
+                    type="search"
+                    class="burger-input dark-theme-text"
+                    name="burgerinput"
+                    placeholder="Search"
+                    data-burger-input
+                  />
+                  <button
+                    type="submit"
+                    class="burger-search-button"
+                    aria-label="Burger menu search"
+                  >
+                    <svg
+                      class="input-search-icon"
+                      width="24"
+                      height="24"
+                      aria-label="Burger menu search"
+                    >
+                      <use href="/src/images/sprite.svg#icon-search"></use>
+                    </svg>
+                  </button>
+                </form>
+              </div>
+              <!----------------------------------------------------------------- MOBILE NAV MENU ----------------------------->
+              <ul class="mobile-menu-navigation__list">
+                <li class="mobile-menu-navigation__item">
+                  <a
+                    class="mobile-navigation__link dark-theme-text"
+                    href="/src/index.html"
+                    aria-label="Home"
+                    >Home
+                  </a>
+                </li>
+                <li class="mobile-menu-navigation__item" data-burger-menu-arrow>
+                  <p class="burger-favorite-text dark-theme-text">Favorite</p>
+                  <button
+                    type="button"
+                    class="burger-menu-arrow"
+                    aria-label="Burger menu arrow"
+                  >
+                    <svg
+                      class="burger-menu-arrow-icon burger-menu-btn-icon"
+                      width="24"
+                      height="24"
+                      aria-label="Burger menu arrow"
+                    >
+                      <use href="/src/images/sprite.svg#icon-down-arrow"></use>
+                    </svg>
+                  </button>
+                </li>
+
+                <ul class="burger-favorite__items" data-burger-menu-favorite>
+                  <li class="burger-drop__item">
+                    <a
+                      class="burger-drop__link dark-theme-text"
+                      href="/src/partials/fav_cocktails.html"
+                      aria-label="Favorite cocktails"
+                      >Favorite cocktails</a
+                    >
+                  </li>
+                  <li class="burger-drop__item">
+                    <a
+                      class="burger-drop__link dark-theme-text"
+                      href="/src/partials/fav_ingredients.html"
+                      aria-label="Favorite ingredients"
+                      >Favorite ingredients</a
+                    >
+                  </li>
+                </ul>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
 
     <div class="mobile-menu theme_background_color" data-burger-menu>
