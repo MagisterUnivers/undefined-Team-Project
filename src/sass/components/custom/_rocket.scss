@@ -1,14 +1,15 @@
-@include media-tablet-min(0px) {
+@include media-tablet-min(1279px) {
   .top {
     display: none;
   }
-  @include media-tablet-min(768px) {
+  @include media-desktop-min(1280px) {
     .top {
       display: block;
       overflow: hidden;
       position: fixed;
-      bottom: 70px;
-      right: 60px;
+      bottom: 120px;
+      border: 2px solid black;
+      right: 30px;
       padding: 8px 16px;
       border-radius: 50%;
       z-index: 1;
@@ -18,7 +19,7 @@
       animation: bounce-in-top 3.5s ease-in-out;
 
       @include media-desktop-min(1280px) {
-        right: 80px;
+        right: 30px;
       }
 
       &:hover,

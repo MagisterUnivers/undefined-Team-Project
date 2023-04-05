@@ -87,25 +87,34 @@ $hamburger-spacing: 8px;
     transform: translate3d(0, 0, 0) rotate(-45deg);
   }
 }
+
 .menu {
-  width: 650px;
-  height: 150px;
-  box-sizing: border-box;
-  text-align: left;
-  margin-bottom: 50px;
-  margin-left: -80px;
-  padding-top: 20px;
-  padding-left: 80px;
-  font-size: 20px;
-  position: fixed;
-  top: 70%;
-  right: -27%;
+  @include media-desktop-min(1280px) {
+    width: 650px;
+    height: 150px;
+    box-sizing: border-box;
+    text-align: left;
+    margin-bottom: 50px;
+    margin-left: -80px;
+    padding-top: 20px;
+    padding-left: 80px;
+    font-size: 20px;
+    position: fixed;
+    top: 66%;
+    right: -30%;
+    display: block;
+  }
+  @include media-tablet-max(1279.98px) {
+    display: none;
+  }
 }
 
 .menu-item {
+  // position: relative;
   &:hover {
-    background: white;
+    background: red;
     color: $fg;
+    fill: white;
   }
   @for $i from 1 through $menu-items {
     &:nth-child(#{$i + 2}) {
@@ -139,4 +148,108 @@ $hamburger-spacing: 8px;
       transform: translate3d(0, -110px * $i, 0); /* Изменили здесь */
     }
   }
+}
+
+.fa {
+  font: 14px / 1 FontAwesome;
+  font-size: inherit;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  align-items: center;
+  display: block;
+  position: relative;
+  top: 6px;
+  right: -6px;
+  transform: translate(0);
+}
+
+.custom-ui__icon {
+  height: 60%;
+  width: 80%;
+  /* position: absolute; */
+  top: 25px;
+  right: 23px;
+  display: block;
+}
+
+/**
+  |============================
+  | Mentors modal
+  |============================
+*/
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.9);
+}
+
+.modal-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 30px;
+  font-weight: bold;
+  color: #fff;
+  cursor: pointer;
+}
+
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.gallery a {
+  margin: 10px;
+}
+
+.gallery img {
+  max-width: 100%;
+  height: auto;
+}
+
+.custom-ui__img {
+  margin-bottom: 20px;
+}
+
+.custom-ui__caption {
+  text-align: center;
+}
+
+.custom-ui__captionName {
+  text-align: center;
+  font-weight: 900;
+  color: #ff9800;
+  margin-bottom: 5px;
+}
+
+.custom-ui__captionDesc {
+  text-align: center;
+  color: crimson;
+  font-weight: 500;
+  margin-bottom: 5px;
+}
+
+.custom-ui__captionFeature {
+  text-align: center;
+  color: deeppink;
+  font-weight: 300;
+  margin-bottom: 5px;
 }

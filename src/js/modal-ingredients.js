@@ -144,20 +144,20 @@ export async function getIngredientData(ingredientName) {
     }
   }
 
-  // Обработчик клика на кнопку "Add to favorites"
-  addFavoritesButton.addEventListener('click', () => {
-    saveToFavorites();
-    removeFavoritesButton.style.display = 'block';
-    addFavoritesButton.style.display = 'none';
-  });
+//   // Обработчик клика на кнопку "Add to favorites"
+//   addFavoritesButton.addEventListener('click', () => {
+//     saveToFavorites();
+//     removeFavoritesButton.style.display = 'block';
+//     addFavoritesButton.style.display = 'none';
+//   });
 
-  // Обработчик клика на кнопку "Remove from favorites"
-  removeFavoritesButton.addEventListener('click', () => {
-    removeFromFavorites();
-    removeFavoritesButton.style.display = 'none';
-    addFavoritesButton.style.display = 'block';
-  });
-}
+//   // Обработчик клика на кнопку "Remove from favorites"
+//   removeFavoritesButton.addEventListener('click', () => {
+//     removeFromFavorites();
+//     removeFavoritesButton.style.display = 'none';
+//     addFavoritesButton.style.display = 'block';
+//   });
+// }
 
 closeBtn.addEventListener('click', () => {
   toggleModal();

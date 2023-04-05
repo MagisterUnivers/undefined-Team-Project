@@ -12,11 +12,92 @@
     <span class="hamburger hamburger-3"></span>
   </label>
 
-  <a href="#" class="menu-item"
-    ><button type="button"></button><i class="fa fa-bar-chart"></i>
+  <a
+    href="https://www.youtube.com/"
+    target="_blank"
+    class="menu-item"
+    rel="noopener noreferrer"
+    aria-label="Youtube for cocktails"
+    title="Youtube"
+    ><i class="fa fa-bar-chart">
+      <svg class="custom-ui__icon" width="24" height="24">
+        <use href="/src/images/sprite.svg#icon-youtube"></use>
+      </svg>
+    </i>
   </a>
-  <a href="#" class="menu-item"> <i class="fa fa-plus"></i> </a>
-  <a href="#" class="menu-item"> <i class="fa fa-heart"></i> </a>
+  <a
+    href="#"
+    class="menu-item"
+    aria-label="Clean saved"
+    title="Очистить LStorage"
+    id="clear-local-storage"
+  >
+    <i class="fa fa-plus"
+      ><svg class="custom-ui__icon" width="24" height="24">
+        <use href="/src/images/sprite.svg#icon-trash-can"></use></svg></i
+  ></a>
+  <a
+    href="#"
+    class="menu-item"
+    id="open-gallery"
+    aria-label="For modal purposes"
+    ><i class="fa fa-plus"
+      ><svg class="custom-ui__icon" width="24" height="24">
+        <use href="/src/images/sprite.svg#icon-study"></use></svg></i
+  ></a>
+  <!-- Модальное окно с галереей -->
+  <div class="modal" id="gallery-modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <div class="gallery">
+        <a href="" target="_blank"
+          ><img
+            src="https://ca.slack-edge.com/T04CB56S962-U04R4HL4RK5-662d5b5eab3a-512"
+            alt="Maxim Aliev"
+            class="custom-ui__img"
+          />
+          <figcaption class="custom-ui__captionName">Maxim Aliev</figcaption>
+          <figcaption class="custom-ui__captionDesc">
+            Best Lector ever seen
+          </figcaption>
+          <figcaption class="custom-ui__captionFeature">
+            © Ну шо, йдемо пити каву?
+          </figcaption></a
+        >
+        <a href="" target="_blank"
+          ><img
+            src="https://ca.slack-edge.com/T04CB56S962-U04RU7RDMEU-2b7d97c0239f-512"
+            alt="Maxim Romanov"
+            class="custom-ui__img"
+          />
+          <figcaption class="custom-ui__captionName">Maxim Romanov</figcaption>
+          <figcaption class="custom-ui__captionDesc">
+            Most loyal mentor
+          </figcaption>
+          <figcaption class="custom-ui__captionFeature">
+            © Так, Сергій...ой, тьфу, Андрій
+          </figcaption></a
+        >
+        <a href="" target="_blank"
+          ><img
+            src="https://ca.slack-edge.com/T04CB56S962-U04R6C5BQ3W-e3b76aa1bcb7-512"
+            alt="Vladyslav Filippov"
+            class="custom-ui__img"
+          />
+          <figcaption class="custom-ui__captionName">
+            Vladyslav Filippov
+          </figcaption>
+          <figcaption class="custom-ui__captionDesc">
+            24h/7d Stydying Mashine
+          </figcaption>
+          <figcaption class="custom-ui__captionFeature">
+            © Можна все сделать гораздо проще
+          </figcaption></a
+        >
+      </div>
+    </div>
+  </div>
+
   <a href="#" class="menu-item"> <i class="fa fa-envelope"></i> </a>
 </nav>
 
