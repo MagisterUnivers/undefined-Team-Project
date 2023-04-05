@@ -1,5 +1,6 @@
-import './add-remove-fav';
+// import './add-remove-fav';
 import { LEARN_MORE_BTN, REMOVE_BTN } from './constants.js';
+import { getIngredientData, modalIngredients } from './modal-ingredients';
 
 const favoritesList = document.querySelector('.fav-ingredients__list');
 
@@ -48,4 +49,11 @@ window.addEventListener('storage', event => {
   if (event.key === 'favIngredients') {
     renderFavoritesList();
   }
+});
+
+document.querySelector('.btn-secondary').addEventListener('click', () => {
+  const stuff = document.querySelector('.fav-ingredient__name').textContent;
+  getIngredientData(stuff);
+  modalIngredients.classList.toggle('is-hidden');
+  console.log(stuff);
 });
