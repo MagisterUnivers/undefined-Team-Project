@@ -92,6 +92,18 @@
   line-height: calc(24 / 14);
 }
 
+.fav-ingredients__wrapper {
+  height: 62px;
+
+  @include media-tablet-min(768px) {
+    height: 421px;
+  }
+
+  @include media-desktop-min(1280px) {
+    height: 343px;
+  }
+}
+
 @include media-tablet-min(768px) {
   .fav-ingredients__title {
     font-weight: 700;

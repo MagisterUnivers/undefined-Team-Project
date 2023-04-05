@@ -1,17 +1,28 @@
-// import './add-remove-fav';
 import { LEARN_MORE_BTN, REMOVE_BTN } from './constants.js';
 import { getIngredientData, modalIngredients } from './modal-ingredients';
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
+import 'notiflix/dist/notiflix-3.2.6.min.css';
 
 const favoritesList = document.querySelector('.fav-ingredients__list');
+const favorites = JSON.parse(localStorage.getItem('favIngredients')) || [];
+
+function defaultAppearance() {
+  const defaultSection = document.querySelector('.fav-ingredients__default');
+  if (favorites.length) {
+    defaultSection.style.display = 'none';
+  } else {
+    defaultSection.style.display = 'block';
+  }
+}
 
 function renderFavoritesList() {
-  const favorites = JSON.parse(localStorage.getItem('favIngredients')) || [];
   favoritesList.innerHTML = '';
   for (const favorite of favorites) {
+    const strType = favorite.strType || favorite.strIngredient;
     const li = document.createElement('li');
     li.classList.add('fav-ingredients__item');
     li.innerHTML = `<h3 class="fav-ingredient__name">${favorite.strIngredient}</h3>
-    <h4 class="fav-ingredient__type">${favorite.strType}</h4>
+    <h4 class="fav-ingredient__type">${strType}</h4>
     <div class="fav-ingredient__btn">
       ${LEARN_MORE_BTN}${REMOVE_BTN}
     </div>`;
@@ -29,32 +40,26 @@ function renderFavoritesList() {
         Notify.info(
           `${favorite.strIngredient} was removed from your favorites🙄!`
         );
-        checkFooter();
+        defaultAppearance();
+        handleWrapper();
       }
     });
     favoritesList.appendChild(li);
   }
 
-  // function checkFooter() {
-  //   const footer = document.querySelector('.footer');
-  //   const defaultText = document.querySelector('.fav-ingredients__default');
-  //   if (!favorites.length) {
-  //     footer.style.position = 'absolute';
-  //     footer.style.bottom = '0';
-  //     footer.style.width = '100%';
-  //     defaultText.style.display = 'block';
-  //   } else if (favorites.length < 4) {
-  //     footer.style.position = 'absolute';
-  //     footer.style.bottom = '0';
-  //     footer.style.width = '100%';
-  //   } else {
-  //     footer.style.position = 'static';
-  //     defaultText.style.display = 'none';
-  //   }
-  // }
-
-  // checkFooter();
+  defaultAppearance();
 }
+
+function handleWrapper() {
+  const wrapper = document.querySelector('.fav-ingredients__wrapper');
+  if (favorites.length > 3) {
+    wrapper.style.display = 'none';
+  } else {
+    wrapper.style.display = 'block';
+  }
+}
+
+handleWrapper();
 
 renderFavoritesList();
 
