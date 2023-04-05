@@ -21,9 +21,9 @@
 }
 .hero__img {
   display: inline-block;
-    margin: 0 0.5rem;
-    animation: jackInTheBox;
-    animation-duration: 2s;
+  margin: 0 0.5rem;
+  animation: jackInTheBox;
+  animation-duration: 2s;
 }
 
 .hero__title {
@@ -175,7 +175,6 @@
   color: $grapefruit-color;
 }
 
-
 .hero__search__mobile {
   display: block;
   margin-top: 60px;
@@ -189,7 +188,7 @@
   font-size: 14px;
   line-height: 2;
   letter-spacing: 0.02em;
-  color: #202025;
+
   margin-bottom: 20px;
 }
 .select-box {
@@ -240,17 +239,17 @@
 
 .select-box-text {
   font-family: 'Poppins';
-font-style: normal;
-font-weight: 500;
-font-size: 14px;
-line-height: 28px;
-/* identical to box height, or 200% */
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 28px;
+  /* identical to box height, or 200% */
 
-letter-spacing: 0.02em;
+  letter-spacing: 0.02em;
 
-color: #000000;
+  color: #000000;
 
-opacity: 0.8;
+  opacity: 0.8;
 }
 .selected {
   color: $grapefruit-color;

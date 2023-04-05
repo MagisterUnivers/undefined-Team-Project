@@ -47,11 +47,11 @@
 .logo-img {
   width: 155px;
   &:hover,
-    &:focus {
-      margin: 0 0.5rem;
-      animation: heartBeat;
-      animation-duration: 2s;
-    }
+  &:focus {
+    margin: 0 0.5rem;
+    animation: heartBeat;
+    animation-duration: 2s;
+  }
 }
 
 .navigation__list {
@@ -79,14 +79,14 @@
   // transition: color 250ms $timing-function;
 
   :hover,
-    :focus {
-      display: inline-block;
-      margin: 0 0.5rem;
-      animation: heartBeat;
-      animation-duration: 2s;
-      color: $grapefruit-color;
-      transition: color 250ms $timing-function;
-    }
+  :focus {
+    display: inline-block;
+    margin: 0 0.5rem;
+    animation: heartBeat;
+    animation-duration: 2s;
+    color: $grapefruit-color;
+    transition: color 250ms $timing-function;
+  }
 }
 
 .favorite__items {
@@ -294,7 +294,7 @@
 .mobile-menu {
   position: absolute;
   z-index: 8;
-  background-color: $white-color;
+
   width: 100%;
   height: 100vh;
   top: 0;
@@ -394,6 +394,7 @@
 }
 
 .burger-input {
+  background-color: transparent;
   position: relative;
   width: 280px;
   height: 40px;
