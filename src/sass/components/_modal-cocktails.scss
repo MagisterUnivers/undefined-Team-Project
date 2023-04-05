@@ -92,13 +92,15 @@
   }
 }
 .instruction {
-  font-style: normal;
   font-family: 'Poppins';
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 1.75;
-  margin-bottom: 22px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.75;
+   color: #5F6775;
+
   @include media-tablet-min(768px) {
+    color: #5F6775;
     margin-bottom: 32px;
     height: 84px;
     width: 615px;
@@ -191,16 +193,18 @@
   font-style: normal;
   font-weight: 400;
   font-size: 20px;
-  line-height: 24px;
+  line-height: 1.2;
   letter-spacing: 0.02em;
   color: #fcfcfc;
   margin-left: 0;
-  // padding: 12px 24px;
+  border-radius: 4px;
+
   @include media-tablet-min(768px) {
     margin-bottom: 0px;
     position: absolute;
     bottom: 28px;
     right: 28px;
+    border-radius: 4px;
   }
 }
 
