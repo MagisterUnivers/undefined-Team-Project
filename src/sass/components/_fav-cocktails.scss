@@ -46,6 +46,7 @@
   text-align: center;
   margin-bottom: 60px;
   color: #202025;
+  text-shadow: #fff 1px 0 10px;
 
   @include media-tablet-min(768px) {
     font-weight: 700;
