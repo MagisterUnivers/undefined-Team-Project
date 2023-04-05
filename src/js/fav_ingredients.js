@@ -52,7 +52,7 @@ function renderFavoritesList() {
 
 function handleWrapper() {
   const wrapper = document.querySelector('.fav-ingredients__wrapper');
-  if (favorites.length > 3) {
+  if (favorites.length > 4) {
     wrapper.style.display = 'none';
   } else {
     wrapper.style.display = 'block';
@@ -68,6 +68,79 @@ window.addEventListener('storage', event => {
     renderFavoritesList();
   }
 });
+
+const headerForm = document.querySelector('.header-form');
+headerForm.addEventListener('submit', onSubmitBtnClick);
+
+function onSubmitBtnClick(ev) {
+  ev.preventDefault();
+
+  const headerFormValue = headerForm.headerinput.value.toLowerCase();
+  console.log(headerFormValue);
+  const ingredientsRenderArr = favorites;
+
+  const collectedWordsArray = ingredientsRenderArr.map(ingredient => {
+    let ingredientName = ingredient.strIngredient.toLowerCase();
+
+    return ingredientName.split(' ');
+  });
+  console.log(headerFormValue.split(' '));
+
+  let ingredientsToParse = [];
+
+  collectedWordsArray.forEach((wordsArr, wordsArrIndex) => {
+    for (let word of wordsArr) {
+      if (headerFormValue.split(' ').includes(word)) {
+        ingredientsToParse.push(wordsArrIndex);
+      }
+    }
+  });
+
+  let ingredientsArr = [];
+
+  for (let ingredientIndex of ingredientsToParse) {
+    ingredientsArr.push(ingredientsRenderArr[ingredientIndex]);
+  }
+
+  document.querySelector('.fav-ingredients__list').innerHTML = '';
+
+  if (ingredientsArr.length === 0) {
+    document
+      .querySelector('.fav-ingredients__default')
+      .removeAttribute('hidden');
+    document.querySelector('.fav-ingredients__wrapper').style.display = 'block';
+    return;
+  } else {
+    document.querySelector('.fav-ingredients__wrapper').style.display = 'none';
+  }
+
+  const ingredientElementsArr = createElements(ingredientsArr);
+
+  handleWrapper();
+  document
+    .querySelector('.fav-ingredients__list')
+    .insertAdjacentHTML('beforeend', ingredientElementsArr.join(''));
+
+  const footer = document.querySelector('.footer');
+  footer.style.position = 'absolute';
+  footer.style.bottom = '0';
+  footer.style.width = '100%';
+}
+
+function createElements(ingredientsArr) {
+  const elementsArr = ingredientsArr.map(ingredient => {
+    const strType = ingredient.strType || ingredient.strIngredient;
+    const li = `<li class="fav-ingredients__item">
+      <h3 class="fav-ingredient__name">${ingredient.strIngredient}</h3>
+      <h4 class="fav-ingredient__type">${strType}</h4>
+      <div class="fav-ingredient__btn">
+        ${LEARN_MORE_BTN}${REMOVE_BTN}
+      </div>
+    </li>`;
+    return li;
+  });
+  return elementsArr;
+}
 
 document.querySelector('.btn-secondary').addEventListener('click', () => {
   const stuff = document.querySelector('.fav-ingredient__name').textContent;
