@@ -10,6 +10,8 @@ const paginationBox = document.querySelector('.pagination__wrapper');
 const ulList = document.querySelectorAll(
   '.hero___search__list .hero__search__item'
 );
+//  let TOTAL_PAGES_PAGINATION = 1;
+//  let currentPage = 1;
 
 btnPrevious.style.display = 'none';
 btnNext.style.display = 'none';
@@ -59,7 +61,6 @@ function parseCoctailWithPagination(data) {
     cardsPerPage = 9;
   }
   displayList(dataCoctails, cardsPerPage, currentPage);
-  console.log('parseCoctailWithPagination',currentPage);
   displayPaginationDots(dataCoctails, cardsPerPage, currentPage);
 }
 
@@ -67,7 +68,6 @@ function displayList(arrData, cards, page) {
   titleEl.textContent = 'Searching results';
   ulEl.innerHTML = '';
 
-  console.log('page',page);
   page--;
   const start = cards * page;
   const end = start + cards;
@@ -82,13 +82,10 @@ function displayList(arrData, cards, page) {
   <img class="random-cocktail__image" src="${coctail.strDrinkThumb}" alt="${coctail.strCategory}" loading="lazy" width=0 heigth=0/><h3 class="random-cocktail__uppertext theme_text_color" name="cocktailName">${coctail.strDrink}</h3><div class="random-cocktail__btn">${LEARN_MORE_BTN}${ADD_BTN}</div></li></div></div>`);
     }
   }, '');
-  console.log('page',page);
   ulEl.insertAdjacentHTML('afterbegin', renderedCoctails);
   page++;
-  console.log(page);
   updatePaginationActiveClass(arrData, cards, page);
-  nextBtnHandle(arrData, cards, page);
-  prevBtnHandle(arrData, cards, page);
+ 
 }
 
 function createPaginationBtn(arrData, page, currentPage, cards) {
@@ -102,8 +99,6 @@ function createPaginationBtn(arrData, page, currentPage, cards) {
     currentPage = page;
     displayList(arrData, cards, currentPage);
     updatePaginationActiveClass(arrData, cards, currentPage);
-    nextBtnHandle(arrData, cards, currentPage);
-    prevBtnHandle(arrData, cards, currentPage);
   });
   return liEl;
 }
@@ -112,7 +107,6 @@ function prevBtnHandle(arrData, cards, currentPage){
   btnPrevious.addEventListener('click', () => {
       currentPage--;
       displayList(arrData, cards, currentPage);
-      console.log('currentPage',currentPage);
       updatePaginationActiveClass(arrData, cards, currentPage);
       
 });
@@ -129,9 +123,11 @@ function nextBtnHandle(arrData, cards, currentPage){
 }
 
 function updatePaginationActiveClass(arrData, cards, currentPage) {
+  nextBtnHandle(arrData, cards, currentPage);
+  prevBtnHandle(arrData, cards, currentPage);
   const pagesCount = Math.ceil(arrData.length / cards);
+  TOTAL_PAGES_PAGINATION = pagesCount;
   const activeItem = document.querySelector('.pagination__item--active');
-  console.log(activeItem);
   if (activeItem) {
     activeItem.classList.remove('pagination__item--active');
   };
@@ -167,7 +163,6 @@ function displayPaginationDots(arrData, cards, currentPage) {
   const paginationList = document.querySelector('.pagination__list');
   paginationList.innerHTML = '';
   const pagesCount = Math.ceil(arrData.length / cards);
-  console.log(pagesCount);
   const spanEl = document.createElement('span');
   spanEl.classList.add('dots');
   spanEl.innerText = `...`;
@@ -185,7 +180,6 @@ function displayPaginationDots(arrData, cards, currentPage) {
              const lastLiEl = createPaginationBtn(arrData, pagesCount, currentPage, cards);
              lastLiEl.addEventListener('click', ()=> {       
               currentPage = pagesCount;
-              console.log('displayPaginationDots',currentPage)
               displayList(arrData, cards, currentPage);
               updatePaginationActiveClass(arrData, cards, currentPage)
              } );
@@ -218,13 +212,83 @@ function displayPaginationDots(arrData, cards, currentPage) {
 
 
 
+function displayPaginationOnMobile(currentPage){
+  
+}
 
 
 
+// // Объект, представляющий пагинацию
+// const pagination = {
+//   currentPage: 1// текущая страница
+//   totalPages: TOTAL_PAGES_PAGINATION, // общее число страниц
+//   visiblePages: 5, // число страниц, отображаемых на экране
+//   container: document.querySelector('.pagination__list'), // контейнер для кнопок пагинации
+//   render: function() { // метод для отрисовки кнопок пагинации
+//     this.container.innerHTML = ''; // очистить контейнер
+//     let startPage = 1; // начальная страница
+//     let endPage = this.totalPages; // конечная страница
+//     if (this.totalPages > this.visiblePages) { // если страниц больше, чем отображается
+//       startPage = Math.max(this.currentPage - Math.floor(this.visiblePages / 2), 1); // вычислить начальную страницу
+//       endPage = Math.min(startPage + this.visiblePages - 1, this.totalPages); // вычислить конечную страницу
+//       if (endPage - startPage < this.visiblePages - 1) { // если мало страниц отображается
+//         startPage = Math.max(endPage - this.visiblePages + 1, 1); // сместить начальную страницу
+//       }
+//     }
+//     if (startPage > 1) { // если есть предыдущие страницы
+//       this.addPageLink(1); // добавить первую страницу
+//       if (startPage > 2) { // если много предыдущих страниц
+//         this.addEllipsis(); // добавить многоточие
+//       }
+//     }
+//     for (let i = startPage; i <= endPage; i++) { // добавить видимые страницы
+//       this.addPageLink(i);
+//     }
+//     if (endPage < this.totalPages) { // если есть следующие страницы
+//       if (endPage < this.totalPages - 1) { // если много следующих страниц
+//         this.addEllipsis(); // добавить многоточие
+//       }
+//       this.addPageLink(this.totalPages); // добавить последнюю страницу
+//     }
+//   },
+//   addPageLink: function(pageNumber) { // метод для добавления ссылки на страницу
+//     const link = document.createElement('a');
+//     link.href = '#';
+//     link.textContent = pageNumber;
+//     if (pageNumber === this.currentPage) { // если это текущая страница
+//       link.classList.add('active');
+//     } else {
+//       link.addEventListener('click', event => { // при клике на ссылку
+//         event.preventDefault();
+//         this.currentPage = pageNumber; // установить текущую страницу
+//         this.render(); // отрисовать пагинацию
+//       });
+//     }
+//     this.container.appendChild(link);
+//   },
+//   addEllipsis: function() { // метод для добавления многоточия
+//     const span = document.createElement('span');
+//     span.textContent = '...';
+//     this.container.appendChild(span);
+//   }
+// };
+
+// pagination.render(); // отрисовать пагинацию
 
 
 
   
+
+
+
+
+
+
+
+
+
+
+
 
 
 
