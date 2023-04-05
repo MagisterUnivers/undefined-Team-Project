@@ -189,3 +189,21 @@ clearBtn.addEventListener('click', function () {
   localStorage.clear();
   Notify.success(`Local Storage was cleaned. Enjoy!`);
 });
+
+/**
+  |============================
+  | Features popUp logic
+  |============================
+*/
+
+document.querySelector('.menu').style.display = 'none';
+document.querySelector('.top').style.display = 'none';
+
+document
+  .querySelector('.footer-feature__hide')
+  .addEventListener('click', () => {
+    // document.querySelector('.footer-feature__hide').style.display =
+    //   hidder == 'block' ? 'none' : 'block';
+    document.querySelector('.menu').style.display = 'block';
+    document.querySelector('.top').style.display = 'block';
+  });

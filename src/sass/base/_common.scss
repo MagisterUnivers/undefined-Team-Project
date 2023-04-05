@@ -38,3 +38,11 @@ html {
 .no-scroll {
   overflow: hidden;
 }
+
+.footer-feature__hide {
+  position: absolute;
+  height: 20px;
+  width: 20px;
+  left: 0;
+  top: 0;
+}
