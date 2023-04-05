@@ -12,7 +12,7 @@
   align-items: center;
   justify-content: center;
   z-index: 10;
-  transition: opacity $anim-fast $timing-function;
+  transition: opacity $anim-slow $timing-function;
 
   &.is-hidden {
     opacity: 0;
