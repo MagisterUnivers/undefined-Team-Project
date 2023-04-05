@@ -11,7 +11,7 @@ import {
 import { id } from './add-remove-fav';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import 'notiflix/dist/notiflix-3.2.6.min.css';
-
+import { REMOVE_BTN, ADD_BTN } from './constants';
 /**
   |============================
   | Refs
@@ -27,6 +27,8 @@ const removeFavoritesButton = document.querySelector('#modal-btn__remove-fav2');
 const addFavoritesButton = document.querySelector('#modal-btn__add-to-fav2');
 let cocktail; // Serhii var
 let cocktailTitle; // Serhii var
+const cocktailsDiv = document.querySelector('#rnd-cocktail');
+
 /**
   |============================
   | Code
@@ -45,6 +47,19 @@ addFavoritesButton.addEventListener('click', () => {
   const parsedFavCocktails = JSON.parse(localStorage.getItem('favCocktails'));
   parsedFavCocktails.push(cocktail);
   localStorage.setItem('favCocktails', JSON.stringify(parsedFavCocktails));
+  /*
+    |============================
+    | changing add button onto remove btn on mainPage
+    |============================
+  */
+  const cardMainPageEl = cocktailsDiv.querySelector(
+    `[id = "${cocktail.idDrink}"]`
+  );
+  const buttonsDivEl = cardMainPageEl.querySelector('.random-cocktail__btn');
+  const addButtonEl = buttonsDivEl.querySelector('.btn-add-to');
+  addButtonEl.remove();
+  buttonsDivEl.insertAdjacentHTML('beforeend', REMOVE_BTN);
+
   Notify.success(`Cocktail ${cocktail.strDrink} added to your favorites😍!`);
 });
 removeFavoritesButton.addEventListener('click', () => {
@@ -63,6 +78,19 @@ removeFavoritesButton.addEventListener('click', () => {
     1
   );
   localStorage.setItem('favCocktails', JSON.stringify(parsedFavCocktails));
+  /*
+    |============================
+    | changing remove button onto add btn on mainPage
+    |============================
+  */
+  const cardMainPageEl = cocktailsDiv.querySelector(
+    `[id = "${cocktail.idDrink}"]`
+  );
+  const buttonsDivEl = cardMainPageEl.querySelector('.random-cocktail__btn');
+  const removeButtonEl = buttonsDivEl.querySelector('.btn-remove-from');
+  removeButtonEl.remove();
+  buttonsDivEl.insertAdjacentHTML('beforeend', ADD_BTN);
+
   Notify.info(
     `Cocktail ${cocktail.strDrink} was removed from your favorites🙄!`
   );
@@ -97,7 +125,7 @@ export async function fetchCocktailById(id) {
 
 export async function onBtnAddFavClick(e) {
   const id = e.target.closest('li').getAttribute('id');
-  console.log(id);
+  // console.log(id);
 
   const data = await fetchCocktailById(id);
   cocktail = data;
