@@ -163,7 +163,15 @@ closeBtn.addEventListener('click', () => {
   toggleModal();
   const remove = document.querySelector('.remove');
   // remove.style.display = 'none';
-  document.querySelector('.remove').innerHTML = '';
+  // document.querySelector('.modal-ingredients').remove.innerHTML = '';
+  // remove.querySelector.innerHTML = '';
+
+  const modalIngredients = document.querySelector('.modal-ingredients');
+  const removeElements = modalIngredients.querySelectorAll('.remove');
+
+  removeElements.forEach(element => {
+    element.remove();
+  });
 });
 function toggleModal() {
   modalIngredients.classList.toggle('is-hidden');

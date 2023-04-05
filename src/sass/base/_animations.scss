@@ -38,6 +38,7 @@
 .heart-container {
   position: absolute;
   opacity: 1;
+  // z-index: 15;
 }
 .heart {
   width: var(--size);
