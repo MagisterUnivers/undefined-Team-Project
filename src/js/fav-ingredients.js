@@ -35,25 +35,25 @@ function renderFavoritesList() {
     favoritesList.appendChild(li);
   }
 
-  function checkFooter() {
-    const footer = document.querySelector('.footer');
-    const defaultText = document.querySelector('.fav-ingredients__default');
-    if (!favorites.length) {
-      footer.style.position = 'absolute';
-      footer.style.bottom = '0';
-      footer.style.width = '100%';
-      defaultText.style.display = 'block';
-    } else if (favorites.length < 4) {
-      footer.style.position = 'absolute';
-      footer.style.bottom = '0';
-      footer.style.width = '100%';
-    } else {
-      footer.style.position = 'static';
-      defaultText.style.display = 'none';
-    }
-  }
+  // function checkFooter() {
+  //   const footer = document.querySelector('.footer');
+  //   const defaultText = document.querySelector('.fav-ingredients__default');
+  //   if (!favorites.length) {
+  //     footer.style.position = 'absolute';
+  //     footer.style.bottom = '0';
+  //     footer.style.width = '100%';
+  //     defaultText.style.display = 'block';
+  //   } else if (favorites.length < 4) {
+  //     footer.style.position = 'absolute';
+  //     footer.style.bottom = '0';
+  //     footer.style.width = '100%';
+  //   } else {
+  //     footer.style.position = 'static';
+  //     defaultText.style.display = 'none';
+  //   }
+  // }
 
-  checkFooter();
+  // checkFooter();
 }
 
 renderFavoritesList();
