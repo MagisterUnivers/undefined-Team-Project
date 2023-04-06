@@ -54,15 +54,14 @@ function onSubmitBtnClick(ev) {
     for (let word of wordsArr) {
       if (headerFormValue.split(' ').includes(word)) {
         cocktailsToParse.push(wordsArrIndex);
+        break;
       }
     }
   });
 
-  let cocktailsArr = [];
-
-  for (let cocktailIndex of cocktailsToParse) {
-    cocktailsArr.push(cocktailsSDArr[cocktailIndex]);
-  }
+  let cocktailsArr = cocktailsToParse.map(
+    cocktailIndex => cocktailsSDArr[cocktailIndex]
+  );
 
   document.querySelector('.random-cocktail__list').innerHTML = '';
 
@@ -102,15 +101,12 @@ function onBurgerSubmitBtnClick(ev) {
     for (let word of wordsArr) {
       if (burgerFormValue.split(' ').includes(word)) {
         cocktailsToParse.push(wordsArrIndex);
+        break;
       }
     }
   });
-
-  let cocktailsArr = [];
-
-  for (let cocktailIndex of cocktailsToParse) {
-    cocktailsArr.push(cocktailsSDArr[cocktailIndex]);
-  }
+  
+  let cocktailsArr = cocktailsToParse.map(cocktailIndex => cocktailsSDArr[cocktailIndex]);
 
   document.querySelector('.random-cocktail__list').innerHTML = '';
 
