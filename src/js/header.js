@@ -6,7 +6,6 @@ const burgerMenu = document.querySelector('[data-burger-menu]');
 burgerMenuOpen.addEventListener('click', onClickBurger);
 const body = document.querySelector('body');
 function onClickBurger() {
-  // burgerMenuOpen.classList.toggle('is-open');
   burgerMenu.classList.toggle('is-open');
 
   burgerMenuOpen.setAttribute('aria-expanded', true);
