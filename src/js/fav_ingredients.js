@@ -128,7 +128,7 @@ function onSubmitBtnClick(ev) {
   footer.style.width = '100%';
 }
 
-function createElements(ingredientsArr) {
+async function createElements(ingredientsArr) {
   const elementsArr = ingredientsArr.map(ingredient => {
     const strType = ingredient.strType || ingredient.strIngredient;
     const li = `<li class="fav-ingredients__item">
@@ -143,8 +143,20 @@ function createElements(ingredientsArr) {
   return elementsArr;
 }
 
-document.querySelector('.btn-secondary').addEventListener('click', () => {
-  const stuff = document.querySelector('.fav-ingredient__name').textContent;
-  getIngredientData(stuff);
-  modalIngredients.classList.toggle('is-hidden');
+document.querySelectorAll('.fav-ingredient__btn button').forEach(button => {
+  button.addEventListener('click', e => {
+    const ingredientName = e.target
+      .closest('.fav-ingredients__item')
+      .querySelector('.fav-ingredient__name').textContent;
+    getIngredientData(ingredientName);
+    document.querySelector('body').classList.add('no-scroll');
+
+    modalIngredients.classList.toggle('is-hidden');
+  });
 });
+
+document
+  .querySelector('.modal-ingredients-close')
+  .addEventListener('click', () => {
+    document.querySelector('body').classList.remove('no-scroll');
+  });
