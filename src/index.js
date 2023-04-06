@@ -15,5 +15,4 @@ import './js/pagination';
 import './js/add-remove-fav';
 import './js/modal-ingredients';
 import './js/modal-cocktail';
-// import './js/fav-ingredients';
 import './js/features';
