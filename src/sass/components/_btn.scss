@@ -102,9 +102,30 @@ body[data-theme='dark'] {
 }
 .btn__add-to-fav {
   width: 185px;
+  height: 48px;
+  @include media-tablet-min(768px) {
+    width: 185px;
+    height: 48px;
+  }
+
+  @include media-desktop-min(1280px) {
+    width: 185px;
+    height: 48px;
+  }
 }
 .btn__remove-fav {
   width: 248px;
+  height: 48px;
+
+  @include media-tablet-max(768px) {
+    width: 248px;
+    height: 48px;
+  }
+
+  @include media-desktop-min(1280px) {
+    width: 248px;
+    height: 48px;
+  }
 }
 
 .btn-primary__icon {

@@ -4,8 +4,6 @@ const mobileMenu = document.querySelector('.mobile-menu');
 const closeModalBtn = document.querySelector('.burger-menu-btn');
 const scrollTarget = document.querySelector('.random-cocktail__title');
 const form = document.querySelector('.burger-form');
-const input = document.querySelector('.header-input');
-const ul = document.querySelector('.random-cocktail__list');
 const titleEl = document.querySelector('.random-cocktail__title');
 
 form.addEventListener('submit', async e => {
