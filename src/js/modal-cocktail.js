@@ -87,7 +87,7 @@ removeFavoritesButton.addEventListener('click', () => {
   buttonsDivEl.insertAdjacentHTML('beforeend', ADD_BTN);
 
   Notify.info(
-    `Cocktail ${cocktail.strDrink} was removed from your favorites🙄!`
+    `Cocktail ${cocktail.strDrink} was removed from your favorites🙄!  If you still see item, refresh page, and it will disappear`
   );
 });
 

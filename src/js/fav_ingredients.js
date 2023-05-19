@@ -39,7 +39,7 @@ function renderFavoritesList() {
         localStorage.setItem('favIngredients', JSON.stringify(favorites));
         li.remove();
         Notify.info(
-          `${favorite.strIngredient} was removed from your favorites🙄!`
+          `${favorite.strIngredient} was removed from your favorites🙄!  If you still see item, refresh page, and it will disappear`
         );
         defaultAppearance();
         handleWrapper();

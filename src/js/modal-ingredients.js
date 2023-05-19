@@ -53,7 +53,13 @@ removeFavoritesButton.addEventListener('click', e => {
     1
   );
   localStorage.setItem('favIngredients', JSON.stringify(parsedFavIngredients));
-  Notify.info(`${ingredient.strIngredient} was removed from your favorites🙄!`);
+  Notify.info(
+    `${ingredient.strIngredient} was removed from your favorites🙄!  If you still see item, refresh page, and it will disappear`
+  );
+  //re-render must be here
+  // return (parsedFavIngredients = JSON.parse(
+  //   localStorage.getItem('favIngredients')
+  // ));
 });
 
 /**

@@ -58,7 +58,9 @@ async function onBtnAddRemoveFavClick(e) {
     } //
 
     localStorage.setItem('favCocktails', JSON.stringify(favCocktails));
-    Notify.info(`Cocktail ${cocktailName} was removed from your favorites🙄!`);
+    Notify.info(
+      `Cocktail ${cocktailName} was removed from your favorites🙄!  If you still see item, refresh page, and it will disappear`
+    );
   } else if (e.target.classList.contains('btn-learn-more')) {
     onBtnAddFavClick(e);
   }
