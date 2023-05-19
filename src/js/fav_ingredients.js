@@ -143,7 +143,7 @@ async function createElements(ingredientsArr) {
   return elementsArr;
 }
 
-document.querySelectorAll('.fav-ingredient__btn button').forEach(button => {
+document.querySelectorAll('.btn-learn-more').forEach(button => {
   button.addEventListener('click', e => {
     const ingredientName = e.target
       .closest('.fav-ingredients__item')

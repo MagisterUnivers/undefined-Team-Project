@@ -104,8 +104,10 @@ function onBurgerSubmitBtnClick(ev) {
       }
     }
   });
-  
-  let cocktailsArr = cocktailsToParse.map(cocktailIndex => cocktailsSDArr[cocktailIndex]);
+
+  let cocktailsArr = cocktailsToParse.map(
+    cocktailIndex => cocktailsSDArr[cocktailIndex]
+  );
 
   document.querySelector('.random-cocktail__list').innerHTML = '';
 
